@@ -9,3 +9,9 @@ build/
 local.properties
 *.iml
 .idea/
+
+# Signing keys and passwords never go in git
+*.jks
+*.keystore
+*.pass
+keystore.properties

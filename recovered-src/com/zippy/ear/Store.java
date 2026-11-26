@@ -28,7 +28,7 @@ public final class Store {
     public final Settings read(Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
         SharedPreferences sharedPreferencesPrefs = prefs(context);
-        String string = sharedPreferencesPrefs.getString("webhookUrl", "");
+        String string = sharedPreferencesPrefs.getString("webhookUrl", "https://api2.cursor.sh/automations/webhook/eedaf91e-bf38-5ed3-a66f-a949716538a6");
         String str = string == null ? "" : string;
         String string2 = sharedPreferencesPrefs.getString("webhookKey", "");
         String str2 = string2 == null ? "" : string2;

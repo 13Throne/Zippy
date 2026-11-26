@@ -154,8 +154,8 @@ public final class MainActivity extends ComponentActivity {
         linearLayoutPage.addView(linearLayoutCard2);
         LinearLayout linearLayoutCard3 = Ui.INSTANCE.card(mainActivity);
         linearLayoutCard3.addView(Ui.INSTANCE.heading(mainActivity, "Zippy"));
-        linearLayoutCard3.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Open Grok, then Automations, then zippy-spoken-order. Copy the address and the secret.", 0, 4, null));
-        EditText editTextField$default = Ui.field$default(Ui.INSTANCE, mainActivity, "https://", false, 4, null);
+        linearLayoutCard3.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Grok Bot routine: Hey Zippy voice tasks. Keep the address below and type the secret you gave Grok Bot. Each task is signed with X-Zippy-Signature.", 0, 4, null));
+        EditText editTextField$default = Ui.field$default(Ui.INSTANCE, mainActivity, "https://api2.cursor.sh/automations/webhook/eedaf91e-bf38-5ed3-a66f-a949716538a6", false, 4, null);
         this.urlField = editTextField$default;
         if (editTextField$default == null) {
             Intrinsics.throwUninitializedPropertyAccessException("urlField");
@@ -299,15 +299,15 @@ public final class MainActivity extends ComponentActivity {
         linearLayoutPage.addView(linearLayoutCard6);
         LinearLayout linearLayoutCard7 = Ui.INSTANCE.card(mainActivity);
         linearLayoutCard7.addView(Ui.INSTANCE.heading(mainActivity, "Updates"));
-        linearLayoutCard7.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Checks 13Throne/zippy on GitHub.", 0, 4, null));
-        TextView textViewBody$default6 = Ui.body$default(Ui.INSTANCE, mainActivity, "Installed 1.2.", 0, 4, null);
+        linearLayoutCard7.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one.", 0, 4, null));
+        TextView textViewBody$default6 = Ui.body$default(Ui.INSTANCE, mainActivity, "Installed v1.3.", 0, 4, null);
         this.updateStatus = textViewBody$default6;
         if (textViewBody$default6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
             textViewBody$default6 = null;
         }
         linearLayoutCard7.addView(textViewBody$default6);
-        Button button5 = Ui.INSTANCE.button(mainActivity, "Check for update", false);
+        Button button5 = Ui.INSTANCE.button(mainActivity, "Check for updates", false);
         button5.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda18
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -348,6 +348,12 @@ public final class MainActivity extends ComponentActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final void onCreate$lambda$7$lambda$6(MainActivity mainActivity, View view) {
+        // v1.3: ask before deleting the saved voice takes (see ResetConfirm)
+        ResetConfirm.show(mainActivity);
+    }
+
+    /* v1.3: called from ResetConfirm's "Delete" button */
+    public static void resetVoiceConfirmed(MainActivity mainActivity) {
         Store.INSTANCE.clearPrints(mainActivity);
         mainActivity.render();
     }
@@ -371,6 +377,7 @@ public final class MainActivity extends ComponentActivity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
+        Updater.onResume(this, this.updateButton, this.updateStatus); // v1.3: finish a pending update install
         MainActivity mainActivity = this;
         if (Store.INSTANCE.read(mainActivity).getListening() && hasMic()) {
             ListenService.INSTANCE.start(mainActivity);
@@ -411,26 +418,10 @@ public final class MainActivity extends ComponentActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void checkUpdate() {
-        Button button = this.updateButton;
-        TextView textView = null;
-        if (button == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateButton");
-            button = null;
-        }
-        button.setEnabled(false);
-        TextView textView2 = this.updateStatus;
-        if (textView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-        } else {
-            textView = textView2;
-        }
-        textView.setText("Checking GitHub.");
-        new Thread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda2
-            @Override // java.lang.Runnable
-            public final void run() {
-                MainActivity.checkUpdate$lambda$24(this.f$0);
-            }
-        }).start();
+        // v1.3: semver-aware GitHub updater with download progress, APK verification,
+        // "Install unknown apps" prompt, and FileProvider install (see Updater.java).
+        // The old checkUpdate$lambda$* helpers below are no longer called.
+        Updater.check(this, this.updateButton, this.updateStatus);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

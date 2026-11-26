@@ -159,10 +159,9 @@ public final class Webhook {
             conn.setRequestProperty("webhook-signature", "v1," + strEncodeToString);
             return;
         }
-        if (!StringsKt.startsWith(key, "bearer ", true)) {
-            key = "Bearer " + key;
-        }
-        conn.setRequestProperty("Authorization", key);
+        // v1.3: any other secret signs Stripe-style (no Authorization header):
+        //   X-Zippy-Signature: t=<unix seconds>,v1=<hex HMAC-SHA256(secret, "<t>.<raw body>")>
+        Sig.stripe(conn, key, body);
     }
 
     private final boolean blocked(String hostname) {
