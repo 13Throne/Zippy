@@ -1,0 +1,11 @@
+# Do not commit the bundled Vosk model or decompiler scratch output
+assets/model.zip
+**/model.zip
+apktool-out/
+jadx-out/
+*.apk
+.gradle/
+build/
+local.properties
+*.iml
+.idea/

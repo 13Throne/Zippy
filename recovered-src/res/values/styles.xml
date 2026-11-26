@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Zippy" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#ff10110f</item>
+        <item name="android:textColor">#ffeceae4</item>
+        <item name="android:colorAccent">#ffe6e1d6</item>
+        <item name="android:statusBarColor">#ff10110f</item>
+        <item name="android:navigationBarColor">#ff10110f</item>
+    </style>
+</resources>

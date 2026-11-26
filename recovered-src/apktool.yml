@@ -1,0 +1,10 @@
+# Metadata recovered with apktool 2.12.1 from the original signed Zippy.apk
+apkFileName: Zippy.apk
+sdkInfo:
+  minSdkVersion: 26
+  targetSdkVersion: 35
+versionInfo:
+  versionCode: 3
+  versionName: 1.2
+packageInfo:
+  forcedPackageId: 127
