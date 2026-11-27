@@ -1,0 +1,24 @@
+scenarios: 234 (3 voices x 4 requests x gaps [0.0, 0.15, 0.3, 0.6, 1.0, 1.8] x pauses [0.3, 0.6, 1.0, 1.5])
+wake word spotted (Sherpa-ONNX, sens 55): 98.7%
+ended by silence after the LAST word (no early cut): 100.0%
+sent (Android stand-in, offline backup): content-word recall 97.5%, first words kept 89.7%, last words kept 99.6%, greeting echo at start 0.4%, WER 4.5%, start not clipped 99.1%, end not clipped 99.6%
+offline (Vosk) alone: content-word recall 95.9%, first words kept 66.2%, last words kept 100.0%, greeting echo at start 0.0%, WER 6.6%, start not clipped 100.0%, end not clipped 100.0%
+Android stand-in (Whisper) alone: content-word recall 81.8%, first words kept 84.2%, last words kept 76.1%, greeting echo at start 0.4%, WER 19.4%, start not clipped 95.3%, end not clipped 79.1%
+sent text came from: Android speech 176, Android speech + offline ending 38, offline (Vosk) 17, Android speech + offline beginning 3
+
+by gap after Hey Zippy (sent text): gap | greeted | Liora stopped by barge-in | start not clipped | end not clipped | recall
+   0.0 s | 0.0% | 0.0% | 100.0% | 100.0% | 95.7%
+  0.15 s | 0.0% | 0.0% | 100.0% | 100.0% | 97.1%
+   0.3 s | 0.0% | 0.0% | 100.0% | 100.0% | 99.0%
+   0.6 s | 0.0% | 0.0% | 97.4% | 97.4% | 96.7%
+   1.0 s | 100.0% | 0.0% | 100.0% | 100.0% | 98.6%
+   1.8 s | 100.0% | 0.0% | 97.4% | 100.0% | 97.6%
+by pause between clauses (sent text): pause | ended after last word | end not clipped | recall
+   0.3 s | 100.0% | 98.1% | 96.5%
+   0.6 s | 100.0% | 100.0% | 97.2%
+   1.0 s | 100.0% | 100.0% | 99.0%
+   1.5 s | 100.0% | 100.0% | 96.2%
+1.7 one-breath path on the same multi-clause audio (gap <= 0.3 s): sent anything 92.6%, end not clipped 34.3%, recall 57.5%
+
+example (brenda_hfc_male_g0.6_p1.0): sent [offline (Vosk)] "have janna the vacation but draft and email regarding the schlitterbahn research she's been working on and include the relevant links and various choices in a well formatted draft to brendan"
+  offline: "have janna the vacation but draft and email regarding the schlitterbahn research she's been working on and include the relevant links and various choices in a well formatted draft to brendan"

@@ -27,8 +27,10 @@ import java.util.List;
 import java.util.Locale;
 
 /**
+ * Zippy 1.8: Home shows a "Last command" timeline (ListenService/Timeline); "Open Grok Bot" now
+ * happens after the send; copy explains the always-on recording.
  * Zippy 1.6 main screen (Liora voice pickers on the Voice tab). Zippy 1.5 main screen (Java rewrite of the Kotlin screen) with three tabs:
- *  Home     - Listening switch, live status, last heard, a short summary, recent orders.
+ *  Home     - Listening switch, live status, last heard, last command timeline, a short summary, recent orders.
  *  Voice    - Train / Reset voice, Sensitivity, wake cue + greeting, task wait, sent cue.
  *  Settings - Webhook + secret + test, Android speech toggle, Grok Bot toggle, background, updates.
  * Live state sync from 1.4 (prefs listener + the service's real engine state) is built in.
@@ -50,7 +52,7 @@ public class MainActivity extends Activity {
 
     // Home
     private Switch listenSwitch;
-    private TextView status, heard, summary, orders;
+    private TextView status, heard, summary, orders, lastCommand;
     // Voice
     private TextView voice, sensitivityLabel, waitLabel, cueInfo;
     private SeekBar sensitivity, waitBar;
@@ -207,6 +209,15 @@ public class MainActivity extends Activity {
         heard = Look.body(this, "");
         c.addView(Look.gap(this, 6));
         c.addView(heard);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Last command"));
+        lastCommand = Look.text(this, "", 12, Look.FG);
+        lastCommand.setTypeface(android.graphics.Typeface.MONOSPACE);
+        lastCommand.setTextIsSelectable(true);
+        c.addView(Look.gap(this, 6));
+        c.addView(lastCommand);
         page.addView(c);
 
         c = Look.card(this);
@@ -414,7 +425,7 @@ public class MainActivity extends Activity {
         c = Look.card(this);
         c.addView(Look.heading(this, "Grok Bot"));
         grokSwitch = new Switch(this);
-        grokSwitch.setText("Open Grok Bot on wake");
+        grokSwitch.setText("Open Grok Bot after sending");
         grokSwitch.setTextColor(Look.FG);
         grokSwitch.setTextSize(15);
         grokSwitch.setOnCheckedChangeListener((v, on) -> {
@@ -453,7 +464,7 @@ public class MainActivity extends Activity {
         c.addView(Look.heading(this, "Updates"));
         c.addView(Look.gap(this, 6));
         c.addView(Look.body(this, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one."));
-        updateStatus = Look.text(this, "Installed v1.7.", 14, Look.FG);
+        updateStatus = Look.text(this, "Installed v1.8.", 14, Look.FG);
         c.addView(Look.gap(this, 6));
         c.addView(updateStatus);
         updateButton = Look.button(this, "Check for updates", true);
@@ -601,6 +612,10 @@ public class MainActivity extends Activity {
         }
         String h = s.getHeard();
         heard.setText(h == null || h.trim().isEmpty() ? "Nothing heard yet." : h);
+        String lc = getSharedPreferences("zippy", Context.MODE_PRIVATE).getString(ListenService.LAST_COMMAND, "");
+        lastCommand.setText(lc == null || lc.isEmpty()
+                ? "Nothing yet. After \u201cHey Zippy\u201d and a task, each step shows here: wake word, greeting, when you started and stopped talking, which recognizer was used, and any error."
+                : lc);
         renderSummary();
         StringBuilder b = new StringBuilder();
         try {
@@ -629,9 +644,9 @@ public class MainActivity extends Activity {
         String conf = zp.confirmCue();
         String confText = (ZippyPrefs.CUE_VOICE.equals(conf) ? "Voice" : ZippyPrefs.cueLabel(conf))
                 + (ZippyPrefs.CUE_VOICE.equals(conf) ? " (" + voiceSummary(zp.confirmChoice(), zp.confirmText()) + ")" : "");
-        summary.setText(String.format(Locale.US, "Wake word: %s\nSensitivity %d of 100\nWake cue: %s\nConfirmation: %s\nCommands: %s\nOpen Grok Bot on wake: %s",
+        summary.setText(String.format(Locale.US, "Wake word: %s\nSensitivity %d of 100\nWake cue: %s\nConfirmation: %s\nCommands: %s\nOpen Grok Bot after sending: %s",
                 KwsGuard.engineLabel(this), Sensitivity.clamp(s.getSensitivity()), cueText, confText,
-                zp.useAndroidStt() ? "Android speech, offline (Vosk) as backup" : "Offline recognizer (Vosk)",
+                zp.useAndroidStt() ? "Android speech on Zippy's recording, offline (Vosk) alongside" : "Offline recognizer (Vosk)",
                 zp.openGrokBot() ? "On" : "Off"));
     }
 
@@ -673,7 +688,7 @@ public class MainActivity extends Activity {
         for (int i = 0; i < 4; i++) Look.style(this, cueButtons[i], CUE_KEYS[i].equals(cue));
         greetingBox.setVisibility(ZippyPrefs.CUE_VOICE.equals(cue) ? View.VISIBLE : View.GONE);
         cueInfo.setText(ZippyPrefs.CUE_VOICE.equals(cue)
-                ? "After you say \u201cHey Zippy\u201d and pause, Liora answers, then Zippy listens for the task (its mic is paused while she talks). Said in one breath, the task is sent right away with no greeting."
+                ? "After \u201cHey Zippy\u201d, Liora answers if you pause; Zippy keeps recording while she talks, so you can start right away. Already talking? She stays quiet (the phone vibrates). Talk over her and she stops."
                 : ZippyPrefs.CUE_SILENT.equals(cue) ? "No cue. Zippy just listens for the task."
                 : "Plays the moment your voice is accepted.");
         String gc = zp.greetingChoice();
@@ -696,11 +711,11 @@ public class MainActivity extends Activity {
         sttSwitch.setChecked(stt);
         boolean avail = AndroidStt.available(this);
         sttInfo.setText((stt
-                ? "After \u201cHey Zippy\u201d and a pause, Zippy pauses its own mic and lets Android's speech recognizer (usually Google, online for best accuracy) hear the task, then goes back to listening. "
-                : "Zippy's offline recognizer (Vosk) hears the task. ")
-                + "Saying it in one breath (\u201cHey Zippy, add milk\u201d) always sends what Zippy already heard. "
-                + (avail ? "Android speech recognizer: available."
-                         : "Android speech recognizer: not found on this phone, so Zippy's offline recognizer is used.")
+                ? "Zippy records everything after \u201cHey Zippy\u201d itself (its mic stays on) and, on Android 13 or later, hands that recording to Android's speech recognizer through a pipe, so nothing is lost while it starts. Zippy's offline recognizer (Vosk) hears the same recording; if Android speech can't take it, stops early or misses words, the offline result is sent. "
+                : "Zippy's offline recognizer (Vosk) hears the task from Zippy's own recording. ")
+                + "Short pauses never end the task; Zippy sends after the silence set under Voice \u2192 Wait for the task. "
+                + (avail ? "Android speech recognizer: available. " : "Android speech recognizer: not found on this phone, so Zippy's offline recognizer is used. ")
+                + "Zippy's recording to Android speech: " + AndroidStream.describe(this) + "."
                 + (KwsGuard.usingFallback(this)
                         ? " The wake word is using Zippy's offline fallback because Sherpa-ONNX couldn't start on this phone."
                         : " The wake word itself is always heard on this phone by Sherpa-ONNX keyword spotting."));
@@ -727,7 +742,8 @@ public class MainActivity extends Activity {
     }
 
     static String waitText(int ms) {
-        return String.format(Locale.US, "%.1fs after Hey Zippy", ms / 1000f);
+        return String.format(Locale.US, "Up to %.1fs to start talking; sent after %.1fs of silence (shorter pauses never cut you off)",
+                Capture.noSpeechMs(ms) / 1000f, Capture.endSilenceMs(ms) / 1000f);
     }
 
     private int dp(float v) { return Look.dp(this, v); }

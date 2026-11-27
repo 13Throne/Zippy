@@ -12,7 +12,7 @@ import android.content.SharedPreferences;
  * The mark is per app version, so an update retries Sherpa-ONNX.
  */
 public final class KwsGuard {
-    static final int VERSION = 8;
+    static final int VERSION = 9;
     private static final String PREFS = "zippy", LOADING = "kwsLoading", BROKEN = "kwsBroken", WHY = "kwsWhy";
 
     private KwsGuard() {}

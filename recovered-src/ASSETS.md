@@ -29,3 +29,9 @@ Since 1.7 the APK also bundles:
 None of these binaries are committed. [`../v1.7/fetch_sherpa.sh`](../v1.7/fetch_sherpa.sh) downloads them with pinned SHA-256s.
 
 Note: Vosk's `libvosk.so` (from the original 1.2 APK) has 4 KB ELF alignment. It only serves offline commands in 1.7.
+
+## Silero voice-activity detector (1.8)
+
+Since 1.8 the APK also bundles `assets/vad/silero_vad.onnx` (644 KB, deflated), the official Silero VAD model as published by sherpa-onnx (`asr-models/silero_vad.onnx`, SHA-256 `9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6`). It runs on the same `libsherpa-onnx-jni.so` / `libonnxruntime.so` as the wake word (Kotlin `Vad` class in `classes3.dex`). It is not committed; [`../v1.8/fetch_sherpa.sh`](../v1.8/fetch_sherpa.sh) downloads it with that pinned checksum.
+
+Since 1.8 the big compressed entries (native libraries, ONNX models, `classes.dex`) are re-deflated with Zopfli at build time (identical contents, about 0.9 MB smaller).

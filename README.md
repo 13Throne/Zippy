@@ -1,6 +1,6 @@
 # Zippy
 
-On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.7**, `versionCode` 8).
+On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.8**, `versionCode` 9).
 
 Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy** (on-device [Sherpa-ONNX](https://github.com/k2-fsa/sherpa-onnx) keyword spotting since 1.7), hears the task that follows (Android's speech recognizer by default since 1.5, with on-device [Vosk](https://alphacephei.com/vosk/) as the fallback), and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
 
@@ -38,6 +38,21 @@ The POST body is JSON (`Content-Type: application/json`). Signing (v1.3):
 - Any other non-empty secret → Stripe-style `X-Zippy-Signature: t=<unix seconds>,v1=<lowercase hex HMAC-SHA256 of "<t>.<raw UTF-8 body>">`, keyed with the secret's UTF-8 bytes. No `Authorization` header is sent.
 
 Loopback, link-local, site-local, `.local`, and metadata hostnames are blocked.
+
+## What's new in 1.8
+
+Fixes the clipped tasks (e.g. "have Jana, the vacation bot, draft an email … to Brenda" arriving as only "the relevant links and various choices"). In 1.7 the microphone was handed from Zippy to Android's recognizer (or to a fresh Vosk session) after the wake word, a fixed 13 s watchdog threw away a live recognition, and Vosk sent at its first 0.5–1 s pause.
+
+- **The mic never closes between "Hey Zippy" and the send.** Zippy keeps recording into one buffer, starting **2 s before the wake word** (pre-roll), so nothing said right after (or even over) "Hey Zippy" is lost. The 650 ms probe and the mic hand-off are gone.
+- **End of speech by Sherpa-ONNX Silero VAD** (`assets/vad/silero_vad.onnx`, 0.6 MB, on the same onnxruntime as the wake word). The task ends after about **2 s of silence** (from the *Wait for the task* slider: half the wait, 1.5–3.5 s), keeps listening while you talk, for up to **45 s**. Short pauses (tested 0.3–1.5 s) never cut you off. Energy-based fallback if Silero can't load.
+- **Android speech hears Zippy's recording** (Android 13+, `EXTRA_AUDIO_SOURCE` in segmented mode, on-device recognizer first, `checkRecognitionSupport`): all `onSegmentResults` are joined. Vosk transcribes the **whole buffer** alongside (words with timestamps, all results joined). Zippy sends Android's text, and splices in Vosk's words when Android skipped the beginning or stopped early; Vosk alone when Android isn't available, said nothing, or heard much less. If a phone's recognizer won't read the pipe (or opens its own mic), Zippy notices, remembers it, and uses Vosk.
+- **No timeouts that throw text away.** The Android wait resets on every partial result; whatever was heard is kept; the fixed 4 s Vosk deadline is gone; a minimum task length stops "uh" from being sent.
+- **Greeting rules.** If you're already talking 0.4 s after the wake word, Liora is skipped (a short vibration instead). If you talk over her, she stops (barge-in: your mic level is compared with her clip's loudness envelope times this phone's measured echo gain, saved per output route and volume after sessions where you let her finish). Acoustic echo cancellation is turned on where the phone has it, and EchoGuard removes her words from the text by timing and by fuzzy match. Confirmation plays only after a successful send.
+- **Open Grok Bot after sending** (was "on wake"), and the greeting takes **transient audio focus** (music ducks/pauses, then resumes).
+- **Last command** card on Home: a timeline of the last task (wake word time, greeting played/skipped/stopped, recognizer ready, you started/stopped talking, end reason, which recognizer's text was sent and why, webhook result, `EXTRA_AUDIO_SOURCE` support).
+- Everything from 1.7 stays: Sherpa-ONNX wake word, VoiceMatch, the 19 Liora clips with dropdowns/Random/Preview, 3 tabs, Reset voice confirmation, `X-Zippy-Signature`, semver updater. The APK is **69.3 MiB** (smaller than 1.7: big entries are re-deflated with Zopfli at build time).
+
+Tests: [`v1.8/capture-test/RESULTS.md`](v1.8/capture-test/RESULTS.md).
 
 ## What's new in 1.7
 
@@ -104,9 +119,27 @@ Package layout:
 | `Sig.java` | v1.3 Stripe-style `X-Zippy-Signature` HMAC |
 | `ResetConfirm.java` | v1.3 "Reset voice data?" confirmation dialog |
 | `Kws.java` / `KwsTuning.java` / `KwsGuard.java` | 1.7 Sherpa-ONNX wake word: spotter from `assets/kws/`, Sensitivity → BPE keyword lines, crash-safe fallback to the 1.6 Vosk wake word |
-| `EchoGuard.java` / `TaskText.java` | 1.7 greeting-echo stripping and one-breath task text |
+| `EchoGuard.java` / `TaskText.java` | 1.7 greeting-echo stripping (1.8: by timing and fuzzy leading match) and one-breath task text |
+| `Capture.java` | 1.8 pure capture logic: greeting decision, barge-in, end of speech (silence / no speech / 45 s) |
+| `SileroGate.java` / `EnergyVad.java` | 1.8 Sherpa-ONNX Silero VAD per 32 ms frame / energy fallback |
+| `AndroidStream.java` | 1.8 Android speech on Zippy's recording (`EXTRA_AUDIO_SOURCE`, segmented, on-device first, support probe) |
+| `VoskJob.java` / `VoskWords.java` | 1.8 Vosk over the whole buffer with word timestamps |
+| `TaskClean.java` | 1.8 task text from both recognizers: wake-word cut, echo strip, fillers, choosing/splicing |
+| `Greeting.java` / `VoiceEnv.java` | 1.8 stoppable greeting with transient audio focus / clip loudness + saved echo gain for barge-in |
+| `Timeline.java` | 1.8 "Last command" diagnostics |
 | `Liora.java` | 1.6 Liora clip list, Random/named/Custom picking, `MediaPlayer` playback from `assets/voice/` |
 | `Cues.java`, `Ui.java`, `Order.java`, `SendResult.java` | Feedback, layout helpers, recent-order log |
+
+## Building v1.8
+
+[`v1.8/build.sh`](v1.8/build.sh) is the 1.7 chain plus [`v1.8/fetch_sherpa.sh`](v1.8/fetch_sherpa.sh) (adds the checksum-pinned `silero_vad.onnx`) and [`v1.8/patch_v18.py`](v1.8/patch_v18.py) (Silero model, `assets/barge/env.txt` from [`v1.8/make_voice_env.py`](v1.8/make_voice_env.py), version 1.8/9), then a Zopfli re-deflate ([`v1.8/zopfli_apk.py`](v1.8/zopfli_apk.py), `pip install zopfli`; skipped if missing), zipalign and signing.
+
+```bash
+ZIPPY_KS_PASS=… v1.8/build.sh Zippy-1.2.apk zippy-release.jks Zippy.apk
+PYTHON=/path/to/python-with-vosk-sherpa-onnx-sentencepiece v1.8/test/run_tests.sh Zippy.apk   # packaging, 1.8 logic, layout, whole 1.7 suite
+CAPSIM_CP=… v1.8/capture-test/capture_eval.py work out && v1.8/capture-test/barge_eval.py work out   # long requests, pauses, gaps, greeting
+v1.8/test/device/run_device_test.sh out wav greetStart greetLen …   # Silero VAD + Capture on a device via app_process
+```
 
 ## Building v1.7
 
@@ -170,4 +203,4 @@ The keystore is kept outside git (`*.jks`, `*.keystore` are ignored) — keep it
 
 ## License / third-party
 
-Application code recovered here is Joshua Parten’s Zippy project. The wake word uses [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) 2.0.3 (Apache-2.0; `libsherpa-onnx-jni.so`, ONNX Runtime `libonnxruntime.so` under MIT) and the `sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01` model (Apache-2.0). The bundled command model and native libraries are from [Vosk](https://alphacephei.com/vosk/) (`vosk-model-small-en-us-0.15`, plus `libvosk.so` / JNA). AndroidX and Kotlin libraries are used under their upstream licenses (the APK also carries `META-INF/AL2.0` and `META-INF/LGPL2.1`).
+Application code recovered here is Joshua Parten’s Zippy project. The wake word uses [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) 2.0.3 (Apache-2.0; `libsherpa-onnx-jni.so`, ONNX Runtime `libonnxruntime.so` under MIT) and the `sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01` model (Apache-2.0). End of speech uses the [Silero VAD](https://github.com/snakers4/silero-vad) model (MIT). The bundled command model and native libraries are from [Vosk](https://alphacephei.com/vosk/) (`vosk-model-small-en-us-0.15`, plus `libvosk.so` / JNA). AndroidX and Kotlin libraries are used under their upstream licenses (the APK also carries `META-INF/AL2.0` and `META-INF/LGPL2.1`).
