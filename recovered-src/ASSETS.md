@@ -14,3 +14,7 @@ Also left out of this tree on purpose:
 - The original signing keystore (Grok Build wiped it; it is not in the APK)
 
 The UI is built in code (`Ui.java`, `MainActivity.java`, `TrainActivity.java`); there are no app-specific `res/layout` files, only AndroidX notification templates that were omitted.
+
+## Liora voice clips (1.6)
+
+Since 1.6 the APK also bundles `assets/voice/g1..g9.m4a` (greetings) and `assets/voice/c1..c10.m4a` (confirmations), about 172 KB in total, stored uncompressed. The source clips are committed in [`../v1.6/assets/voice/`](../v1.6/assets/voice/).

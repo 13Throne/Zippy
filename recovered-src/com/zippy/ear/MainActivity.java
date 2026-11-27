@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Zippy 1.5 main screen (Java rewrite of the Kotlin screen) with three tabs:
+ * Zippy 1.6 main screen (Liora voice pickers on the Voice tab). Zippy 1.5 main screen (Java rewrite of the Kotlin screen) with three tabs:
  *  Home     - Listening switch, live status, last heard, a short summary, recent orders.
  *  Voice    - Train / Reset voice, Sensitivity, wake cue + greeting, task wait, sent cue.
  *  Settings - Webhook + secret + test, Android speech toggle, Grok Bot toggle, background, updates.
@@ -36,7 +36,7 @@ import java.util.Locale;
 public class MainActivity extends Activity {
     private static final int REQ_PERMS = 7;
     private static final String[] CUE_KEYS = {ZippyPrefs.CUE_VOICE, ZippyPrefs.CUE_BEEP, ZippyPrefs.CUE_VIBRATE, ZippyPrefs.CUE_SILENT};
-    private static final String[] SENT_LABELS = {"Off", "Vibrate", "Sound", "Both"};
+    private static final String[] CONFIRM_LABELS = {"Voice confirmation", "Beep", "Vibrate", "Silent"};
 
     private final Handler main = new Handler(Looper.getMainLooper());
     private ZippyPrefs zp;
@@ -55,8 +55,11 @@ public class MainActivity extends Activity {
     private TextView voice, sensitivityLabel, waitLabel, cueInfo;
     private SeekBar sensitivity, waitBar;
     private final Button[] cueButtons = new Button[4];
-    private final Button[] sentButtons = new Button[4];
-    private LinearLayout greetingBox;
+    private final Button[] confirmButtons = new Button[4];
+    private LinearLayout greetingBox, confirmBox, greetingCustom, confirmCustom;
+    private android.widget.Spinner greetingSpinner, confirmSpinner;
+    private EditText confirmField;
+    private TextView confirmInfo;
     private EditText greetingField;
     // Settings
     private EditText urlField, keyField;
@@ -91,6 +94,7 @@ public class MainActivity extends Activity {
         urlField.setText(s.getWebhookUrl());
         keyField.setText(s.getWebhookKey());
         greetingField.setText(zp.greeting());
+        confirmField.setText(zp.confirmText());
         hookFieldSaves();
         askPermissions(false);
         render();
@@ -265,13 +269,14 @@ public class MainActivity extends Activity {
         c.addView(r2);
         greetingBox = Look.column(this);
         greetingBox.addView(Look.gap(this, 8));
-        greetingBox.addView(Look.body(this, "Greeting Zippy says"));
+        greetingBox.addView(Look.body(this, "Liora says"));
+        greetingSpinner = spinner(true);
+        greetingBox.addView(pickerRow(greetingSpinner, v -> previewVoice(true)));
+        greetingCustom = Look.column(this);
         greetingField = Look.field(this, ZippyPrefs.DEFAULT_GREETING, false);
         greetingField.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-        greetingBox.addView(greetingField);
-        Button preview = Look.button(this, "Preview greeting", false);
-        preview.setOnClickListener(v -> previewGreeting());
-        greetingBox.addView(preview);
+        greetingCustom.addView(greetingField);
+        greetingBox.addView(greetingCustom);
         c.addView(greetingBox);
         page.addView(c);
 
@@ -287,20 +292,94 @@ public class MainActivity extends Activity {
         page.addView(c);
 
         c = Look.card(this);
-        c.addView(Look.heading(this, "When the order is accepted"));
-        LinearLayout r = Look.row(this);
+        c.addView(Look.heading(this, "Confirmation"));
+        confirmInfo = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(confirmInfo);
+        LinearLayout q1 = Look.row(this), q2 = Look.row(this);
         for (int i = 0; i < 4; i++) {
-            final int mode = i;
-            Button b = Look.segment(this, SENT_LABELS[i]);
-            b.setOnClickListener(v -> { sentCue = mode; persist(); render(); });
-            sentButtons[i] = b;
-            r.addView(b);
+            final String key = CUE_KEYS[i];
+            Button b = Look.segment(this, CONFIRM_LABELS[i]);
+            b.setOnClickListener(v -> { zp.setConfirmCue(key); persist(); render(); });
+            confirmButtons[i] = b;
+            (i < 2 ? q1 : q2).addView(b);
         }
-        c.addView(r);
+        c.addView(q1);
+        c.addView(q2);
+        confirmBox = Look.column(this);
+        confirmBox.addView(Look.gap(this, 8));
+        confirmBox.addView(Look.body(this, "Liora says"));
+        confirmSpinner = spinner(false);
+        confirmBox.addView(pickerRow(confirmSpinner, v -> previewVoice(false)));
+        confirmCustom = Look.column(this);
+        confirmField = Look.field(this, ZippyPrefs.DEFAULT_CONFIRM_TEXT, false);
+        confirmField.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        confirmCustom.addView(confirmField);
+        confirmBox.addView(confirmCustom);
+        c.addView(confirmBox);
         page.addView(c);
     }
 
-    private int sentCue = -1;
+    /** Dark dropdown: Random, Liora's clips, Custom (text-to-speech). */
+    private android.widget.Spinner spinner(final boolean greeting) {
+        final String[] keys = Liora.choiceKeys(greeting);
+        final android.widget.Spinner sp = new android.widget.Spinner(this, android.widget.Spinner.MODE_DROPDOWN);
+        android.widget.ArrayAdapter<String> ad = new android.widget.ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, Liora.choiceLabels(greeting)) {
+            @Override public View getView(int pos, View cv, ViewGroup parent) { return tint(super.getView(pos, cv, parent), false); }
+            @Override public View getDropDownView(int pos, View cv, ViewGroup parent) { return tint(super.getDropDownView(pos, cv, parent), true); }
+        };
+        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp.setAdapter(ad);
+        sp.setBackground(Look.rounded(this, Look.BG, 12));
+        sp.setPopupBackgroundDrawable(Look.rounded(this, Look.SURFACE, 12));
+        sp.setPadding(dp(4), 0, dp(4), 0);
+        sp.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(android.widget.AdapterView<?> a, View v, int pos, long id) {
+                if (rendering) return;
+                String key = keys[pos];
+                String cur = greeting ? zp.greetingChoice() : zp.confirmChoice();
+                if (key.equals(cur)) return; // programmatic selection
+                if (greeting) zp.setGreetingChoice(key); else zp.setConfirmChoice(key);
+                render();
+            }
+            public void onNothingSelected(android.widget.AdapterView<?> a) {}
+        });
+        return sp;
+    }
+
+    private View tint(View v, boolean dropDown) {
+        if (v instanceof TextView) {
+            TextView t = (TextView) v;
+            t.setTextColor(Look.FG);
+            t.setTextSize(15);
+            if (dropDown) t.setPadding(dp(16), dp(12), dp(16), dp(12));
+            else {
+                t.setPadding(dp(8), 0, dp(8), 0);
+                CharSequence l = t.getText();
+                if (l != null && !l.toString().endsWith("\u25BE")) t.setText(l + "  \u25BE"); // dropdown caret
+            }
+        }
+        return v;
+    }
+
+    private LinearLayout pickerRow(android.widget.Spinner sp, View.OnClickListener onPreview) {
+        LinearLayout row = Look.row(this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, dp(48), 1f);
+        lp.topMargin = dp(10);
+        lp.rightMargin = dp(8);
+        sp.setLayoutParams(lp);
+        row.addView(sp);
+        Button preview = Look.button(this, "Preview", false);
+        LinearLayout.LayoutParams bp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        bp.topMargin = dp(10);
+        preview.setLayoutParams(bp);
+        preview.setPadding(dp(18), 0, dp(18), 0);
+        preview.setOnClickListener(onPreview);
+        row.addView(preview);
+        return row;
+    }
+
 
     private void buildSettings(LinearLayout page) {
         LinearLayout c = Look.card(this);
@@ -374,7 +453,7 @@ public class MainActivity extends Activity {
         c.addView(Look.heading(this, "Updates"));
         c.addView(Look.gap(this, 6));
         c.addView(Look.body(this, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one."));
-        updateStatus = Look.text(this, "Installed v1.5.", 14, Look.FG);
+        updateStatus = Look.text(this, "Installed v1.6.", 14, Look.FG);
         c.addView(Look.gap(this, 6));
         c.addView(updateStatus);
         updateButton = Look.button(this, "Check for updates", true);
@@ -388,6 +467,7 @@ public class MainActivity extends Activity {
         urlField.addTextChangedListener(save);
         keyField.addTextChangedListener(save);
         greetingField.addTextChangedListener(new After(() -> { zp.setGreeting(greetingField.getText().toString()); renderSummary(); }));
+        confirmField.addTextChangedListener(new After(() -> { zp.setConfirmText(confirmField.getText().toString()); renderSummary(); }));
     }
 
     // ------------------------------------------------------------------ actions
@@ -450,7 +530,7 @@ public class MainActivity extends Activity {
     private void persist() {
         if (rendering || urlField == null || sensitivity == null) return;
         Settings s = Store.INSTANCE.read(this);
-        int sent = sentCue >= 0 ? sentCue : s.getSentCue();
+        int sent = ZippyPrefs.legacySentCue(zp.confirmCue());
         Store.INSTANCE.saveSettings(this,
                 urlField.getText().toString().trim(),
                 keyField.getText().toString().trim(),
@@ -477,11 +557,16 @@ public class MainActivity extends Activity {
         }, "zippy-test").start();
     }
 
-    private void previewGreeting() {
+    /** Preview button: the selected clip, a random one for Random, or the custom text via TTS. */
+    private void previewVoice(boolean greeting) {
+        String choice = greeting ? zp.greetingChoice() : zp.confirmChoice();
+        String id = greeting ? Liora.pickGreeting(choice) : Liora.pickConfirm(choice);
+        TextView info = greeting ? cueInfo : confirmInfo;
+        if (id != null && Liora.preview(this, id)) return;
+        final String text = id != null ? Liora.text(id) : greeting ? zp.greeting() : zp.confirmText();
         if (previewer == null) previewer = new Greeter(this);
-        final String g = zp.greeting();
         main.postDelayed(() -> {
-            if (!previewer.speak(g)) cueInfo.setText("Text-to-speech isn't ready on this phone. Zippy will beep instead of speaking until it is.");
+            if (!previewer.speak(text)) info.setText("Text-to-speech isn't ready on this phone. Zippy will beep instead until it is.");
         }, previewer.ready() ? 0 : 900);
     }
 
@@ -540,11 +625,20 @@ public class MainActivity extends Activity {
         if (summary == null) return;
         Settings s = Store.INSTANCE.read(this);
         String cue = zp.wakeCue();
-        String cueText = ZippyPrefs.cueLabel(cue) + (ZippyPrefs.CUE_VOICE.equals(cue) ? " (\u201c" + zp.greeting() + "\u201d)" : "");
-        summary.setText(String.format(Locale.US, "Sensitivity %d of 100\nWake cue: %s\nCommands: %s\nOpen Grok Bot on wake: %s",
-                Sensitivity.clamp(s.getSensitivity()), cueText,
+        String cueText = ZippyPrefs.cueLabel(cue) + (ZippyPrefs.CUE_VOICE.equals(cue) ? " (" + voiceSummary(zp.greetingChoice(), zp.greeting()) + ")" : "");
+        String conf = zp.confirmCue();
+        String confText = (ZippyPrefs.CUE_VOICE.equals(conf) ? "Voice" : ZippyPrefs.cueLabel(conf))
+                + (ZippyPrefs.CUE_VOICE.equals(conf) ? " (" + voiceSummary(zp.confirmChoice(), zp.confirmText()) + ")" : "");
+        summary.setText(String.format(Locale.US, "Sensitivity %d of 100\nWake cue: %s\nConfirmation: %s\nCommands: %s\nOpen Grok Bot on wake: %s",
+                Sensitivity.clamp(s.getSensitivity()), cueText, confText,
                 zp.useAndroidStt() ? "Android speech, Zippy offline as backup" : "Zippy offline recognizer",
                 zp.openGrokBot() ? "On" : "Off"));
+    }
+
+    static String voiceSummary(String choice, String custom) {
+        if (Liora.RANDOM.equals(choice)) return "Liora, random";
+        if (Liora.CUSTOM.equals(choice)) return "\u201c" + custom + "\u201d, text-to-speech";
+        return "Liora, \u201c" + Liora.text(choice) + "\u201d";
     }
 
     private void renderVoice(Settings s) {
@@ -572,11 +666,22 @@ public class MainActivity extends Activity {
         for (int i = 0; i < 4; i++) Look.style(this, cueButtons[i], CUE_KEYS[i].equals(cue));
         greetingBox.setVisibility(ZippyPrefs.CUE_VOICE.equals(cue) ? View.VISIBLE : View.GONE);
         cueInfo.setText(ZippyPrefs.CUE_VOICE.equals(cue)
-                ? "After you say \u201cHey Zippy\u201d and pause, Zippy speaks this greeting, then listens for the task. Said in one breath, the task is sent right away with no greeting."
+                ? "After you say \u201cHey Zippy\u201d and pause, Liora answers, then Zippy listens for the task (its mic is paused while she talks). Said in one breath, the task is sent right away with no greeting."
                 : ZippyPrefs.CUE_SILENT.equals(cue) ? "No cue. Zippy just listens for the task."
                 : "Plays the moment your voice is accepted.");
-        int sent = sentCue >= 0 ? sentCue : s.getSentCue();
-        for (int i = 0; i < 4; i++) Look.style(this, sentButtons[i], i == sent);
+        String gc = zp.greetingChoice();
+        greetingSpinner.setSelection(Liora.indexOf(Liora.choiceKeys(true), gc));
+        greetingCustom.setVisibility(Liora.CUSTOM.equals(gc) ? View.VISIBLE : View.GONE);
+        String conf = zp.confirmCue();
+        for (int i = 0; i < 4; i++) Look.style(this, confirmButtons[i], CUE_KEYS[i].equals(conf));
+        boolean voiceConf = ZippyPrefs.CUE_VOICE.equals(conf);
+        confirmBox.setVisibility(voiceConf ? View.VISIBLE : View.GONE);
+        String cc = zp.confirmChoice();
+        confirmSpinner.setSelection(Liora.indexOf(Liora.choiceKeys(false), cc));
+        confirmCustom.setVisibility(Liora.CUSTOM.equals(cc) ? View.VISIBLE : View.GONE);
+        confirmInfo.setText(voiceConf
+                ? "Liora confirms once Grok Bot has accepted the task. Zippy's mic is paused while she talks."
+                : ZippyPrefs.CUE_SILENT.equals(conf) ? "No confirmation sound." : "Plays once Grok Bot has accepted the task.");
     }
 
     private void renderSettings(Settings s) {

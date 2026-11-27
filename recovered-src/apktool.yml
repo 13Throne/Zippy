@@ -4,7 +4,7 @@ sdkInfo:
   minSdkVersion: 26
   targetSdkVersion: 35
 versionInfo:
-  versionCode: 6
-  versionName: 1.5
+  versionCode: 7
+  versionName: 1.6
 packageInfo:
   forcedPackageId: 127

@@ -1,6 +1,6 @@
 # Zippy
 
-On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.5**, `versionCode` 6).
+On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.6**, `versionCode` 7).
 
 Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy**, hears the task that follows (Android's speech recognizer by default since 1.5, with on-device [Vosk](https://alphacephei.com/vosk/) as the fallback), and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
 
@@ -38,6 +38,13 @@ The POST body is JSON (`Content-Type: application/json`). Signing (v1.3):
 - Any other non-empty secret → Stripe-style `X-Zippy-Signature: t=<unix seconds>,v1=<lowercase hex HMAC-SHA256 of "<t>.<raw UTF-8 body>">`, keyed with the secret's UTF-8 bytes. No `Authorization` header is sent.
 
 Loopback, link-local, site-local, `.local`, and metadata hostnames are blocked.
+
+## What's new in 1.6
+
+- **Liora's voice.** 19 short clips recorded by Liora are bundled in `assets/voice/` (AAC m4a, mono 48 kHz, loudness-normalized, stored uncompressed so `AssetManager.openFd()` streams them): 9 greetings (`g1` "Yeah?", `g2` "Hey, what's up?", `g3` "Go ahead.", `g4` "I'm listening.", `g5` "What do you need?", `g6` "Talk to me.", `g7` "Ready.", `g8` "Shoot.", `g9` "Right here.") and 10 confirmations (`c1` "On it.", `c2` "Got it.", `c3` "Sent.", `c4` "Handling it now.", `c5` "Consider it done.", `c6` "You got it.", `c7` "All over it.", `c8` "Working on it.", `c9` "Heard you.", `c10` "Got it, I'll take care of it.").
+- **Wake cue: Voice greeting (Liora) / Beep / Vibrate / Silent.** The Voice tab has a "Liora says" dropdown: **Random** (default, never the same clip twice in a row), any of the 9 greetings, or **Custom (text-to-speech)** with an editable text box, plus **Preview**. On wake Zippy pauses its mic, plays the clip with `MediaPlayer` (`USAGE_ASSISTANT`) and resumes listening on `OnCompletion` (4 s safety timeout). If a clip can't play, Zippy speaks the same words with TTS, then falls back to a beep. A custom 1.5 greeting is kept as Custom on upgrade.
+- **Confirmation (replaces the order-accepted cue): Voice confirmation (default) / Beep / Vibrate / Silent.** Dropdown with Random, the 10 confirmations, or Custom (text-to-speech, default "On it."), plus Preview. It plays once Grok Bot accepts the task, while Zippy's mic is paused so Liora isn't heard as a new command.
+- Everything from 1.5 (tabs, Android speech for commands, Open Grok Bot on wake, signing) is unchanged.
 
 ## What's new in 1.5
 
@@ -87,7 +94,19 @@ Package layout:
 | `Updates.java` | 1.2 updater (integer tags only; no longer called) |
 | `Sig.java` | v1.3 Stripe-style `X-Zippy-Signature` HMAC |
 | `ResetConfirm.java` | v1.3 "Reset voice data?" confirmation dialog |
+| `Liora.java` | 1.6 Liora clip list, Random/named/Custom picking, `MediaPlayer` playback from `assets/voice/` |
 | `Cues.java`, `Ui.java`, `Order.java`, `SendResult.java` | Feedback, layout helpers, recent-order log |
+
+## Building v1.6
+
+[`v1.6/build.sh`](v1.6/build.sh) applies the v1.3, v1.4 and v1.5 patches, then [`v1.6/patch_v16.py`](v1.6/patch_v16.py), which copies the clips from [`v1.6/assets/voice/`](v1.6/assets/voice/) into `assets/voice/`, adds `m4a` to apktool's `doNotCompress` list and bumps the version to 1.6/7. The 1.6 Java (`Liora`, `ZippyPrefs`, `WakeCue`, `Tabs`, `ListenService`, `MainActivity`) overrides the 1.5 copies. The build checks that all 19 clips are stored uncompressed, then signs with the release key:
+
+```sh
+ZIPPY_KS_PASS=… v1.6/build.sh Zippy-1.2.apk zippy-release.jks Zippy.apk
+PYTHON=/path/to/python-with-vosk v1.6/test/run_tests.sh Zippy.apk   # clip words/durations/silence, packaging, 1.6 + 1.5 + 1.4 + 1.3 tests
+```
+
+The clips were cut from Liora's recording with `ffmpeg silencedetect` (-50 dB, 0.2 s), padded 60 ms before / 120 ms after each phrase, given +5 dB with a limiter at -3 dBFS and 5/20 ms fades, and encoded as AAC 64 kbps mono 48 kHz with `+faststart`. [`v1.6/test/clip_check.py`](v1.6/test/clip_check.py) transcribes every clip with Vosk and checks the words, duration, padding, internal gaps and peaks.
 
 ## Building v1.5
 

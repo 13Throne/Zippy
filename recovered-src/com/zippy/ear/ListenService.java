@@ -27,7 +27,8 @@ import org.vosk.Model;
 import org.vosk.Recognizer;
 
 /**
- * Zippy 1.5 listener (replaces the 1.2/1.3 Kotlin ListenService).
+ * Zippy 1.6: wake greeting and sent confirmation can be Liora's recorded voice (MediaPlayer, mic
+ * paused until OnCompletion or 4 s). Zippy 1.5 listener (replaces the 1.2/1.3 Kotlin ListenService).
  *
  * 1.5: after an accepted "Hey Zippy" with a pause, the mic is released and Android's
  * SpeechRecognizer takes the command (toggle, default on); Vosk keeps the wake word and voice
@@ -65,6 +66,8 @@ public final class ListenService extends Service {
     private static volatile boolean holdMic;
     /** MainActivity is on screen (background-launch rules don't apply then). */
     public static volatile boolean appVisible;
+    /** Set while Zippy itself is talking (confirmation), so the listener never hears itself. */
+    private static volatile boolean selfTalk, micPaused;
     private Greeter greeter;
 
     private final Handler main = new Handler(Looper.getMainLooper());
@@ -275,9 +278,9 @@ public final class ListenService extends Service {
         if (stt) releaseMic();
         else { AudioRecord ar = record; if (ar != null) try { ar.stop(); } catch (Exception ignored) { } }
         try {
-            WakeCue.Action cue = WakeCue.beforeCommand(zp.wakeCue(), greeter != null && greeter.ready());
+            WakeCue.Action cue = WakeCue.beforeCommand(zp.wakeCue(), true);
             if (cue == WakeCue.Action.VOICE) {
-                boolean spoke = greeter.speakAndWait(zp.greeting(), 4000);
+                boolean spoke = sayGreeting(zp);
                 android.util.Log.i("Zippy", "Greeting " + (spoke ? "spoken" : "failed, beeping"));
                 cue = WakeCue.afterSpeak(spoke);
             }
@@ -312,6 +315,41 @@ public final class ListenService extends Service {
         }
     }
 
+    /** Liora clip (or Custom text via TTS). Falls back to TTS of the clip's words, then false (= beep). */
+    private boolean sayGreeting(ZippyPrefs zp) {
+        String id = Liora.pickGreeting(zp.greetingChoice());
+        if (id != null && Liora.playAndWait(this, id, 4000)) return true;
+        String text = id != null ? Liora.text(id) : zp.greeting();
+        return greeter != null && greeter.ready() && greeter.speakAndWait(text, 4000);
+    }
+
+    private boolean sayConfirmation(ZippyPrefs zp) {
+        String id = Liora.pickConfirm(zp.confirmChoice());
+        if (id != null && Liora.playAndWait(this, id, 4000)) return true;
+        String text = id != null ? Liora.text(id) : zp.confirmText();
+        return greeter != null && greeter.ready() && greeter.speakAndWait(text, 4000);
+    }
+
+    /** Runs on the send thread after the webhook accepted the task. */
+    private void confirm() {
+        ZippyPrefs zp = ZippyPrefs.of(this);
+        WakeCue.Action a = WakeCue.confirmAction(zp.confirmCue());
+        if (a == WakeCue.Action.NONE) return;
+        if (a != WakeCue.Action.VOICE) { Cues.INSTANCE.fire(this, WakeCue.cuesMode(a), false); return; }
+        selfTalk = true;
+        try {
+            long until = System.currentTimeMillis() + 400;
+            while (!micPaused && worker != null && worker.isAlive() && System.currentTimeMillis() < until) {
+                try { Thread.sleep(20); } catch (InterruptedException e) { break; }
+            }
+            boolean ok = sayConfirmation(zp);
+            android.util.Log.i("Zippy", "Confirmation " + (ok ? "spoken" : "failed, beeping"));
+            if (!ok) Cues.INSTANCE.fire(this, 2, false);
+        } finally {
+            selfTalk = false;
+        }
+    }
+
     private void openGrokBot() {
         main.post(() -> {
             String note;
@@ -334,6 +372,20 @@ public final class ListenService extends Service {
         while (live(gen)) {
             AudioRecord ar = record;
             if (ar == null) throw new IllegalStateException("The microphone stopped.");
+            if (selfTalk) { // Zippy is speaking its confirmation: don't listen to ourselves
+                try { ar.stop(); } catch (Exception ignored) { }
+                micPaused = true;
+                long until = System.currentTimeMillis() + 8000;
+                while (selfTalk && live(gen) && System.currentTimeMillis() < until) {
+                    try { Thread.sleep(30); } catch (InterruptedException e) { micPaused = false; return; }
+                }
+                micPaused = false;
+                if (!live(gen)) return;
+                ar.startRecording();
+                try { rec.reset(); } catch (Throwable ignored) { }
+                filled = 0; wakeSeen = false; voiceOk = null;
+                continue;
+            }
             if (holdMic) {
                 try { ar.stop(); } catch (Exception ignored) { }
                 update(gen, "Paused while you train your voice.", "");
@@ -473,8 +525,8 @@ public final class ListenService extends Service {
         sends.execute(() -> {
             SendResult r = Webhook.INSTANCE.post(settings, task);
             Store.INSTANCE.addOrder(this, task, r.getOk(), r.getDetail());
-            if (r.getOk()) Cues.INSTANCE.fire(this, Store.INSTANCE.read(this).getSentCue(), false);
             update(gen, r.getOk() ? "Sent to Zippy." : r.getDetail(), task);
+            if (r.getOk() && live(gen)) confirm();
         });
     }
 

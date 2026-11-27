@@ -47,6 +47,7 @@ public final class ZippyPrefs {
      */
     public void migrate() {
         if (!kv.contains(K_CUE)) kv.putString(K_CUE, wakeCue());
+        migrate16();
     }
 
     // ---- wake cue: voice greeting / beep / vibrate / silent
@@ -109,6 +110,41 @@ public final class ZippyPrefs {
     // ---- last "Open Grok Bot" problem, shown on Settings (empty = fine)
     public String grokNote() { return kv.getString("grokNote", ""); }
     public void setGrokNote(String n) { kv.putString("grokNote", n == null ? "" : n); }
+
+    // ---- 1.6: Liora's recorded voice
+    static final String K_GREET_CHOICE = "greetingChoice", K_CONFIRM = "confirmCue",
+            K_CONFIRM_CHOICE = "confirmChoice", K_CONFIRM_TEXT = "confirmText";
+    public static final String DEFAULT_CONFIRM_TEXT = "On it.";
+
+    /** Random / g1..g9 / custom. A 1.5 user who typed their own greeting keeps it (Custom). */
+    public String greetingChoice() {
+        if (kv.contains(K_GREET_CHOICE)) return Liora.validChoice(kv.getString(K_GREET_CHOICE, Liora.RANDOM), true);
+        return kv.contains(K_GREETING) && !DEFAULT_GREETING.equals(greeting()) ? Liora.CUSTOM : Liora.RANDOM;
+    }
+    public void setGreetingChoice(String c) { kv.putString(K_GREET_CHOICE, Liora.validChoice(c, true)); }
+
+    /** Confirmation when a task is sent: voice / beep / vibrate / silent. Default: Liora's voice. */
+    public String confirmCue() { return validCue(kv.getString(K_CONFIRM, CUE_VOICE)); }
+    public void setConfirmCue(String c) { kv.putString(K_CONFIRM, validCue(c)); }
+    public String confirmChoice() { return Liora.validChoice(kv.getString(K_CONFIRM_CHOICE, Liora.RANDOM), false); }
+    public void setConfirmChoice(String c) { kv.putString(K_CONFIRM_CHOICE, Liora.validChoice(c, false)); }
+    public String confirmText() { return clean(kv.getString(K_CONFIRM_TEXT, DEFAULT_CONFIRM_TEXT), DEFAULT_CONFIRM_TEXT); }
+    public void setConfirmText(String t) { kv.putString(K_CONFIRM_TEXT, clean(t, DEFAULT_CONFIRM_TEXT)); }
+
+    static String clean(String g, String def) {
+        if (g == null) return def;
+        String t = g.replaceAll("\\s+", " ").trim();
+        if (t.isEmpty()) return def;
+        return t.length() > MAX_GREETING ? t.substring(0, MAX_GREETING).trim() : t;
+    }
+
+    /** Old "When the order is accepted" slot (Cues OFF/VIBRATE/SOUND) for Store.saveSettings. */
+    public static int legacySentCue(String cue) { return legacyReadyCue(cue); }
+
+    /** Pin the greeting choice on first run of 1.6 so later text edits don't flip it. */
+    public void migrate16() {
+        if (!kv.contains(K_GREET_CHOICE)) kv.putString(K_GREET_CHOICE, greetingChoice());
+    }
 
     // ---- tab
     public Tabs.Tab tab() { return Tabs.fromKey(kv.getString(K_TAB, Tabs.Tab.HOME.key)); }

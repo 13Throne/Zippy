@@ -11,7 +11,7 @@ public final class Tabs {
     /** Sections; each lives on exactly one tab. */
     public enum Section {
         LISTENING(Tab.HOME), LAST_HEARD(Tab.HOME), SUMMARY(Tab.HOME), RECENT(Tab.HOME),
-        TRAINING(Tab.VOICE), SENSITIVITY(Tab.VOICE), WAKE_CUE(Tab.VOICE), TASK_WAIT(Tab.VOICE), SENT_CUE(Tab.VOICE),
+        TRAINING(Tab.VOICE), SENSITIVITY(Tab.VOICE), WAKE_CUE(Tab.VOICE), TASK_WAIT(Tab.VOICE), CONFIRMATION(Tab.VOICE),
         WEBHOOK(Tab.SETTINGS), COMMANDS(Tab.SETTINGS), GROK_BOT(Tab.SETTINGS), BACKGROUND(Tab.SETTINGS), UPDATES(Tab.SETTINGS);
         public final Tab tab;
         Section(Tab t) { this.tab = t; }
