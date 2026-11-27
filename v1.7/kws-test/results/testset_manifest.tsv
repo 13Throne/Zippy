@@ -1,0 +1,1777 @@
+file	class	text	voice	speed	peak_db	snr_db
+pos/00_00.wav	pos	Hey Zippy.	en_US-lessac-medium	0.8	-2.5	
+pos/00_01.wav	pos	Hey, Zippy!	en_US-lessac-medium	0.9	-13.3	18.6
+pos/00_02.wav	pos	Hey Zippy?	en_US-lessac-medium	0.8	-6.6	18.4
+pos/00_03.wav	pos	hey zippy	en_US-lessac-medium	1.25	-24.4	
+pos/00_04.wav	pos	Hey Zippy, what time is it?	en_US-lessac-medium	1.25	-19.7	12.6
+pos/00_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-lessac-medium	1.25	-25.8	17.0
+pos/00_06.wav	pos	Okay. Hey Zippy.	en_US-lessac-medium	1.1	-18.3	
+pos/00_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-lessac-medium	1.1	-8.9	
+mis/00_00.wav	mis	Hey Zippie.	en_US-lessac-medium	1.25	-1.1	
+mis/00_01.wav	mis	Hay Zippy.	en_US-lessac-medium	0.9	-18.4	14.7
+mis/00_02.wav	mis	Hey Zeppy.	en_US-lessac-medium	1.1	-5.0	11.1
+mis/00_03.wav	mis	Hey Zippee!	en_US-lessac-medium	1.25	-12.7	14.4
+mis/00_04.wav	mis	Hey Sippy.	en_US-lessac-medium	1.25	-12.2	24.5
+mis/00_05.wav	mis	Hey, Sippy?	en_US-lessac-medium	0.9	-1.8	
+near/00_00.wav	near	Hey Skippy.	en_US-lessac-medium	1.25	-3.7	
+near/00_01.wav	near	Happy birthday!	en_US-lessac-medium	1.25	-21.7	16.5
+near/00_02.wav	near	Hey Siri.	en_US-lessac-medium	1.25	-25.7	
+near/00_03.wav	near	Pull up the zipper.	en_US-lessac-medium	1.25	-14.9	
+near/00_04.wav	near	Hey sweetie.	en_US-lessac-medium	1.1	-21.4	
+near/00_05.wav	near	Hey Jimmy.	en_US-lessac-medium	1.0	-19.3	
+near/00_06.wav	near	Hey, did you zip it?	en_US-lessac-medium	0.8	-18.5	
+near/00_07.wav	near	Mississippi is big.	en_US-lessac-medium	0.8	-2.9	16.0
+near/00_08.wav	near	Hey Zack.	en_US-lessac-medium	1.1	-24.5	15.4
+near/00_09.wav	near	She's a hippie.	en_US-lessac-medium	1.1	-1.1	
+near/00_10.wav	near	That was snappy.	en_US-lessac-medium	0.8	-17.9	22.6
+near/00_11.wav	near	Hey Pippa.	en_US-lessac-medium	1.0	-24.2	
+near/00_12.wav	near	Hey there, sleepy.	en_US-lessac-medium	1.1	-1.4	14.4
+near/00_13.wav	near	Is it zippable?	en_US-lessac-medium	1.1	-12.9	18.4
+near/00_14.wav	near	Hey, Lizzie!	en_US-lessac-medium	1.25	-5.9	
+neg/00_00.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-lessac-medium	1.1	-3.4	18.2
+neg/00_01.wav	neg	That's pretty easy.	en_US-lessac-medium	1.25	-19.9	10.1
+neg/00_02.wav	neg	Hey, how are you doing today?	en_US-lessac-medium	1.0	-3.8	24.0
+neg/00_03.wav	neg	Play some music in the living room.	en_US-lessac-medium	1.0	-18.0	
+neg/00_04.wav	neg	We should leave in about ten minutes.	en_US-lessac-medium	1.0	-11.6	24.2
+neg/00_05.wav	neg	Let me know when you're done.	en_US-lessac-medium	0.9	-16.8	24.2
+neg/00_06.wav	neg	I think the package arrived yesterday.	en_US-lessac-medium	1.1	-4.0	
+neg/00_07.wav	neg	Where did I put my keys?	en_US-lessac-medium	1.25	-13.7	14.5
+pos/01_00.wav	pos	Hey Zippy.	en_US-ryan-medium	0.9	-24.2	17.5
+pos/01_01.wav	pos	Hey, Zippy!	en_US-ryan-medium	1.25	-9.8	
+pos/01_02.wav	pos	Hey Zippy?	en_US-ryan-medium	1.1	-13.8	
+pos/01_03.wav	pos	hey zippy	en_US-ryan-medium	0.9	-20.6	11.5
+pos/01_04.wav	pos	Hey Zippy, what time is it?	en_US-ryan-medium	0.8	-25.2	13.8
+pos/01_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-ryan-medium	0.8	-3.5	
+pos/01_06.wav	pos	Okay. Hey Zippy.	en_US-ryan-medium	1.25	-19.4	
+pos/01_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-ryan-medium	0.8	-10.7	14.4
+mis/01_00.wav	mis	Hey Zippie.	en_US-ryan-medium	1.1	-23.3	14.9
+mis/01_01.wav	mis	Hay Zippy.	en_US-ryan-medium	1.0	-5.8	
+mis/01_02.wav	mis	Hey Zeppy.	en_US-ryan-medium	0.9	-12.0	
+mis/01_03.wav	mis	Hey Zippee!	en_US-ryan-medium	0.8	-9.8	20.2
+mis/01_04.wav	mis	Hey Sippy.	en_US-ryan-medium	0.8	-23.6	19.7
+mis/01_05.wav	mis	Hey, Sippy?	en_US-ryan-medium	1.25	-23.8	23.1
+near/01_00.wav	near	Hey Skippy.	en_US-ryan-medium	1.1	-13.8	19.1
+near/01_01.wav	near	Happy birthday!	en_US-ryan-medium	1.25	-2.1	
+near/01_02.wav	near	Hey Siri.	en_US-ryan-medium	0.9	-9.0	
+near/01_03.wav	near	Pull up the zipper.	en_US-ryan-medium	0.8	-6.0	22.0
+near/01_04.wav	near	Hey sweetie.	en_US-ryan-medium	1.25	-15.9	
+near/01_05.wav	near	Hey Jimmy.	en_US-ryan-medium	1.0	-14.2	11.5
+near/01_06.wav	near	Hey, did you zip it?	en_US-ryan-medium	1.25	-16.9	24.4
+near/01_07.wav	near	Mississippi is big.	en_US-ryan-medium	0.8	-4.3	20.6
+near/01_08.wav	near	Hey Zack.	en_US-ryan-medium	0.8	-17.9	
+near/01_09.wav	near	She's a hippie.	en_US-ryan-medium	0.9	-10.8	14.0
+near/01_10.wav	near	That was snappy.	en_US-ryan-medium	1.1	-22.6	
+near/01_11.wav	near	Hey Pippa.	en_US-ryan-medium	1.25	-16.4	14.2
+near/01_12.wav	near	Hey there, sleepy.	en_US-ryan-medium	0.9	-2.2	24.4
+near/01_13.wav	near	Is it zippable?	en_US-ryan-medium	1.0	-14.3	13.7
+near/01_14.wav	near	Hey, Lizzie!	en_US-ryan-medium	1.0	-17.9	16.8
+neg/01_00.wav	neg	Hey Google, set a timer.	en_US-ryan-medium	0.9	-23.4	
+neg/01_01.wav	neg	Hey, how are you doing today?	en_US-ryan-medium	0.9	-20.8	
+neg/01_02.wav	neg	Remind me to call mom at six.	en_US-ryan-medium	1.25	-13.8	
+neg/01_03.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-ryan-medium	1.1	-12.5	
+neg/01_04.wav	neg	I think the package arrived yesterday.	en_US-ryan-medium	0.8	-21.8	
+neg/01_05.wav	neg	Okay, that sounds good to me.	en_US-ryan-medium	0.8	-5.8	21.0
+neg/01_06.wav	neg	Let me know when you're done.	en_US-ryan-medium	1.0	-2.0	
+neg/01_07.wav	neg	We should leave in about ten minutes.	en_US-ryan-medium	1.1	-15.3	18.2
+pos/02_00.wav	pos	Hey Zippy.	en_US-amy-medium	0.8	-13.5	21.3
+pos/02_01.wav	pos	Hey, Zippy!	en_US-amy-medium	1.1	-2.8	
+pos/02_02.wav	pos	Hey Zippy?	en_US-amy-medium	1.1	-6.0	
+pos/02_03.wav	pos	hey zippy	en_US-amy-medium	1.25	-12.9	
+pos/02_04.wav	pos	Hey Zippy, what time is it?	en_US-amy-medium	1.1	-21.6	
+pos/02_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-amy-medium	1.0	-5.0	22.0
+pos/02_06.wav	pos	Okay. Hey Zippy.	en_US-amy-medium	1.25	-9.1	
+pos/02_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-amy-medium	0.8	-5.8	
+mis/02_00.wav	mis	Hey Zippie.	en_US-amy-medium	1.25	-20.3	21.3
+mis/02_01.wav	mis	Hay Zippy.	en_US-amy-medium	1.1	-4.4	24.4
+mis/02_02.wav	mis	Hey Zeppy.	en_US-amy-medium	1.0	-2.7	24.3
+mis/02_03.wav	mis	Hey Zippee!	en_US-amy-medium	0.8	-12.2	23.8
+mis/02_04.wav	mis	Hey Sippy.	en_US-amy-medium	0.8	-25.1	
+mis/02_05.wav	mis	Hey, Sippy?	en_US-amy-medium	1.0	-25.8	24.4
+near/02_00.wav	near	Hey Skippy.	en_US-amy-medium	1.25	-11.5	18.5
+near/02_01.wav	near	Happy birthday!	en_US-amy-medium	1.1	-18.3	13.0
+near/02_02.wav	near	Hey Siri.	en_US-amy-medium	1.0	-2.2	18.1
+near/02_03.wav	near	Pull up the zipper.	en_US-amy-medium	0.8	-16.2	
+near/02_04.wav	near	Hey sweetie.	en_US-amy-medium	1.1	-25.3	22.3
+near/02_05.wav	near	Hey Jimmy.	en_US-amy-medium	0.9	-11.1	
+near/02_06.wav	near	Hey, did you zip it?	en_US-amy-medium	0.8	-9.4	
+near/02_07.wav	near	Mississippi is big.	en_US-amy-medium	1.0	-22.4	
+near/02_08.wav	near	Hey Zack.	en_US-amy-medium	0.8	-10.3	24.2
+near/02_09.wav	near	She's a hippie.	en_US-amy-medium	1.25	-18.5	
+near/02_10.wav	near	That was snappy.	en_US-amy-medium	1.0	-10.1	10.3
+near/02_11.wav	near	Hey Pippa.	en_US-amy-medium	1.25	-4.4	17.9
+near/02_12.wav	near	Hey there, sleepy.	en_US-amy-medium	0.9	-11.7	14.9
+near/02_13.wav	near	Is it zippable?	en_US-amy-medium	0.8	-8.9	17.7
+near/02_14.wav	near	Hey, Lizzie!	en_US-amy-medium	0.8	-22.4	
+neg/02_00.wav	neg	Where did I put my keys?	en_US-amy-medium	1.0	-8.3	
+neg/02_01.wav	neg	Play some music in the living room.	en_US-amy-medium	1.0	-17.2	20.6
+neg/02_02.wav	neg	Did anyone feed the dog this morning?	en_US-amy-medium	0.8	-9.4	
+neg/02_03.wav	neg	Remind me to call mom at six.	en_US-amy-medium	1.0	-21.8	
+neg/02_04.wav	neg	I'm listening.	en_US-amy-medium	1.0	-15.1	24.0
+neg/02_05.wav	neg	What do you need?	en_US-amy-medium	0.9	-10.2	21.8
+neg/02_06.wav	neg	I think the package arrived yesterday.	en_US-amy-medium	0.8	-25.5	
+neg/02_07.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-amy-medium	0.9	-20.9	
+pos/03_00.wav	pos	Hey Zippy.	en_GB-alan-medium	0.8	-17.6	14.2
+pos/03_01.wav	pos	Hey, Zippy!	en_GB-alan-medium	1.25	-8.2	16.4
+pos/03_02.wav	pos	Hey Zippy?	en_GB-alan-medium	1.1	-23.5	
+pos/03_03.wav	pos	hey zippy	en_GB-alan-medium	1.25	-23.0	
+pos/03_04.wav	pos	Hey Zippy, what time is it?	en_GB-alan-medium	1.25	-6.2	
+pos/03_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_GB-alan-medium	0.9	-18.3	
+pos/03_06.wav	pos	Okay. Hey Zippy.	en_GB-alan-medium	0.8	-13.7	
+pos/03_07.wav	pos	Hey Zippy... remind me to call mom.	en_GB-alan-medium	0.9	-11.5	
+mis/03_00.wav	mis	Hey Zippie.	en_GB-alan-medium	1.0	-21.5	21.4
+mis/03_01.wav	mis	Hay Zippy.	en_GB-alan-medium	1.0	-12.4	
+mis/03_02.wav	mis	Hey Zeppy.	en_GB-alan-medium	1.0	-12.7	
+mis/03_03.wav	mis	Hey Zippee!	en_GB-alan-medium	1.25	-18.1	
+mis/03_04.wav	mis	Hey Sippy.	en_GB-alan-medium	1.25	-4.5	22.1
+mis/03_05.wav	mis	Hey, Sippy?	en_GB-alan-medium	0.9	-20.4	12.2
+near/03_00.wav	near	Hey Skippy.	en_GB-alan-medium	0.8	-17.5	
+near/03_01.wav	near	Happy birthday!	en_GB-alan-medium	0.9	-10.6	
+near/03_02.wav	near	Hey Siri.	en_GB-alan-medium	1.1	-3.6	
+near/03_03.wav	near	Pull up the zipper.	en_GB-alan-medium	1.1	-16.5	
+near/03_04.wav	near	Hey sweetie.	en_GB-alan-medium	1.0	-9.7	16.3
+near/03_05.wav	near	Hey Jimmy.	en_GB-alan-medium	1.0	-19.2	18.1
+near/03_06.wav	near	Hey, did you zip it?	en_GB-alan-medium	1.25	-22.2	20.2
+near/03_07.wav	near	Mississippi is big.	en_GB-alan-medium	0.8	-21.7	
+near/03_08.wav	near	Hey Zack.	en_GB-alan-medium	1.25	-14.5	15.8
+near/03_09.wav	near	She's a hippie.	en_GB-alan-medium	0.9	-4.6	14.1
+near/03_10.wav	near	That was snappy.	en_GB-alan-medium	1.0	-22.8	
+near/03_11.wav	near	Hey Pippa.	en_GB-alan-medium	1.0	-5.8	
+near/03_12.wav	near	Hey there, sleepy.	en_GB-alan-medium	1.1	-8.5	16.3
+near/03_13.wav	near	Is it zippable?	en_GB-alan-medium	1.0	-11.2	16.8
+near/03_14.wav	near	Hey, Lizzie!	en_GB-alan-medium	1.25	-9.5	
+neg/03_00.wav	neg	I'm listening.	en_GB-alan-medium	0.8	-6.6	
+neg/03_01.wav	neg	Okay, that sounds good to me.	en_GB-alan-medium	1.0	-11.1	24.2
+neg/03_02.wav	neg	Did anyone feed the dog this morning?	en_GB-alan-medium	1.0	-18.1	19.4
+neg/03_03.wav	neg	The meeting got moved to Thursday afternoon.	en_GB-alan-medium	0.9	-15.7	13.4
+neg/03_04.wav	neg	The quick brown fox jumps over the lazy dog.	en_GB-alan-medium	1.25	-6.2	
+neg/03_05.wav	neg	Hey Google, set a timer.	en_GB-alan-medium	0.9	-17.8	20.3
+neg/03_06.wav	neg	Hey guys, dinner is ready.	en_GB-alan-medium	1.1	-8.4	23.9
+neg/03_07.wav	neg	Hey, how are you doing today?	en_GB-alan-medium	0.9	-24.3	15.0
+pos/04_00.wav	pos	Hey Zippy.	en_GB-southern_english_female-low	1.25	-2.7	
+pos/04_01.wav	pos	Hey, Zippy!	en_GB-southern_english_female-low	0.8	-1.3	23.7
+pos/04_02.wav	pos	Hey Zippy?	en_GB-southern_english_female-low	1.25	-20.5	
+pos/04_03.wav	pos	hey zippy	en_GB-southern_english_female-low	1.0	-11.4	16.4
+pos/04_04.wav	pos	Hey Zippy, what time is it?	en_GB-southern_english_female-low	0.8	-25.9	
+pos/04_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_GB-southern_english_female-low	1.0	-5.1	
+pos/04_06.wav	pos	Okay. Hey Zippy.	en_GB-southern_english_female-low	1.0	-14.9	11.1
+pos/04_07.wav	pos	Hey Zippy... remind me to call mom.	en_GB-southern_english_female-low	0.8	-3.5	
+mis/04_00.wav	mis	Hey Zippie.	en_GB-southern_english_female-low	1.0	-18.8	18.7
+mis/04_01.wav	mis	Hay Zippy.	en_GB-southern_english_female-low	0.8	-14.8	15.1
+mis/04_02.wav	mis	Hey Zeppy.	en_GB-southern_english_female-low	0.8	-10.7	
+mis/04_03.wav	mis	Hey Zippee!	en_GB-southern_english_female-low	0.8	-10.6	20.7
+mis/04_04.wav	mis	Hey Sippy.	en_GB-southern_english_female-low	0.8	-12.6	22.4
+mis/04_05.wav	mis	Hey, Sippy?	en_GB-southern_english_female-low	0.9	-10.0	
+near/04_00.wav	near	Hey Skippy.	en_GB-southern_english_female-low	1.25	-13.5	14.4
+near/04_01.wav	near	Happy birthday!	en_GB-southern_english_female-low	1.1	-6.5	
+near/04_02.wav	near	Hey Siri.	en_GB-southern_english_female-low	1.1	-22.0	23.1
+near/04_03.wav	near	Pull up the zipper.	en_GB-southern_english_female-low	1.0	-10.5	13.5
+near/04_04.wav	near	Hey sweetie.	en_GB-southern_english_female-low	1.1	-9.3	
+near/04_05.wav	near	Hey Jimmy.	en_GB-southern_english_female-low	1.25	-17.1	
+near/04_06.wav	near	Hey, did you zip it?	en_GB-southern_english_female-low	1.1	-11.2	18.3
+near/04_07.wav	near	Mississippi is big.	en_GB-southern_english_female-low	1.25	-5.7	
+near/04_08.wav	near	Hey Zack.	en_GB-southern_english_female-low	1.1	-7.0	17.8
+near/04_09.wav	near	She's a hippie.	en_GB-southern_english_female-low	1.25	-12.8	14.1
+near/04_10.wav	near	That was snappy.	en_GB-southern_english_female-low	1.0	-3.3	
+near/04_11.wav	near	Hey Pippa.	en_GB-southern_english_female-low	1.25	-5.9	
+near/04_12.wav	near	Hey there, sleepy.	en_GB-southern_english_female-low	0.9	-13.8	22.9
+near/04_13.wav	near	Is it zippable?	en_GB-southern_english_female-low	1.1	-8.4	23.7
+near/04_14.wav	near	Hey, Lizzie!	en_GB-southern_english_female-low	1.1	-7.8	12.1
+neg/04_00.wav	neg	Hey, how are you doing today?	en_GB-southern_english_female-low	1.0	-6.8	
+neg/04_01.wav	neg	Add milk to the shopping list.	en_GB-southern_english_female-low	0.8	-17.0	15.4
+neg/04_02.wav	neg	Where did I put my keys?	en_GB-southern_english_female-low	0.8	-22.7	
+neg/04_03.wav	neg	Hey Google, set a timer.	en_GB-southern_english_female-low	1.0	-5.1	
+neg/04_04.wav	neg	What's the weather like tomorrow?	en_GB-southern_english_female-low	0.9	-21.2	
+neg/04_05.wav	neg	Let me know when you're done.	en_GB-southern_english_female-low	1.0	-4.8	
+neg/04_06.wav	neg	I'm listening.	en_GB-southern_english_female-low	1.0	-9.5	
+neg/04_07.wav	neg	Hey guys, dinner is ready.	en_GB-southern_english_female-low	1.0	-18.5	
+pos/05_00.wav	pos	Hey Zippy.	en_US-hfc_male-medium	0.9	-7.5	14.0
+pos/05_01.wav	pos	Hey, Zippy!	en_US-hfc_male-medium	0.9	-19.9	
+pos/05_02.wav	pos	Hey Zippy?	en_US-hfc_male-medium	0.8	-12.4	21.1
+pos/05_03.wav	pos	hey zippy	en_US-hfc_male-medium	0.9	-9.8	
+pos/05_04.wav	pos	Hey Zippy, what time is it?	en_US-hfc_male-medium	0.8	-7.6	
+pos/05_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-hfc_male-medium	0.8	-23.3	13.8
+pos/05_06.wav	pos	Okay. Hey Zippy.	en_US-hfc_male-medium	0.9	-12.5	
+pos/05_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-hfc_male-medium	1.1	-25.6	
+mis/05_00.wav	mis	Hey Zippie.	en_US-hfc_male-medium	1.0	-8.1	
+mis/05_01.wav	mis	Hay Zippy.	en_US-hfc_male-medium	1.25	-6.8	11.2
+mis/05_02.wav	mis	Hey Zeppy.	en_US-hfc_male-medium	0.9	-6.8	23.0
+mis/05_03.wav	mis	Hey Zippee!	en_US-hfc_male-medium	1.0	-10.2	
+mis/05_04.wav	mis	Hey Sippy.	en_US-hfc_male-medium	1.0	-12.8	13.1
+mis/05_05.wav	mis	Hey, Sippy?	en_US-hfc_male-medium	0.8	-2.9	18.5
+near/05_00.wav	near	Hey Skippy.	en_US-hfc_male-medium	1.25	-6.3	
+near/05_01.wav	near	Happy birthday!	en_US-hfc_male-medium	1.1	-7.5	
+near/05_02.wav	near	Hey Siri.	en_US-hfc_male-medium	1.1	-15.3	
+near/05_03.wav	near	Pull up the zipper.	en_US-hfc_male-medium	1.0	-19.5	
+near/05_04.wav	near	Hey sweetie.	en_US-hfc_male-medium	0.8	-22.9	
+near/05_05.wav	near	Hey Jimmy.	en_US-hfc_male-medium	0.9	-10.5	
+near/05_06.wav	near	Hey, did you zip it?	en_US-hfc_male-medium	0.8	-22.9	13.3
+near/05_07.wav	near	Mississippi is big.	en_US-hfc_male-medium	0.9	-11.8	23.6
+near/05_08.wav	near	Hey Zack.	en_US-hfc_male-medium	1.1	-8.8	
+near/05_09.wav	near	She's a hippie.	en_US-hfc_male-medium	0.9	-14.3	
+near/05_10.wav	near	That was snappy.	en_US-hfc_male-medium	1.1	-3.0	
+near/05_11.wav	near	Hey Pippa.	en_US-hfc_male-medium	0.9	-12.9	
+near/05_12.wav	near	Hey there, sleepy.	en_US-hfc_male-medium	1.25	-23.1	12.8
+near/05_13.wav	near	Is it zippable?	en_US-hfc_male-medium	0.8	-22.6	
+near/05_14.wav	near	Hey, Lizzie!	en_US-hfc_male-medium	0.9	-5.8	11.5
+neg/05_00.wav	neg	Hey, what's up?	en_US-hfc_male-medium	0.9	-9.4	
+neg/05_01.wav	neg	Hey Google, set a timer.	en_US-hfc_male-medium	0.8	-21.5	
+neg/05_02.wav	neg	Add milk to the shopping list.	en_US-hfc_male-medium	0.9	-12.7	
+neg/05_03.wav	neg	We should leave in about ten minutes.	en_US-hfc_male-medium	1.25	-17.8	
+neg/05_04.wav	neg	Can you turn the lights off in the kitchen?	en_US-hfc_male-medium	0.8	-3.5	
+neg/05_05.wav	neg	The meeting got moved to Thursday afternoon.	en_US-hfc_male-medium	0.9	-19.9	
+neg/05_06.wav	neg	What's the weather like tomorrow?	en_US-hfc_male-medium	0.8	-18.9	22.6
+neg/05_07.wav	neg	I'm listening.	en_US-hfc_male-medium	1.0	-8.1	19.6
+pos/06_00.wav	pos	Hey Zippy.	en_US-kristin-medium	0.9	-10.9	17.1
+pos/06_01.wav	pos	Hey, Zippy!	en_US-kristin-medium	0.9	-25.3	24.8
+pos/06_02.wav	pos	Hey Zippy?	en_US-kristin-medium	1.1	-21.7	
+pos/06_03.wav	pos	hey zippy	en_US-kristin-medium	1.1	-3.9	13.5
+pos/06_04.wav	pos	Hey Zippy, what time is it?	en_US-kristin-medium	1.1	-21.2	19.7
+pos/06_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-kristin-medium	0.9	-13.6	
+pos/06_06.wav	pos	Okay. Hey Zippy.	en_US-kristin-medium	0.8	-18.6	11.3
+pos/06_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-kristin-medium	1.0	-5.8	
+mis/06_00.wav	mis	Hey Zippie.	en_US-kristin-medium	0.9	-23.0	13.3
+mis/06_01.wav	mis	Hay Zippy.	en_US-kristin-medium	0.8	-4.2	17.0
+mis/06_02.wav	mis	Hey Zeppy.	en_US-kristin-medium	1.0	-4.2	14.5
+mis/06_03.wav	mis	Hey Zippee!	en_US-kristin-medium	0.9	-6.4	11.5
+mis/06_04.wav	mis	Hey Sippy.	en_US-kristin-medium	1.25	-8.8	
+mis/06_05.wav	mis	Hey, Sippy?	en_US-kristin-medium	0.8	-2.6	14.1
+near/06_00.wav	near	Hey Skippy.	en_US-kristin-medium	0.8	-11.3	15.9
+near/06_01.wav	near	Happy birthday!	en_US-kristin-medium	1.1	-18.5	
+near/06_02.wav	near	Hey Siri.	en_US-kristin-medium	0.8	-22.1	
+near/06_03.wav	near	Pull up the zipper.	en_US-kristin-medium	0.9	-23.4	12.7
+near/06_04.wav	near	Hey sweetie.	en_US-kristin-medium	1.25	-10.7	22.3
+near/06_05.wav	near	Hey Jimmy.	en_US-kristin-medium	0.8	-11.4	10.8
+near/06_06.wav	near	Hey, did you zip it?	en_US-kristin-medium	1.1	-3.0	19.4
+near/06_07.wav	near	Mississippi is big.	en_US-kristin-medium	0.9	-9.5	22.6
+near/06_08.wav	near	Hey Zack.	en_US-kristin-medium	1.1	-1.4	
+near/06_09.wav	near	She's a hippie.	en_US-kristin-medium	1.25	-11.4	23.7
+near/06_10.wav	near	That was snappy.	en_US-kristin-medium	1.25	-7.7	15.0
+near/06_11.wav	near	Hey Pippa.	en_US-kristin-medium	1.1	-18.3	21.0
+near/06_12.wav	near	Hey there, sleepy.	en_US-kristin-medium	1.25	-17.3	
+near/06_13.wav	near	Is it zippable?	en_US-kristin-medium	0.9	-6.3	
+near/06_14.wav	near	Hey, Lizzie!	en_US-kristin-medium	0.9	-12.1	11.4
+neg/06_00.wav	neg	I think the package arrived yesterday.	en_US-kristin-medium	1.1	-8.3	20.3
+neg/06_01.wav	neg	Can you turn the lights off in the kitchen?	en_US-kristin-medium	1.1	-1.9	21.4
+neg/06_02.wav	neg	Hey Google, set a timer.	en_US-kristin-medium	1.0	-19.8	24.0
+neg/06_03.wav	neg	What's the weather like tomorrow?	en_US-kristin-medium	1.0	-14.3	
+neg/06_04.wav	neg	What do you need?	en_US-kristin-medium	0.9	-12.5	
+neg/06_05.wav	neg	Did anyone feed the dog this morning?	en_US-kristin-medium	1.0	-9.9	21.9
+neg/06_06.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-kristin-medium	0.8	-12.2	17.7
+neg/06_07.wav	neg	Okay, that sounds good to me.	en_US-kristin-medium	1.25	-9.2	21.9
+pos/07_00.wav	pos	Hey Zippy.	en_GB-northern_english_male-medium	1.25	-20.9	
+pos/07_01.wav	pos	Hey, Zippy!	en_GB-northern_english_male-medium	1.0	-7.6	
+pos/07_02.wav	pos	Hey Zippy?	en_GB-northern_english_male-medium	1.25	-9.0	
+pos/07_03.wav	pos	hey zippy	en_GB-northern_english_male-medium	0.9	-23.9	20.3
+pos/07_04.wav	pos	Hey Zippy, what time is it?	en_GB-northern_english_male-medium	1.1	-7.8	
+pos/07_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_GB-northern_english_male-medium	0.9	-5.2	13.2
+pos/07_06.wav	pos	Okay. Hey Zippy.	en_GB-northern_english_male-medium	0.9	-23.0	
+pos/07_07.wav	pos	Hey Zippy... remind me to call mom.	en_GB-northern_english_male-medium	1.25	-5.9	23.0
+mis/07_00.wav	mis	Hey Zippie.	en_GB-northern_english_male-medium	1.1	-4.6	
+mis/07_01.wav	mis	Hay Zippy.	en_GB-northern_english_male-medium	1.25	-25.6	
+mis/07_02.wav	mis	Hey Zeppy.	en_GB-northern_english_male-medium	1.25	-1.7	21.1
+mis/07_03.wav	mis	Hey Zippee!	en_GB-northern_english_male-medium	1.1	-4.7	21.5
+mis/07_04.wav	mis	Hey Sippy.	en_GB-northern_english_male-medium	0.9	-17.9	24.1
+mis/07_05.wav	mis	Hey, Sippy?	en_GB-northern_english_male-medium	1.25	-7.0	24.9
+near/07_00.wav	near	Hey Skippy.	en_GB-northern_english_male-medium	0.9	-6.0	13.9
+near/07_01.wav	near	Happy birthday!	en_GB-northern_english_male-medium	0.8	-6.4	18.7
+near/07_02.wav	near	Hey Siri.	en_GB-northern_english_male-medium	1.1	-14.6	
+near/07_03.wav	near	Pull up the zipper.	en_GB-northern_english_male-medium	0.9	-24.3	
+near/07_04.wav	near	Hey sweetie.	en_GB-northern_english_male-medium	1.0	-14.2	14.4
+near/07_05.wav	near	Hey Jimmy.	en_GB-northern_english_male-medium	1.0	-15.7	23.2
+near/07_06.wav	near	Hey, did you zip it?	en_GB-northern_english_male-medium	1.25	-18.4	17.1
+near/07_07.wav	near	Mississippi is big.	en_GB-northern_english_male-medium	1.0	-14.9	20.3
+near/07_08.wav	near	Hey Zack.	en_GB-northern_english_male-medium	0.9	-2.2	16.2
+near/07_09.wav	near	She's a hippie.	en_GB-northern_english_male-medium	0.8	-10.5	17.5
+near/07_10.wav	near	That was snappy.	en_GB-northern_english_male-medium	1.25	-1.2	18.5
+near/07_11.wav	near	Hey Pippa.	en_GB-northern_english_male-medium	1.1	-20.5	
+near/07_12.wav	near	Hey there, sleepy.	en_GB-northern_english_male-medium	0.8	-5.2	
+near/07_13.wav	near	Is it zippable?	en_GB-northern_english_male-medium	1.1	-14.5	
+near/07_14.wav	near	Hey, Lizzie!	en_GB-northern_english_male-medium	1.25	-9.0	15.6
+neg/07_00.wav	neg	What do you need?	en_GB-northern_english_male-medium	1.25	-4.7	
+neg/07_01.wav	neg	Play some music in the living room.	en_GB-northern_english_male-medium	1.0	-22.1	
+neg/07_02.wav	neg	Hey Google, set a timer.	en_GB-northern_english_male-medium	1.0	-14.6	
+neg/07_03.wav	neg	Okay, that sounds good to me.	en_GB-northern_english_male-medium	0.8	-25.6	18.0
+neg/07_04.wav	neg	Hey guys, dinner is ready.	en_GB-northern_english_male-medium	0.9	-11.2	
+neg/07_05.wav	neg	Where did I put my keys?	en_GB-northern_english_male-medium	1.25	-17.4	
+neg/07_06.wav	neg	I'm listening.	en_GB-northern_english_male-medium	0.9	-18.9	
+neg/07_07.wav	neg	I think the package arrived yesterday.	en_GB-northern_english_male-medium	0.9	-9.3	
+pos/08_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#534	0.8	-5.0	
+pos/08_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#534	1.1	-22.4	
+pos/08_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#534	0.8	-24.5	
+pos/08_03.wav	pos	hey zippy	en_US-libritts_r-medium#534	0.9	-16.1	
+pos/08_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#534	1.1	-6.8	
+pos/08_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#534	1.0	-10.9	13.6
+pos/08_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#534	1.1	-23.4	
+pos/08_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#534	0.9	-19.6	21.7
+mis/08_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#534	1.0	-3.2	20.9
+mis/08_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#534	1.0	-14.8	19.5
+mis/08_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#534	0.8	-8.6	23.7
+mis/08_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#534	0.8	-6.1	
+mis/08_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#534	1.0	-25.5	
+mis/08_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#534	1.25	-19.7	12.8
+near/08_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#534	0.9	-7.1	
+near/08_01.wav	near	Happy birthday!	en_US-libritts_r-medium#534	1.1	-22.8	
+near/08_02.wav	near	Hey Siri.	en_US-libritts_r-medium#534	1.1	-1.2	
+near/08_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#534	0.9	-6.3	23.2
+near/08_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#534	0.8	-18.6	17.0
+near/08_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#534	0.8	-21.6	
+near/08_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#534	1.0	-4.0	16.1
+near/08_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#534	1.0	-21.7	
+near/08_08.wav	near	Hey Zack.	en_US-libritts_r-medium#534	0.8	-23.8	
+near/08_09.wav	near	She's a hippie.	en_US-libritts_r-medium#534	1.1	-9.7	
+near/08_10.wav	near	That was snappy.	en_US-libritts_r-medium#534	1.25	-9.7	
+near/08_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#534	0.9	-25.3	16.0
+near/08_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#534	0.9	-11.5	16.7
+near/08_13.wav	near	Is it zippable?	en_US-libritts_r-medium#534	1.0	-10.5	16.7
+near/08_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#534	0.9	-5.4	
+neg/08_00.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#534	1.25	-6.7	22.7
+neg/08_01.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#534	1.1	-3.7	
+neg/08_02.wav	neg	Hey, what's up?	en_US-libritts_r-medium#534	0.9	-5.8	10.9
+neg/08_03.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#534	1.0	-19.9	
+neg/08_04.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#534	0.9	-5.8	24.4
+neg/08_05.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#534	1.25	-23.4	
+neg/08_06.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#534	1.25	-9.7	
+neg/08_07.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#534	0.8	-7.2	
+pos/09_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#424	1.25	-22.1	12.1
+pos/09_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#424	0.8	-10.5	23.6
+pos/09_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#424	0.8	-14.4	19.4
+pos/09_03.wav	pos	hey zippy	en_US-libritts_r-medium#424	1.25	-8.7	18.0
+pos/09_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#424	0.8	-18.8	
+pos/09_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#424	1.25	-10.9	
+pos/09_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#424	0.9	-21.7	
+pos/09_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#424	0.9	-18.8	24.0
+mis/09_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#424	1.0	-4.6	18.9
+mis/09_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#424	1.25	-21.9	24.7
+mis/09_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#424	0.8	-19.4	12.5
+mis/09_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#424	0.9	-4.8	12.0
+mis/09_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#424	1.25	-13.0	18.7
+mis/09_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#424	1.1	-18.6	12.7
+near/09_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#424	1.0	-22.6	24.1
+near/09_01.wav	near	Happy birthday!	en_US-libritts_r-medium#424	0.8	-4.7	11.1
+near/09_02.wav	near	Hey Siri.	en_US-libritts_r-medium#424	0.8	-15.5	13.3
+near/09_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#424	1.1	-10.4	20.1
+near/09_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#424	0.9	-23.0	11.3
+near/09_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#424	1.1	-13.9	
+near/09_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#424	1.0	-17.9	
+near/09_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#424	0.9	-16.8	
+near/09_08.wav	near	Hey Zack.	en_US-libritts_r-medium#424	1.25	-25.4	
+near/09_09.wav	near	She's a hippie.	en_US-libritts_r-medium#424	1.1	-24.4	
+near/09_10.wav	near	That was snappy.	en_US-libritts_r-medium#424	0.8	-9.0	
+near/09_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#424	1.25	-14.0	
+near/09_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#424	0.9	-5.8	13.2
+near/09_13.wav	near	Is it zippable?	en_US-libritts_r-medium#424	0.8	-20.9	
+near/09_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#424	0.9	-14.6	
+neg/09_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#424	1.25	-4.2	23.1
+neg/09_01.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#424	0.9	-4.3	24.8
+neg/09_02.wav	neg	Hey, what's up?	en_US-libritts_r-medium#424	0.8	-19.9	20.3
+neg/09_03.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#424	1.0	-23.2	
+neg/09_04.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#424	1.25	-22.5	12.7
+neg/09_05.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#424	0.9	-4.9	22.1
+neg/09_06.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#424	1.25	-14.1	14.2
+neg/09_07.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#424	1.25	-20.9	22.4
+pos/10_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#826	1.0	-23.5	10.4
+pos/10_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#826	1.25	-14.2	
+pos/10_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#826	1.25	-3.4	
+pos/10_03.wav	pos	hey zippy	en_US-libritts_r-medium#826	0.8	-11.4	
+pos/10_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#826	1.1	-3.1	23.0
+pos/10_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#826	1.25	-23.6	13.7
+pos/10_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#826	0.9	-2.8	
+pos/10_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#826	0.9	-17.2	
+mis/10_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#826	1.1	-15.0	16.4
+mis/10_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#826	0.8	-25.2	24.9
+mis/10_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#826	1.1	-23.5	24.9
+mis/10_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#826	1.0	-10.0	
+mis/10_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#826	0.8	-14.2	
+mis/10_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#826	1.25	-13.3	
+near/10_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#826	1.1	-14.8	
+near/10_01.wav	near	Happy birthday!	en_US-libritts_r-medium#826	1.0	-4.9	21.7
+near/10_02.wav	near	Hey Siri.	en_US-libritts_r-medium#826	1.1	-14.9	
+near/10_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#826	1.1	-6.5	18.1
+near/10_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#826	1.0	-17.7	24.9
+near/10_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#826	1.0	-5.7	
+near/10_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#826	0.9	-13.0	
+near/10_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#826	0.9	-22.7	15.9
+near/10_08.wav	near	Hey Zack.	en_US-libritts_r-medium#826	1.1	-4.3	
+near/10_09.wav	near	She's a hippie.	en_US-libritts_r-medium#826	1.0	-1.7	
+near/10_10.wav	near	That was snappy.	en_US-libritts_r-medium#826	1.1	-7.6	
+near/10_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#826	1.25	-24.0	16.9
+near/10_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#826	1.0	-22.5	21.9
+near/10_13.wav	near	Is it zippable?	en_US-libritts_r-medium#826	1.1	-10.0	
+near/10_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#826	0.8	-22.5	22.5
+neg/10_00.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#826	0.9	-15.1	
+neg/10_01.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#826	1.1	-9.4	
+neg/10_02.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#826	1.1	-11.5	19.5
+neg/10_03.wav	neg	I'm listening.	en_US-libritts_r-medium#826	1.0	-5.5	
+neg/10_04.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#826	0.8	-23.9	24.0
+neg/10_05.wav	neg	What do you need?	en_US-libritts_r-medium#826	1.25	-9.2	
+neg/10_06.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#826	0.9	-14.2	
+neg/10_07.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#826	1.1	-16.0	
+pos/11_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#310	0.8	-22.1	19.3
+pos/11_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#310	0.8	-13.9	
+pos/11_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#310	0.8	-18.5	11.7
+pos/11_03.wav	pos	hey zippy	en_US-libritts_r-medium#310	1.1	-5.0	
+pos/11_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#310	1.25	-14.5	
+pos/11_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#310	1.0	-17.1	20.9
+pos/11_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#310	0.9	-13.2	
+pos/11_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#310	1.25	-23.9	22.7
+mis/11_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#310	1.1	-14.5	19.9
+mis/11_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#310	1.1	-24.9	20.3
+mis/11_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#310	0.8	-2.1	
+mis/11_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#310	0.8	-13.8	
+mis/11_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#310	1.0	-4.2	18.4
+mis/11_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#310	0.9	-23.7	
+near/11_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#310	0.9	-13.4	
+near/11_01.wav	near	Happy birthday!	en_US-libritts_r-medium#310	1.1	-5.6	
+near/11_02.wav	near	Hey Siri.	en_US-libritts_r-medium#310	0.9	-17.3	12.7
+near/11_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#310	1.0	-5.0	24.8
+near/11_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#310	1.0	-19.1	
+near/11_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#310	1.1	-12.3	10.1
+near/11_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#310	1.25	-20.5	12.6
+near/11_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#310	1.0	-19.3	18.7
+near/11_08.wav	near	Hey Zack.	en_US-libritts_r-medium#310	1.0	-15.4	19.5
+near/11_09.wav	near	She's a hippie.	en_US-libritts_r-medium#310	0.8	-24.6	19.9
+near/11_10.wav	near	That was snappy.	en_US-libritts_r-medium#310	1.0	-17.5	
+near/11_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#310	0.9	-5.7	
+near/11_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#310	0.8	-20.2	
+near/11_13.wav	near	Is it zippable?	en_US-libritts_r-medium#310	1.0	-14.3	17.3
+near/11_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#310	0.9	-17.0	
+neg/11_00.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#310	1.25	-15.1	
+neg/11_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#310	0.8	-9.3	20.5
+neg/11_02.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#310	1.25	-9.4	14.8
+neg/11_03.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#310	0.8	-8.7	
+neg/11_04.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#310	0.9	-6.0	24.5
+neg/11_05.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#310	0.8	-23.6	15.4
+neg/11_06.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#310	0.8	-24.7	23.2
+neg/11_07.wav	neg	What do you need?	en_US-libritts_r-medium#310	0.8	-16.0	14.1
+pos/12_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#374	0.9	-4.5	
+pos/12_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#374	0.9	-25.5	18.2
+pos/12_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#374	0.9	-8.7	23.2
+pos/12_03.wav	pos	hey zippy	en_US-libritts_r-medium#374	0.9	-6.6	
+pos/12_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#374	0.8	-19.9	23.5
+pos/12_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#374	0.9	-7.9	
+pos/12_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#374	1.0	-5.4	
+pos/12_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#374	1.0	-10.3	16.6
+mis/12_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#374	0.9	-21.8	
+mis/12_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#374	1.25	-6.9	24.3
+mis/12_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#374	0.9	-19.8	
+mis/12_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#374	0.8	-5.6	
+mis/12_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#374	1.0	-16.7	13.3
+mis/12_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#374	0.9	-6.4	13.2
+near/12_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#374	0.8	-4.0	19.7
+near/12_01.wav	near	Happy birthday!	en_US-libritts_r-medium#374	1.1	-12.2	
+near/12_02.wav	near	Hey Siri.	en_US-libritts_r-medium#374	0.9	-4.8	
+near/12_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#374	1.25	-1.1	
+near/12_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#374	0.9	-14.3	
+near/12_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#374	0.9	-10.8	14.1
+near/12_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#374	1.1	-9.0	22.1
+near/12_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#374	0.8	-12.0	
+near/12_08.wav	near	Hey Zack.	en_US-libritts_r-medium#374	0.8	-5.0	17.2
+near/12_09.wav	near	She's a hippie.	en_US-libritts_r-medium#374	0.8	-6.7	
+near/12_10.wav	near	That was snappy.	en_US-libritts_r-medium#374	1.1	-12.3	
+near/12_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#374	1.0	-23.6	12.8
+near/12_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#374	0.8	-5.5	
+near/12_13.wav	near	Is it zippable?	en_US-libritts_r-medium#374	0.9	-3.6	
+near/12_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#374	1.1	-14.5	
+neg/12_00.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#374	1.1	-12.4	
+neg/12_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#374	1.0	-8.2	23.9
+neg/12_02.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#374	0.8	-14.3	
+neg/12_03.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#374	1.1	-2.2	
+neg/12_04.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#374	1.0	-21.4	14.5
+neg/12_05.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#374	1.25	-11.8	
+neg/12_06.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#374	0.9	-22.0	
+neg/12_07.wav	neg	I'm listening.	en_US-libritts_r-medium#374	0.9	-2.1	16.6
+pos/13_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#296	1.0	-17.7	
+pos/13_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#296	1.0	-9.9	12.2
+pos/13_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#296	1.1	-22.6	24.8
+pos/13_03.wav	pos	hey zippy	en_US-libritts_r-medium#296	0.8	-17.7	
+pos/13_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#296	1.25	-9.3	
+pos/13_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#296	1.0	-16.7	14.4
+pos/13_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#296	0.9	-7.3	
+pos/13_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#296	1.1	-20.3	
+mis/13_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#296	0.8	-22.3	
+mis/13_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#296	1.0	-1.1	13.0
+mis/13_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#296	1.25	-20.2	11.7
+mis/13_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#296	1.25	-21.9	
+mis/13_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#296	1.25	-13.6	
+mis/13_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#296	1.1	-21.6	11.1
+near/13_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#296	0.8	-3.9	23.4
+near/13_01.wav	near	Happy birthday!	en_US-libritts_r-medium#296	0.8	-3.3	20.2
+near/13_02.wav	near	Hey Siri.	en_US-libritts_r-medium#296	1.25	-8.5	13.8
+near/13_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#296	1.1	-20.6	11.5
+near/13_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#296	0.9	-6.5	18.1
+near/13_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#296	0.9	-5.4	17.8
+near/13_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#296	0.8	-13.5	15.8
+near/13_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#296	0.8	-11.7	15.1
+near/13_08.wav	near	Hey Zack.	en_US-libritts_r-medium#296	0.9	-19.9	
+near/13_09.wav	near	She's a hippie.	en_US-libritts_r-medium#296	0.8	-12.3	14.6
+near/13_10.wav	near	That was snappy.	en_US-libritts_r-medium#296	0.9	-4.4	12.0
+near/13_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#296	0.8	-13.0	20.6
+near/13_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#296	0.9	-7.3	
+near/13_13.wav	near	Is it zippable?	en_US-libritts_r-medium#296	1.25	-22.6	
+near/13_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#296	0.8	-7.6	15.1
+neg/13_00.wav	neg	That's pretty easy.	en_US-libritts_r-medium#296	0.9	-16.5	
+neg/13_01.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#296	0.8	-13.7	18.1
+neg/13_02.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#296	0.8	-9.0	18.6
+neg/13_03.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#296	1.1	-11.6	
+neg/13_04.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#296	1.0	-15.7	15.5
+neg/13_05.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#296	1.0	-6.7	
+neg/13_06.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#296	0.9	-15.0	16.4
+neg/13_07.wav	neg	What do you need?	en_US-libritts_r-medium#296	1.25	-6.6	12.2
+pos/14_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#178	1.1	-9.3	24.9
+pos/14_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#178	0.8	-10.7	10.1
+pos/14_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#178	0.9	-14.8	
+pos/14_03.wav	pos	hey zippy	en_US-libritts_r-medium#178	1.25	-17.5	20.5
+pos/14_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#178	0.8	-24.6	
+pos/14_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#178	1.1	-5.5	19.6
+pos/14_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#178	1.25	-24.2	
+pos/14_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#178	1.25	-21.2	22.6
+mis/14_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#178	1.1	-12.2	
+mis/14_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#178	1.0	-22.3	
+mis/14_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#178	1.1	-19.6	20.7
+mis/14_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#178	1.1	-4.0	20.5
+mis/14_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#178	0.9	-22.5	
+mis/14_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#178	0.9	-11.8	19.1
+near/14_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#178	1.0	-5.5	
+near/14_01.wav	near	Happy birthday!	en_US-libritts_r-medium#178	0.8	-14.6	15.3
+near/14_02.wav	near	Hey Siri.	en_US-libritts_r-medium#178	1.0	-14.9	19.7
+near/14_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#178	0.8	-3.5	13.3
+near/14_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#178	0.8	-5.8	
+near/14_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#178	1.0	-5.9	19.7
+near/14_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#178	1.25	-8.1	18.4
+near/14_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#178	1.1	-21.5	
+near/14_08.wav	near	Hey Zack.	en_US-libritts_r-medium#178	1.1	-10.7	
+near/14_09.wav	near	She's a hippie.	en_US-libritts_r-medium#178	0.9	-22.2	19.1
+near/14_10.wav	near	That was snappy.	en_US-libritts_r-medium#178	1.0	-13.7	23.0
+near/14_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#178	1.0	-25.3	
+near/14_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#178	1.1	-14.0	16.2
+near/14_13.wav	near	Is it zippable?	en_US-libritts_r-medium#178	1.1	-22.7	
+near/14_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#178	0.9	-17.7	19.0
+neg/14_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#178	0.9	-6.9	19.9
+neg/14_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#178	0.9	-21.3	
+neg/14_02.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#178	0.9	-1.4	
+neg/14_03.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#178	1.0	-25.6	16.8
+neg/14_04.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#178	1.0	-11.6	
+neg/14_05.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#178	1.25	-4.0	
+neg/14_06.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#178	1.1	-6.6	22.2
+neg/14_07.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#178	1.25	-4.6	
+pos/15_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#784	1.1	-17.9	22.4
+pos/15_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#784	1.0	-3.4	13.1
+pos/15_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#784	0.8	-25.3	18.7
+pos/15_03.wav	pos	hey zippy	en_US-libritts_r-medium#784	1.1	-10.5	22.9
+pos/15_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#784	0.9	-24.5	
+pos/15_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#784	0.8	-11.9	16.6
+pos/15_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#784	1.1	-12.9	10.2
+pos/15_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#784	1.1	-9.6	
+mis/15_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#784	1.1	-9.8	24.2
+mis/15_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#784	0.9	-24.2	12.1
+mis/15_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#784	0.8	-15.3	
+mis/15_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#784	1.1	-12.6	
+mis/15_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#784	1.25	-13.1	12.6
+mis/15_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#784	1.25	-25.7	24.1
+near/15_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#784	0.9	-19.5	
+near/15_01.wav	near	Happy birthday!	en_US-libritts_r-medium#784	0.9	-23.7	
+near/15_02.wav	near	Hey Siri.	en_US-libritts_r-medium#784	1.25	-15.1	
+near/15_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#784	1.25	-7.4	
+near/15_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#784	1.25	-12.9	
+near/15_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#784	1.1	-2.2	
+near/15_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#784	1.25	-22.8	
+near/15_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#784	1.0	-13.8	23.2
+near/15_08.wav	near	Hey Zack.	en_US-libritts_r-medium#784	0.8	-18.0	21.9
+near/15_09.wav	near	She's a hippie.	en_US-libritts_r-medium#784	1.0	-13.8	
+near/15_10.wav	near	That was snappy.	en_US-libritts_r-medium#784	0.9	-6.1	21.1
+near/15_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#784	1.1	-24.2	23.9
+near/15_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#784	1.0	-6.7	13.2
+near/15_13.wav	near	Is it zippable?	en_US-libritts_r-medium#784	0.9	-10.8	14.3
+near/15_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#784	1.25	-23.5	21.1
+neg/15_00.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#784	0.8	-16.3	
+neg/15_01.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#784	1.25	-7.8	18.8
+neg/15_02.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#784	1.0	-14.1	13.9
+neg/15_03.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#784	0.9	-6.7	17.4
+neg/15_04.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#784	0.9	-11.2	
+neg/15_05.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#784	1.1	-13.7	
+neg/15_06.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#784	1.1	-1.6	
+neg/15_07.wav	neg	Hey, what's up?	en_US-libritts_r-medium#784	1.1	-21.0	
+pos/16_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#722	1.1	-23.1	16.2
+pos/16_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#722	0.8	-3.3	20.0
+pos/16_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#722	1.25	-20.1	13.0
+pos/16_03.wav	pos	hey zippy	en_US-libritts_r-medium#722	1.25	-17.2	
+pos/16_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#722	0.8	-5.8	18.5
+pos/16_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#722	1.1	-8.7	
+pos/16_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#722	1.1	-13.8	
+pos/16_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#722	1.1	-7.4	22.7
+mis/16_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#722	0.9	-11.8	
+mis/16_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#722	1.1	-11.4	24.9
+mis/16_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#722	0.8	-18.1	18.5
+mis/16_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#722	0.9	-21.2	
+mis/16_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#722	1.1	-5.6	
+mis/16_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#722	1.1	-6.6	15.8
+near/16_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#722	0.8	-2.8	
+near/16_01.wav	near	Happy birthday!	en_US-libritts_r-medium#722	1.0	-25.3	14.2
+near/16_02.wav	near	Hey Siri.	en_US-libritts_r-medium#722	1.1	-8.8	
+near/16_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#722	1.1	-12.3	
+near/16_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#722	0.8	-17.7	16.3
+near/16_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#722	1.25	-15.5	
+near/16_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#722	1.1	-14.3	16.9
+near/16_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#722	1.25	-17.2	
+near/16_08.wav	near	Hey Zack.	en_US-libritts_r-medium#722	0.8	-7.0	
+near/16_09.wav	near	She's a hippie.	en_US-libritts_r-medium#722	1.25	-21.4	
+near/16_10.wav	near	That was snappy.	en_US-libritts_r-medium#722	1.0	-15.2	23.4
+near/16_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#722	1.1	-8.6	
+near/16_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#722	1.1	-22.9	21.5
+near/16_13.wav	near	Is it zippable?	en_US-libritts_r-medium#722	1.0	-25.0	20.3
+near/16_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#722	1.25	-20.2	18.4
+neg/16_00.wav	neg	That's pretty easy.	en_US-libritts_r-medium#722	1.0	-9.9	
+neg/16_01.wav	neg	Hey, what's up?	en_US-libritts_r-medium#722	0.9	-12.8	13.1
+neg/16_02.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#722	0.8	-5.2	16.3
+neg/16_03.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#722	0.9	-9.2	
+neg/16_04.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#722	0.8	-14.2	
+neg/16_05.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#722	1.1	-21.9	14.4
+neg/16_06.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#722	1.1	-22.1	20.8
+neg/16_07.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#722	0.8	-5.9	12.0
+pos/17_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#721	1.1	-18.0	
+pos/17_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#721	1.25	-8.9	
+pos/17_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#721	1.1	-18.5	
+pos/17_03.wav	pos	hey zippy	en_US-libritts_r-medium#721	1.0	-23.4	23.4
+pos/17_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#721	1.0	-18.8	
+pos/17_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#721	1.25	-7.5	
+pos/17_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#721	0.8	-8.9	
+pos/17_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#721	0.9	-10.4	11.7
+mis/17_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#721	0.9	-2.3	
+mis/17_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#721	1.1	-7.4	21.8
+mis/17_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#721	0.9	-19.2	20.3
+mis/17_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#721	0.9	-14.9	13.2
+mis/17_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#721	1.25	-5.6	19.7
+mis/17_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#721	1.0	-20.6	
+near/17_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#721	1.1	-10.9	21.4
+near/17_01.wav	near	Happy birthday!	en_US-libritts_r-medium#721	1.0	-8.8	24.8
+near/17_02.wav	near	Hey Siri.	en_US-libritts_r-medium#721	1.0	-20.6	
+near/17_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#721	0.8	-19.5	22.2
+near/17_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#721	1.25	-22.0	
+near/17_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#721	0.9	-18.2	20.5
+near/17_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#721	1.0	-19.0	18.6
+near/17_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#721	1.0	-12.7	
+near/17_08.wav	near	Hey Zack.	en_US-libritts_r-medium#721	0.8	-1.9	12.6
+near/17_09.wav	near	She's a hippie.	en_US-libritts_r-medium#721	0.9	-10.1	
+near/17_10.wav	near	That was snappy.	en_US-libritts_r-medium#721	1.1	-21.9	12.8
+near/17_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#721	1.0	-19.7	
+near/17_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#721	0.8	-9.5	21.1
+near/17_13.wav	near	Is it zippable?	en_US-libritts_r-medium#721	1.1	-17.7	10.6
+near/17_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#721	1.0	-25.3	
+neg/17_00.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#721	1.0	-17.8	
+neg/17_01.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#721	0.8	-4.6	13.2
+neg/17_02.wav	neg	That's pretty easy.	en_US-libritts_r-medium#721	1.1	-4.7	
+neg/17_03.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#721	1.0	-1.6	18.6
+neg/17_04.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#721	0.8	-15.7	17.9
+neg/17_05.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#721	1.1	-16.7	13.1
+neg/17_06.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#721	0.9	-16.0	18.7
+neg/17_07.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#721	0.8	-24.9	
+pos/18_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#553	0.8	-22.0	19.2
+pos/18_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#553	1.25	-7.3	13.3
+pos/18_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#553	1.1	-7.4	
+pos/18_03.wav	pos	hey zippy	en_US-libritts_r-medium#553	1.0	-20.8	23.3
+pos/18_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#553	1.25	-11.4	
+pos/18_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#553	1.1	-25.6	19.8
+pos/18_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#553	1.0	-1.5	
+pos/18_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#553	1.0	-25.9	
+mis/18_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#553	0.9	-22.6	18.4
+mis/18_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#553	0.8	-7.6	
+mis/18_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#553	1.0	-18.4	
+mis/18_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#553	1.0	-21.4	11.0
+mis/18_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#553	0.8	-19.6	11.5
+mis/18_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#553	0.8	-15.3	
+near/18_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#553	0.8	-19.1	24.7
+near/18_01.wav	near	Happy birthday!	en_US-libritts_r-medium#553	1.0	-24.5	18.8
+near/18_02.wav	near	Hey Siri.	en_US-libritts_r-medium#553	1.25	-19.9	18.3
+near/18_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#553	1.1	-25.9	
+near/18_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#553	1.25	-9.8	
+near/18_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#553	1.0	-16.5	12.2
+near/18_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#553	0.9	-21.5	11.4
+near/18_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#553	1.1	-14.1	
+near/18_08.wav	near	Hey Zack.	en_US-libritts_r-medium#553	1.0	-24.5	23.7
+near/18_09.wav	near	She's a hippie.	en_US-libritts_r-medium#553	0.9	-15.6	
+near/18_10.wav	near	That was snappy.	en_US-libritts_r-medium#553	0.8	-2.1	16.7
+near/18_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#553	1.25	-7.5	
+near/18_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#553	0.8	-14.4	
+near/18_13.wav	near	Is it zippable?	en_US-libritts_r-medium#553	1.25	-14.4	23.3
+near/18_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#553	1.0	-19.6	10.2
+neg/18_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#553	1.1	-13.1	
+neg/18_01.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#553	0.9	-24.3	11.9
+neg/18_02.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#553	1.1	-8.2	23.4
+neg/18_03.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#553	1.25	-19.6	13.3
+neg/18_04.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#553	0.9	-1.6	19.4
+neg/18_05.wav	neg	I'm listening.	en_US-libritts_r-medium#553	1.1	-4.7	18.9
+neg/18_06.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#553	1.25	-6.7	
+neg/18_07.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#553	0.9	-20.9	
+pos/19_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#677	1.25	-6.9	10.3
+pos/19_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#677	0.8	-16.3	
+pos/19_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#677	1.25	-11.7	17.8
+pos/19_03.wav	pos	hey zippy	en_US-libritts_r-medium#677	1.25	-6.8	13.4
+pos/19_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#677	1.0	-22.4	
+pos/19_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#677	1.0	-21.5	18.0
+pos/19_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#677	0.8	-13.6	11.3
+pos/19_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#677	1.1	-7.0	19.2
+mis/19_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#677	1.0	-17.8	
+mis/19_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#677	1.25	-7.5	
+mis/19_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#677	1.1	-8.3	
+mis/19_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#677	0.9	-10.8	24.2
+mis/19_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#677	1.25	-5.2	16.4
+mis/19_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#677	1.25	-24.7	
+near/19_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#677	0.9	-14.3	
+near/19_01.wav	near	Happy birthday!	en_US-libritts_r-medium#677	1.0	-16.4	
+near/19_02.wav	near	Hey Siri.	en_US-libritts_r-medium#677	1.1	-6.7	13.0
+near/19_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#677	1.0	-4.6	19.2
+near/19_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#677	1.1	-21.4	
+near/19_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#677	1.25	-17.5	
+near/19_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#677	1.25	-23.0	18.5
+near/19_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#677	0.8	-11.7	
+near/19_08.wav	near	Hey Zack.	en_US-libritts_r-medium#677	0.9	-9.2	17.5
+near/19_09.wav	near	She's a hippie.	en_US-libritts_r-medium#677	1.1	-2.5	
+near/19_10.wav	near	That was snappy.	en_US-libritts_r-medium#677	1.1	-2.9	
+near/19_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#677	1.25	-2.1	10.6
+near/19_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#677	1.25	-4.5	23.9
+near/19_13.wav	near	Is it zippable?	en_US-libritts_r-medium#677	0.9	-15.5	23.0
+near/19_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#677	0.9	-25.3	21.1
+neg/19_00.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#677	1.25	-22.4	
+neg/19_01.wav	neg	What do you need?	en_US-libritts_r-medium#677	1.1	-11.0	
+neg/19_02.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#677	1.25	-21.7	10.4
+neg/19_03.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#677	1.1	-4.2	25.0
+neg/19_04.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#677	1.1	-18.9	
+neg/19_05.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#677	0.9	-10.6	15.2
+neg/19_06.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#677	1.1	-25.6	16.0
+neg/19_07.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#677	1.0	-10.7	
+pos/20_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#284	0.8	-23.1	
+pos/20_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#284	1.25	-19.6	16.6
+pos/20_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#284	0.8	-11.3	12.7
+pos/20_03.wav	pos	hey zippy	en_US-libritts_r-medium#284	0.8	-16.5	
+pos/20_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#284	1.25	-13.5	11.6
+pos/20_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#284	0.8	-9.9	
+pos/20_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#284	0.8	-8.0	17.2
+pos/20_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#284	1.1	-22.2	24.3
+mis/20_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#284	1.25	-7.3	
+mis/20_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#284	0.9	-10.4	16.9
+mis/20_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#284	1.25	-3.1	19.7
+mis/20_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#284	1.0	-1.6	24.1
+mis/20_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#284	0.9	-2.1	14.2
+mis/20_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#284	1.1	-5.8	
+near/20_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#284	1.1	-22.4	13.8
+near/20_01.wav	near	Happy birthday!	en_US-libritts_r-medium#284	1.25	-22.0	21.9
+near/20_02.wav	near	Hey Siri.	en_US-libritts_r-medium#284	1.0	-17.9	21.8
+near/20_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#284	1.0	-23.8	11.2
+near/20_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#284	1.25	-14.8	21.5
+near/20_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#284	0.8	-3.5	19.8
+near/20_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#284	0.8	-3.2	19.6
+near/20_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#284	1.25	-25.8	
+near/20_08.wav	near	Hey Zack.	en_US-libritts_r-medium#284	1.1	-4.7	22.5
+near/20_09.wav	near	She's a hippie.	en_US-libritts_r-medium#284	1.0	-20.1	
+near/20_10.wav	near	That was snappy.	en_US-libritts_r-medium#284	1.0	-1.1	
+near/20_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#284	1.0	-2.8	
+near/20_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#284	1.0	-1.3	24.6
+near/20_13.wav	near	Is it zippable?	en_US-libritts_r-medium#284	0.9	-17.1	24.2
+near/20_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#284	0.9	-2.8	14.2
+neg/20_00.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#284	0.9	-8.5	18.7
+neg/20_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#284	1.25	-10.0	20.8
+neg/20_02.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#284	0.8	-1.9	19.8
+neg/20_03.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#284	0.9	-4.3	17.6
+neg/20_04.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#284	1.1	-14.9	
+neg/20_05.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#284	1.25	-21.4	
+neg/20_06.wav	neg	What do you need?	en_US-libritts_r-medium#284	1.1	-12.7	
+neg/20_07.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#284	1.1	-19.4	
+pos/21_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#112	0.9	-17.4	
+pos/21_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#112	1.1	-19.9	
+pos/21_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#112	0.9	-24.0	12.6
+pos/21_03.wav	pos	hey zippy	en_US-libritts_r-medium#112	1.0	-24.9	
+pos/21_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#112	1.25	-20.8	
+pos/21_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#112	1.25	-17.2	22.4
+pos/21_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#112	0.9	-6.5	20.0
+pos/21_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#112	0.8	-4.6	
+mis/21_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#112	0.8	-19.1	
+mis/21_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#112	1.0	-4.6	
+mis/21_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#112	1.1	-24.6	21.1
+mis/21_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#112	1.1	-19.3	19.5
+mis/21_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#112	1.1	-4.5	
+mis/21_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#112	0.8	-3.1	
+near/21_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#112	1.0	-16.4	20.6
+near/21_01.wav	near	Happy birthday!	en_US-libritts_r-medium#112	1.0	-4.6	
+near/21_02.wav	near	Hey Siri.	en_US-libritts_r-medium#112	1.1	-6.6	10.8
+near/21_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#112	1.1	-2.8	
+near/21_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#112	0.8	-5.2	
+near/21_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#112	0.8	-19.1	23.6
+near/21_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#112	1.1	-2.2	18.7
+near/21_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#112	1.1	-11.1	22.8
+near/21_08.wav	near	Hey Zack.	en_US-libritts_r-medium#112	1.25	-7.9	17.5
+near/21_09.wav	near	She's a hippie.	en_US-libritts_r-medium#112	1.1	-13.7	
+near/21_10.wav	near	That was snappy.	en_US-libritts_r-medium#112	1.0	-7.2	13.4
+near/21_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#112	0.8	-16.6	16.4
+near/21_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#112	1.25	-14.9	18.0
+near/21_13.wav	near	Is it zippable?	en_US-libritts_r-medium#112	0.9	-1.6	
+near/21_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#112	1.1	-14.4	
+neg/21_00.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#112	1.1	-11.3	18.7
+neg/21_01.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#112	0.8	-12.4	18.8
+neg/21_02.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#112	1.25	-6.1	
+neg/21_03.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#112	1.1	-5.9	
+neg/21_04.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#112	0.9	-22.0	10.6
+neg/21_05.wav	neg	What do you need?	en_US-libritts_r-medium#112	1.1	-18.0	12.7
+neg/21_06.wav	neg	That's pretty easy.	en_US-libritts_r-medium#112	1.25	-24.4	
+neg/21_07.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#112	0.9	-10.2	
+pos/22_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#27	1.25	-19.2	
+pos/22_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#27	1.0	-20.6	21.0
+pos/22_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#27	1.0	-24.5	
+pos/22_03.wav	pos	hey zippy	en_US-libritts_r-medium#27	0.9	-9.7	
+pos/22_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#27	0.9	-25.6	11.4
+pos/22_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#27	0.8	-2.5	12.8
+pos/22_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#27	0.8	-11.7	
+pos/22_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#27	0.9	-19.3	
+mis/22_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#27	1.0	-12.1	10.9
+mis/22_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#27	0.8	-20.8	
+mis/22_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#27	1.0	-11.7	
+mis/22_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#27	1.1	-2.2	
+mis/22_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#27	0.9	-17.6	24.5
+mis/22_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#27	1.0	-22.3	12.0
+near/22_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#27	0.8	-10.3	
+near/22_01.wav	near	Happy birthday!	en_US-libritts_r-medium#27	0.8	-18.2	
+near/22_02.wav	near	Hey Siri.	en_US-libritts_r-medium#27	1.1	-17.6	17.7
+near/22_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#27	0.8	-10.8	
+near/22_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#27	1.0	-2.3	
+near/22_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#27	1.1	-13.9	10.5
+near/22_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#27	0.9	-16.6	14.2
+near/22_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#27	0.8	-6.1	14.2
+near/22_08.wav	near	Hey Zack.	en_US-libritts_r-medium#27	1.25	-6.4	15.9
+near/22_09.wav	near	She's a hippie.	en_US-libritts_r-medium#27	0.9	-21.6	24.1
+near/22_10.wav	near	That was snappy.	en_US-libritts_r-medium#27	1.0	-8.8	
+near/22_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#27	1.25	-10.7	
+near/22_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#27	1.1	-4.7	
+near/22_13.wav	near	Is it zippable?	en_US-libritts_r-medium#27	0.9	-14.6	
+near/22_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#27	0.8	-1.5	14.3
+neg/22_00.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#27	1.25	-15.3	20.1
+neg/22_01.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#27	0.9	-21.0	12.1
+neg/22_02.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#27	0.9	-21.3	14.8
+neg/22_03.wav	neg	What do you need?	en_US-libritts_r-medium#27	1.25	-20.3	22.6
+neg/22_04.wav	neg	Hey, what's up?	en_US-libritts_r-medium#27	0.9	-23.0	
+neg/22_05.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#27	0.8	-22.3	15.7
+neg/22_06.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#27	1.25	-25.1	19.7
+neg/22_07.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#27	0.8	-10.8	21.4
+pos/23_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#254	1.0	-5.5	14.1
+pos/23_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#254	0.9	-14.1	23.5
+pos/23_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#254	1.1	-1.4	21.7
+pos/23_03.wav	pos	hey zippy	en_US-libritts_r-medium#254	0.8	-16.6	13.1
+pos/23_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#254	1.0	-15.3	
+pos/23_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#254	0.8	-9.3	
+pos/23_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#254	1.0	-10.2	
+pos/23_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#254	1.25	-14.4	
+mis/23_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#254	1.25	-3.4	
+mis/23_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#254	0.9	-15.1	
+mis/23_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#254	1.0	-14.7	
+mis/23_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#254	1.25	-20.0	13.2
+mis/23_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#254	1.1	-9.1	23.9
+mis/23_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#254	1.1	-22.7	
+near/23_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#254	0.9	-2.7	
+near/23_01.wav	near	Happy birthday!	en_US-libritts_r-medium#254	0.8	-17.0	
+near/23_02.wav	near	Hey Siri.	en_US-libritts_r-medium#254	1.25	-9.1	
+near/23_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#254	1.25	-9.2	10.5
+near/23_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#254	0.9	-17.7	
+near/23_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#254	1.25	-5.5	11.2
+near/23_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#254	1.0	-8.9	
+near/23_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#254	1.1	-17.2	
+near/23_08.wav	near	Hey Zack.	en_US-libritts_r-medium#254	1.25	-10.0	
+near/23_09.wav	near	She's a hippie.	en_US-libritts_r-medium#254	0.9	-16.3	
+near/23_10.wav	near	That was snappy.	en_US-libritts_r-medium#254	1.1	-24.4	
+near/23_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#254	0.9	-5.0	
+near/23_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#254	0.8	-22.3	19.7
+near/23_13.wav	near	Is it zippable?	en_US-libritts_r-medium#254	0.8	-22.9	
+near/23_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#254	1.0	-25.7	
+neg/23_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#254	0.9	-24.3	
+neg/23_01.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#254	0.9	-23.9	
+neg/23_02.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#254	0.9	-17.3	16.8
+neg/23_03.wav	neg	I'm listening.	en_US-libritts_r-medium#254	0.9	-12.0	
+neg/23_04.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#254	0.8	-20.7	
+neg/23_05.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#254	0.8	-16.6	17.4
+neg/23_06.wav	neg	Hey, what's up?	en_US-libritts_r-medium#254	0.8	-25.6	13.9
+neg/23_07.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#254	1.25	-2.4	23.4
+pos/24_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#393	0.8	-19.5	23.4
+pos/24_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#393	0.9	-11.6	
+pos/24_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#393	1.25	-19.8	
+pos/24_03.wav	pos	hey zippy	en_US-libritts_r-medium#393	0.8	-6.0	21.7
+pos/24_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#393	1.0	-22.6	17.1
+pos/24_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#393	1.1	-10.1	10.1
+pos/24_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#393	0.9	-8.6	12.2
+pos/24_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#393	1.0	-6.9	16.7
+mis/24_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#393	0.8	-17.8	17.2
+mis/24_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#393	0.9	-7.6	16.3
+mis/24_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#393	1.0	-17.9	
+mis/24_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#393	0.9	-11.8	
+mis/24_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#393	1.0	-12.6	21.2
+mis/24_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#393	1.1	-15.0	
+near/24_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#393	1.0	-5.9	
+near/24_01.wav	near	Happy birthday!	en_US-libritts_r-medium#393	1.25	-12.2	24.6
+near/24_02.wav	near	Hey Siri.	en_US-libritts_r-medium#393	0.8	-23.2	
+near/24_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#393	1.0	-21.8	
+near/24_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#393	0.9	-20.7	23.2
+near/24_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#393	1.25	-18.7	
+near/24_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#393	1.25	-12.1	
+near/24_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#393	1.25	-8.3	12.9
+near/24_08.wav	near	Hey Zack.	en_US-libritts_r-medium#393	1.0	-23.6	
+near/24_09.wav	near	She's a hippie.	en_US-libritts_r-medium#393	1.0	-9.7	21.1
+near/24_10.wav	near	That was snappy.	en_US-libritts_r-medium#393	1.25	-18.8	
+near/24_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#393	0.9	-25.5	
+near/24_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#393	1.25	-21.2	12.1
+near/24_13.wav	near	Is it zippable?	en_US-libritts_r-medium#393	1.1	-10.1	
+near/24_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#393	1.1	-1.8	
+neg/24_00.wav	neg	I'm listening.	en_US-libritts_r-medium#393	1.0	-6.2	
+neg/24_01.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#393	1.1	-1.2	
+neg/24_02.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#393	1.1	-8.7	
+neg/24_03.wav	neg	What do you need?	en_US-libritts_r-medium#393	1.1	-5.2	
+neg/24_04.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#393	0.8	-4.8	
+neg/24_05.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#393	1.25	-13.2	11.7
+neg/24_06.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#393	1.1	-20.9	18.4
+neg/24_07.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#393	1.25	-25.1	
+pos/25_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#834	0.9	-3.4	24.4
+pos/25_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#834	1.0	-4.2	
+pos/25_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#834	0.9	-15.6	
+pos/25_03.wav	pos	hey zippy	en_US-libritts_r-medium#834	1.0	-5.2	
+pos/25_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#834	1.0	-8.8	
+pos/25_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#834	0.9	-6.4	
+pos/25_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#834	0.8	-24.3	23.4
+pos/25_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#834	1.1	-24.5	
+mis/25_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#834	1.1	-10.0	20.5
+mis/25_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#834	0.9	-4.6	23.0
+mis/25_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#834	1.0	-24.0	
+mis/25_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#834	0.9	-25.2	12.5
+mis/25_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#834	1.1	-10.5	
+mis/25_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#834	0.9	-5.1	
+near/25_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#834	1.0	-19.7	
+near/25_01.wav	near	Happy birthday!	en_US-libritts_r-medium#834	1.25	-18.2	
+near/25_02.wav	near	Hey Siri.	en_US-libritts_r-medium#834	1.1	-24.5	
+near/25_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#834	1.1	-3.9	12.1
+near/25_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#834	1.0	-14.5	
+near/25_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#834	1.0	-16.2	
+near/25_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#834	1.0	-12.0	20.4
+near/25_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#834	1.1	-4.6	11.2
+near/25_08.wav	near	Hey Zack.	en_US-libritts_r-medium#834	1.0	-1.4	
+near/25_09.wav	near	She's a hippie.	en_US-libritts_r-medium#834	1.0	-15.2	
+near/25_10.wav	near	That was snappy.	en_US-libritts_r-medium#834	0.9	-7.2	
+near/25_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#834	1.25	-2.9	
+near/25_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#834	1.1	-2.3	21.4
+near/25_13.wav	near	Is it zippable?	en_US-libritts_r-medium#834	0.9	-11.4	18.7
+near/25_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#834	0.8	-5.4	
+neg/25_00.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#834	1.0	-2.0	
+neg/25_01.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#834	0.9	-7.0	
+neg/25_02.wav	neg	That's pretty easy.	en_US-libritts_r-medium#834	1.1	-2.6	19.6
+neg/25_03.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#834	1.0	-17.6	
+neg/25_04.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#834	0.8	-23.3	
+neg/25_05.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#834	0.9	-17.2	24.3
+neg/25_06.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#834	1.1	-24.4	13.8
+neg/25_07.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#834	0.9	-13.2	17.5
+pos/26_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#764	0.8	-3.8	
+pos/26_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#764	1.25	-21.0	22.3
+pos/26_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#764	0.9	-11.6	15.6
+pos/26_03.wav	pos	hey zippy	en_US-libritts_r-medium#764	0.8	-19.5	17.7
+pos/26_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#764	0.8	-1.0	
+pos/26_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#764	1.1	-23.9	
+pos/26_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#764	0.8	-21.6	
+pos/26_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#764	1.0	-9.6	
+mis/26_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#764	1.1	-9.4	10.6
+mis/26_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#764	0.8	-21.9	15.7
+mis/26_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#764	1.0	-11.7	
+mis/26_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#764	1.0	-24.7	
+mis/26_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#764	1.1	-20.4	10.0
+mis/26_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#764	0.9	-25.6	
+near/26_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#764	1.25	-4.5	15.2
+near/26_01.wav	near	Happy birthday!	en_US-libritts_r-medium#764	0.8	-13.5	23.3
+near/26_02.wav	near	Hey Siri.	en_US-libritts_r-medium#764	1.0	-1.7	12.3
+near/26_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#764	1.1	-3.3	
+near/26_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#764	0.8	-6.0	11.0
+near/26_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#764	1.1	-22.6	
+near/26_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#764	1.1	-14.1	
+near/26_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#764	1.0	-11.8	
+near/26_08.wav	near	Hey Zack.	en_US-libritts_r-medium#764	1.1	-18.7	
+near/26_09.wav	near	She's a hippie.	en_US-libritts_r-medium#764	1.25	-3.8	
+near/26_10.wav	near	That was snappy.	en_US-libritts_r-medium#764	1.0	-18.8	
+near/26_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#764	1.0	-5.8	
+near/26_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#764	1.1	-4.0	12.4
+near/26_13.wav	near	Is it zippable?	en_US-libritts_r-medium#764	0.8	-21.0	21.0
+near/26_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#764	0.9	-15.8	
+neg/26_00.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#764	0.8	-10.4	24.5
+neg/26_01.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#764	1.25	-16.0	
+neg/26_02.wav	neg	I'm listening.	en_US-libritts_r-medium#764	0.9	-13.7	
+neg/26_03.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#764	0.8	-7.1	
+neg/26_04.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#764	0.9	-24.8	
+neg/26_05.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#764	0.9	-9.9	
+neg/26_06.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#764	1.1	-20.7	14.0
+neg/26_07.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#764	1.1	-11.2	17.8
+pos/27_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#429	1.0	-12.1	17.3
+pos/27_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#429	1.0	-6.7	
+pos/27_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#429	0.8	-10.8	
+pos/27_03.wav	pos	hey zippy	en_US-libritts_r-medium#429	1.0	-13.1	
+pos/27_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#429	1.25	-3.9	21.9
+pos/27_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#429	1.25	-22.0	
+pos/27_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#429	1.0	-4.1	
+pos/27_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#429	1.0	-9.9	
+mis/27_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#429	1.25	-9.0	21.4
+mis/27_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#429	0.8	-1.3	13.9
+mis/27_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#429	0.9	-11.7	
+mis/27_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#429	1.1	-7.2	
+mis/27_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#429	0.8	-9.7	
+mis/27_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#429	0.8	-11.1	
+near/27_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#429	1.25	-8.2	16.8
+near/27_01.wav	near	Happy birthday!	en_US-libritts_r-medium#429	1.0	-25.4	
+near/27_02.wav	near	Hey Siri.	en_US-libritts_r-medium#429	1.0	-17.7	
+near/27_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#429	0.8	-11.9	10.2
+near/27_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#429	1.25	-21.7	10.4
+near/27_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#429	1.25	-11.6	21.9
+near/27_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#429	0.9	-14.8	
+near/27_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#429	1.1	-16.4	
+near/27_08.wav	near	Hey Zack.	en_US-libritts_r-medium#429	0.9	-4.6	
+near/27_09.wav	near	She's a hippie.	en_US-libritts_r-medium#429	1.1	-11.6	14.6
+near/27_10.wav	near	That was snappy.	en_US-libritts_r-medium#429	1.25	-19.6	25.0
+near/27_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#429	1.1	-15.9	18.0
+near/27_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#429	1.25	-25.7	10.4
+near/27_13.wav	near	Is it zippable?	en_US-libritts_r-medium#429	0.8	-15.7	19.9
+near/27_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#429	1.1	-9.0	21.5
+neg/27_00.wav	neg	Hey, what's up?	en_US-libritts_r-medium#429	0.9	-6.5	14.8
+neg/27_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#429	1.0	-25.8	18.9
+neg/27_02.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#429	1.25	-3.4	
+neg/27_03.wav	neg	I'm listening.	en_US-libritts_r-medium#429	0.8	-14.7	
+neg/27_04.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#429	1.0	-16.7	20.0
+neg/27_05.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#429	1.25	-24.5	10.6
+neg/27_06.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#429	0.8	-21.4	
+neg/27_07.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#429	1.1	-21.3	21.4
+pos/28_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#258	1.0	-21.4	
+pos/28_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#258	1.0	-18.1	
+pos/28_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#258	0.9	-25.4	25.0
+pos/28_03.wav	pos	hey zippy	en_US-libritts_r-medium#258	0.8	-2.6	
+pos/28_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#258	1.25	-15.7	
+pos/28_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#258	0.8	-8.6	17.6
+pos/28_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#258	0.9	-8.2	
+pos/28_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#258	1.1	-15.7	
+mis/28_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#258	1.25	-1.1	
+mis/28_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#258	0.9	-19.0	21.2
+mis/28_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#258	0.8	-16.8	13.5
+mis/28_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#258	1.25	-24.2	24.6
+mis/28_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#258	1.0	-7.1	14.8
+mis/28_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#258	1.25	-8.0	13.8
+near/28_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#258	1.1	-18.3	
+near/28_01.wav	near	Happy birthday!	en_US-libritts_r-medium#258	1.1	-9.7	18.4
+near/28_02.wav	near	Hey Siri.	en_US-libritts_r-medium#258	0.8	-8.3	
+near/28_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#258	0.8	-5.0	21.7
+near/28_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#258	0.8	-9.5	21.5
+near/28_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#258	1.1	-18.0	10.7
+near/28_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#258	0.9	-9.9	
+near/28_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#258	0.9	-16.8	
+near/28_08.wav	near	Hey Zack.	en_US-libritts_r-medium#258	0.8	-10.3	
+near/28_09.wav	near	She's a hippie.	en_US-libritts_r-medium#258	1.0	-15.1	13.8
+near/28_10.wav	near	That was snappy.	en_US-libritts_r-medium#258	1.0	-17.5	14.3
+near/28_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#258	1.0	-4.7	
+near/28_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#258	0.8	-7.6	17.4
+near/28_13.wav	near	Is it zippable?	en_US-libritts_r-medium#258	1.1	-17.5	
+near/28_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#258	1.1	-23.3	
+neg/28_00.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#258	1.25	-18.8	10.9
+neg/28_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#258	0.9	-4.8	
+neg/28_02.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#258	0.9	-5.4	
+neg/28_03.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#258	1.25	-24.5	
+neg/28_04.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#258	1.1	-13.5	16.1
+neg/28_05.wav	neg	I'm listening.	en_US-libritts_r-medium#258	1.0	-11.4	23.3
+neg/28_06.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#258	0.8	-2.1	13.4
+neg/28_07.wav	neg	Hey, what's up?	en_US-libritts_r-medium#258	1.25	-17.4	20.9
+pos/29_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#880	0.9	-8.8	
+pos/29_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#880	1.0	-18.2	
+pos/29_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#880	0.8	-11.0	18.9
+pos/29_03.wav	pos	hey zippy	en_US-libritts_r-medium#880	0.9	-19.7	
+pos/29_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#880	1.0	-5.6	22.6
+pos/29_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#880	1.25	-13.7	17.6
+pos/29_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#880	0.8	-15.2	
+pos/29_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#880	0.8	-5.1	12.1
+mis/29_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#880	0.8	-5.4	
+mis/29_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#880	0.9	-1.5	
+mis/29_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#880	1.0	-11.3	
+mis/29_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#880	1.1	-11.7	
+mis/29_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#880	1.25	-11.6	
+mis/29_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#880	1.1	-20.1	18.4
+near/29_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#880	0.9	-6.8	
+near/29_01.wav	near	Happy birthday!	en_US-libritts_r-medium#880	1.25	-10.7	
+near/29_02.wav	near	Hey Siri.	en_US-libritts_r-medium#880	0.8	-24.3	17.2
+near/29_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#880	1.25	-25.4	
+near/29_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#880	0.8	-23.5	23.6
+near/29_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#880	1.25	-17.1	13.2
+near/29_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#880	0.8	-14.2	
+near/29_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#880	1.25	-25.4	
+near/29_08.wav	near	Hey Zack.	en_US-libritts_r-medium#880	0.9	-9.5	14.0
+near/29_09.wav	near	She's a hippie.	en_US-libritts_r-medium#880	1.0	-9.1	21.1
+near/29_10.wav	near	That was snappy.	en_US-libritts_r-medium#880	1.0	-13.0	14.1
+near/29_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#880	1.25	-25.0	
+near/29_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#880	1.1	-8.3	
+near/29_13.wav	near	Is it zippable?	en_US-libritts_r-medium#880	1.1	-25.7	16.8
+near/29_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#880	1.0	-7.5	19.9
+neg/29_00.wav	neg	That's pretty easy.	en_US-libritts_r-medium#880	1.1	-7.5	21.3
+neg/29_01.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#880	1.25	-2.3	17.0
+neg/29_02.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#880	1.0	-21.4	10.1
+neg/29_03.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#880	0.8	-23.6	19.1
+neg/29_04.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#880	1.25	-19.3	14.3
+neg/29_05.wav	neg	I'm listening.	en_US-libritts_r-medium#880	1.0	-20.7	23.2
+neg/29_06.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#880	0.8	-4.7	14.8
+neg/29_07.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#880	0.8	-1.0	
+pos/30_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#513	0.8	-22.7	
+pos/30_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#513	0.9	-1.2	24.2
+pos/30_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#513	1.1	-2.5	
+pos/30_03.wav	pos	hey zippy	en_US-libritts_r-medium#513	0.8	-16.3	11.0
+pos/30_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#513	1.0	-24.5	16.4
+pos/30_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#513	1.1	-8.5	
+pos/30_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#513	1.25	-21.2	10.0
+pos/30_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#513	0.8	-4.0	
+mis/30_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#513	1.25	-14.1	
+mis/30_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#513	1.0	-6.5	18.4
+mis/30_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#513	0.8	-16.3	
+mis/30_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#513	1.0	-12.8	17.9
+mis/30_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#513	1.25	-3.9	20.2
+mis/30_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#513	1.1	-18.0	20.7
+near/30_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#513	0.8	-13.4	
+near/30_01.wav	near	Happy birthday!	en_US-libritts_r-medium#513	0.8	-4.5	
+near/30_02.wav	near	Hey Siri.	en_US-libritts_r-medium#513	1.25	-5.8	19.8
+near/30_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#513	1.0	-1.5	24.4
+near/30_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#513	1.0	-2.0	
+near/30_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#513	1.0	-22.5	
+near/30_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#513	0.8	-7.8	17.3
+near/30_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#513	1.0	-1.9	17.3
+near/30_08.wav	near	Hey Zack.	en_US-libritts_r-medium#513	1.0	-13.5	
+near/30_09.wav	near	She's a hippie.	en_US-libritts_r-medium#513	0.9	-20.7	
+near/30_10.wav	near	That was snappy.	en_US-libritts_r-medium#513	1.0	-8.7	
+near/30_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#513	1.25	-4.2	11.8
+near/30_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#513	0.9	-21.4	
+near/30_13.wav	near	Is it zippable?	en_US-libritts_r-medium#513	1.0	-8.6	
+near/30_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#513	0.8	-10.5	
+neg/30_00.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#513	1.25	-5.9	19.2
+neg/30_01.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#513	1.0	-3.8	17.7
+neg/30_02.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#513	1.1	-7.2	
+neg/30_03.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#513	0.9	-24.8	21.7
+neg/30_04.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#513	0.9	-17.2	
+neg/30_05.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#513	0.9	-22.4	
+neg/30_06.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#513	0.8	-22.8	
+neg/30_07.wav	neg	I'm listening.	en_US-libritts_r-medium#513	0.8	-14.0	
+pos/31_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#821	1.0	-14.1	21.2
+pos/31_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#821	1.1	-13.5	14.2
+pos/31_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#821	0.8	-5.9	
+pos/31_03.wav	pos	hey zippy	en_US-libritts_r-medium#821	1.1	-19.1	20.9
+pos/31_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#821	1.0	-15.2	13.5
+pos/31_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#821	1.0	-5.5	
+pos/31_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#821	1.0	-16.5	
+pos/31_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#821	1.1	-18.0	17.8
+mis/31_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#821	1.0	-9.1	20.6
+mis/31_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#821	0.8	-21.6	
+mis/31_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#821	1.1	-22.0	14.4
+mis/31_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#821	0.8	-7.8	
+mis/31_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#821	1.0	-17.7	
+mis/31_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#821	1.25	-19.5	23.4
+near/31_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#821	0.9	-2.4	
+near/31_01.wav	near	Happy birthday!	en_US-libritts_r-medium#821	0.9	-4.6	
+near/31_02.wav	near	Hey Siri.	en_US-libritts_r-medium#821	1.0	-18.7	
+near/31_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#821	0.9	-16.5	
+near/31_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#821	1.0	-2.4	
+near/31_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#821	0.9	-12.0	13.6
+near/31_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#821	1.0	-8.8	23.7
+near/31_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#821	1.25	-12.1	13.5
+near/31_08.wav	near	Hey Zack.	en_US-libritts_r-medium#821	0.9	-10.3	
+near/31_09.wav	near	She's a hippie.	en_US-libritts_r-medium#821	0.8	-20.2	16.8
+near/31_10.wav	near	That was snappy.	en_US-libritts_r-medium#821	1.0	-14.5	11.8
+near/31_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#821	0.9	-21.1	
+near/31_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#821	1.1	-4.2	
+near/31_13.wav	near	Is it zippable?	en_US-libritts_r-medium#821	0.9	-20.2	16.2
+near/31_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#821	0.8	-18.4	
+neg/31_00.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#821	0.8	-15.4	
+neg/31_01.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#821	0.8	-17.8	22.0
+neg/31_02.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#821	0.8	-9.6	
+neg/31_03.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#821	0.9	-16.1	23.4
+neg/31_04.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#821	1.1	-10.9	
+neg/31_05.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#821	0.9	-16.5	
+neg/31_06.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#821	0.9	-10.2	
+neg/31_07.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#821	1.0	-18.3	11.2
+pos/32_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#325	1.1	-6.3	21.5
+pos/32_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#325	1.1	-1.4	
+pos/32_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#325	1.0	-17.2	
+pos/32_03.wav	pos	hey zippy	en_US-libritts_r-medium#325	1.25	-11.9	18.7
+pos/32_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#325	0.8	-5.8	15.2
+pos/32_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#325	0.8	-10.5	
+pos/32_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#325	1.25	-6.8	16.7
+pos/32_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#325	0.8	-23.3	12.9
+mis/32_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#325	1.25	-8.0	
+mis/32_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#325	1.25	-18.9	10.9
+mis/32_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#325	1.25	-20.5	
+mis/32_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#325	0.9	-18.9	
+mis/32_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#325	1.0	-25.0	13.4
+mis/32_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#325	0.8	-10.5	11.6
+near/32_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#325	1.1	-9.2	
+near/32_01.wav	near	Happy birthday!	en_US-libritts_r-medium#325	1.1	-5.4	
+near/32_02.wav	near	Hey Siri.	en_US-libritts_r-medium#325	1.25	-2.1	11.7
+near/32_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#325	0.9	-23.8	23.7
+near/32_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#325	1.25	-26.0	
+near/32_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#325	1.1	-18.0	
+near/32_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#325	1.0	-14.8	10.5
+near/32_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#325	1.25	-15.4	
+near/32_08.wav	near	Hey Zack.	en_US-libritts_r-medium#325	1.25	-10.9	
+near/32_09.wav	near	She's a hippie.	en_US-libritts_r-medium#325	0.9	-1.6	
+near/32_10.wav	near	That was snappy.	en_US-libritts_r-medium#325	0.9	-24.0	14.9
+near/32_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#325	0.8	-13.0	
+near/32_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#325	0.8	-21.0	15.9
+near/32_13.wav	near	Is it zippable?	en_US-libritts_r-medium#325	0.8	-18.0	24.5
+near/32_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#325	1.0	-25.8	
+neg/32_00.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#325	0.9	-14.7	19.1
+neg/32_01.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#325	1.1	-20.9	
+neg/32_02.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#325	0.9	-3.1	
+neg/32_03.wav	neg	That's pretty easy.	en_US-libritts_r-medium#325	0.9	-24.5	11.8
+neg/32_04.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#325	0.9	-5.3	
+neg/32_05.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#325	1.25	-20.9	
+neg/32_06.wav	neg	I'm listening.	en_US-libritts_r-medium#325	1.1	-3.9	
+neg/32_07.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#325	0.8	-11.5	10.2
+pos/33_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#655	1.25	-2.4	
+pos/33_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#655	0.9	-20.1	
+pos/33_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#655	1.0	-5.7	
+pos/33_03.wav	pos	hey zippy	en_US-libritts_r-medium#655	0.9	-17.8	17.6
+pos/33_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#655	0.9	-25.2	
+pos/33_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#655	1.25	-9.6	18.3
+pos/33_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#655	0.9	-1.7	
+pos/33_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#655	1.25	-3.3	22.1
+mis/33_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#655	1.25	-1.9	21.2
+mis/33_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#655	0.8	-8.0	
+mis/33_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#655	0.8	-18.4	
+mis/33_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#655	0.8	-8.4	
+mis/33_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#655	1.0	-13.8	
+mis/33_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#655	1.0	-6.5	12.0
+near/33_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#655	1.0	-1.1	13.3
+near/33_01.wav	near	Happy birthday!	en_US-libritts_r-medium#655	0.9	-4.6	19.9
+near/33_02.wav	near	Hey Siri.	en_US-libritts_r-medium#655	0.8	-19.3	
+near/33_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#655	1.1	-13.8	
+near/33_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#655	1.0	-24.8	20.0
+near/33_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#655	0.9	-7.1	24.5
+near/33_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#655	1.0	-25.4	
+near/33_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#655	0.9	-18.1	18.3
+near/33_08.wav	near	Hey Zack.	en_US-libritts_r-medium#655	0.8	-5.0	
+near/33_09.wav	near	She's a hippie.	en_US-libritts_r-medium#655	0.8	-18.7	12.6
+near/33_10.wav	near	That was snappy.	en_US-libritts_r-medium#655	0.9	-22.7	
+near/33_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#655	0.9	-3.4	
+near/33_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#655	1.1	-21.3	
+near/33_13.wav	near	Is it zippable?	en_US-libritts_r-medium#655	1.0	-8.9	15.8
+near/33_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#655	1.0	-13.0	14.7
+neg/33_00.wav	neg	Hey Google, set a timer.	en_US-libritts_r-medium#655	0.9	-24.3	13.8
+neg/33_01.wav	neg	I'm listening.	en_US-libritts_r-medium#655	0.9	-9.3	21.6
+neg/33_02.wav	neg	That's pretty easy.	en_US-libritts_r-medium#655	0.9	-2.4	14.7
+neg/33_03.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#655	1.1	-22.1	20.8
+neg/33_04.wav	neg	Hey, what's up?	en_US-libritts_r-medium#655	1.1	-7.1	18.4
+neg/33_05.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#655	0.9	-15.0	
+neg/33_06.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#655	1.1	-21.1	13.9
+neg/33_07.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#655	1.25	-18.0	
+pos/34_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#866	1.1	-15.1	18.7
+pos/34_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#866	1.0	-10.4	
+pos/34_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#866	1.0	-9.3	
+pos/34_03.wav	pos	hey zippy	en_US-libritts_r-medium#866	0.9	-23.1	
+pos/34_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#866	1.1	-25.0	
+pos/34_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#866	1.1	-14.4	
+pos/34_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#866	1.0	-4.5	
+pos/34_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#866	0.8	-19.8	22.6
+mis/34_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#866	0.9	-11.7	19.4
+mis/34_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#866	1.25	-24.6	10.1
+mis/34_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#866	1.25	-3.5	
+mis/34_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#866	1.25	-3.3	19.6
+mis/34_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#866	1.0	-24.6	15.4
+mis/34_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#866	1.0	-2.4	11.9
+near/34_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#866	1.0	-13.0	10.1
+near/34_01.wav	near	Happy birthday!	en_US-libritts_r-medium#866	1.25	-8.6	11.4
+near/34_02.wav	near	Hey Siri.	en_US-libritts_r-medium#866	0.9	-14.5	
+near/34_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#866	1.25	-22.3	18.7
+near/34_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#866	1.0	-17.1	11.8
+near/34_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#866	0.8	-18.0	24.6
+near/34_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#866	0.8	-14.0	
+near/34_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#866	0.9	-25.8	
+near/34_08.wav	near	Hey Zack.	en_US-libritts_r-medium#866	0.9	-1.9	
+near/34_09.wav	near	She's a hippie.	en_US-libritts_r-medium#866	1.1	-13.4	
+near/34_10.wav	near	That was snappy.	en_US-libritts_r-medium#866	1.0	-22.7	
+near/34_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#866	1.1	-16.7	
+near/34_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#866	0.9	-19.7	
+near/34_13.wav	near	Is it zippable?	en_US-libritts_r-medium#866	1.25	-8.8	22.8
+near/34_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#866	1.25	-15.3	
+neg/34_00.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#866	1.1	-25.8	
+neg/34_01.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#866	1.25	-15.2	
+neg/34_02.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#866	1.25	-24.8	
+neg/34_03.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#866	0.8	-5.7	
+neg/34_04.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#866	1.1	-10.4	
+neg/34_05.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#866	1.0	-24.1	
+neg/34_06.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#866	1.1	-1.2	
+neg/34_07.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#866	1.0	-14.0	10.8
+pos/35_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#700	0.9	-25.7	13.1
+pos/35_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#700	1.25	-13.9	
+pos/35_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#700	1.25	-2.7	10.7
+pos/35_03.wav	pos	hey zippy	en_US-libritts_r-medium#700	1.25	-23.4	
+pos/35_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#700	1.0	-13.1	
+pos/35_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#700	1.1	-19.8	
+pos/35_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#700	1.1	-23.5	
+pos/35_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#700	1.1	-15.7	
+mis/35_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#700	1.25	-2.8	22.0
+mis/35_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#700	0.9	-14.3	
+mis/35_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#700	0.8	-7.2	15.8
+mis/35_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#700	1.1	-23.7	
+mis/35_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#700	1.1	-4.8	
+mis/35_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#700	1.25	-16.8	
+near/35_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#700	1.1	-19.4	11.4
+near/35_01.wav	near	Happy birthday!	en_US-libritts_r-medium#700	0.9	-19.3	
+near/35_02.wav	near	Hey Siri.	en_US-libritts_r-medium#700	0.8	-3.6	
+near/35_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#700	1.1	-15.6	
+near/35_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#700	1.25	-15.7	24.2
+near/35_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#700	0.8	-14.3	
+near/35_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#700	1.0	-8.1	17.4
+near/35_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#700	0.8	-18.9	
+near/35_08.wav	near	Hey Zack.	en_US-libritts_r-medium#700	0.9	-15.2	13.2
+near/35_09.wav	near	She's a hippie.	en_US-libritts_r-medium#700	1.1	-13.0	
+near/35_10.wav	near	That was snappy.	en_US-libritts_r-medium#700	1.1	-22.4	15.0
+near/35_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#700	1.0	-5.5	
+near/35_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#700	0.9	-17.5	
+near/35_13.wav	near	Is it zippable?	en_US-libritts_r-medium#700	0.8	-15.5	18.0
+near/35_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#700	0.9	-23.7	
+neg/35_00.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#700	1.0	-13.9	
+neg/35_01.wav	neg	Hey, what's up?	en_US-libritts_r-medium#700	1.25	-1.5	11.0
+neg/35_02.wav	neg	That's pretty easy.	en_US-libritts_r-medium#700	1.0	-18.8	21.6
+neg/35_03.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#700	0.8	-18.3	
+neg/35_04.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#700	1.25	-20.4	
+neg/35_05.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#700	1.25	-25.4	23.7
+neg/35_06.wav	neg	I'm listening.	en_US-libritts_r-medium#700	1.1	-17.6	
+neg/35_07.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#700	0.8	-24.2	
+pos/36_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#741	1.25	-15.1	
+pos/36_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#741	1.25	-25.8	22.5
+pos/36_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#741	0.9	-14.8	
+pos/36_03.wav	pos	hey zippy	en_US-libritts_r-medium#741	0.9	-8.5	
+pos/36_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#741	1.1	-9.0	17.7
+pos/36_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#741	1.25	-8.8	10.6
+pos/36_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#741	0.8	-8.7	16.5
+pos/36_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#741	0.9	-17.3	
+mis/36_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#741	0.9	-1.4	17.0
+mis/36_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#741	1.1	-5.1	
+mis/36_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#741	0.8	-20.7	23.7
+mis/36_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#741	1.25	-16.7	
+mis/36_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#741	1.25	-5.4	
+mis/36_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#741	1.1	-13.5	16.6
+near/36_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#741	0.9	-4.8	
+near/36_01.wav	near	Happy birthday!	en_US-libritts_r-medium#741	1.0	-24.9	
+near/36_02.wav	near	Hey Siri.	en_US-libritts_r-medium#741	0.9	-21.1	
+near/36_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#741	1.0	-13.2	12.4
+near/36_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#741	1.0	-17.5	
+near/36_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#741	0.8	-3.9	15.8
+near/36_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#741	0.9	-1.1	
+near/36_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#741	0.8	-20.8	
+near/36_08.wav	near	Hey Zack.	en_US-libritts_r-medium#741	1.1	-15.2	20.6
+near/36_09.wav	near	She's a hippie.	en_US-libritts_r-medium#741	0.8	-25.0	
+near/36_10.wav	near	That was snappy.	en_US-libritts_r-medium#741	1.0	-8.6	13.5
+near/36_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#741	0.8	-19.6	21.9
+near/36_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#741	0.9	-10.1	23.3
+near/36_13.wav	near	Is it zippable?	en_US-libritts_r-medium#741	0.9	-20.9	
+near/36_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#741	1.25	-10.7	
+neg/36_00.wav	neg	What do you need?	en_US-libritts_r-medium#741	1.25	-23.3	
+neg/36_01.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#741	0.8	-2.2	13.5
+neg/36_02.wav	neg	I'm listening.	en_US-libritts_r-medium#741	1.1	-1.3	
+neg/36_03.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#741	0.9	-4.2	22.8
+neg/36_04.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#741	0.9	-23.8	24.9
+neg/36_05.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#741	0.8	-9.9	25.0
+neg/36_06.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#741	1.1	-11.5	
+neg/36_07.wav	neg	Hey, what's up?	en_US-libritts_r-medium#741	1.0	-7.7	
+pos/37_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#411	1.0	-19.5	
+pos/37_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#411	0.9	-20.1	20.1
+pos/37_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#411	1.1	-10.8	23.7
+pos/37_03.wav	pos	hey zippy	en_US-libritts_r-medium#411	0.8	-11.6	16.2
+pos/37_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#411	0.9	-21.8	
+pos/37_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#411	1.1	-20.5	11.7
+pos/37_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#411	0.9	-10.6	
+pos/37_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#411	1.0	-8.8	24.3
+mis/37_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#411	1.1	-25.0	18.7
+mis/37_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#411	1.1	-1.4	
+mis/37_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#411	0.9	-11.0	15.6
+mis/37_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#411	0.9	-8.0	12.4
+mis/37_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#411	0.8	-22.2	19.0
+mis/37_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#411	0.9	-13.9	21.7
+near/37_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#411	0.8	-4.2	13.0
+near/37_01.wav	near	Happy birthday!	en_US-libritts_r-medium#411	1.25	-21.9	
+near/37_02.wav	near	Hey Siri.	en_US-libritts_r-medium#411	0.9	-4.5	
+near/37_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#411	0.8	-16.7	15.3
+near/37_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#411	1.0	-19.5	
+near/37_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#411	0.8	-5.7	14.1
+near/37_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#411	1.0	-16.3	
+near/37_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#411	0.9	-13.0	
+near/37_08.wav	near	Hey Zack.	en_US-libritts_r-medium#411	0.9	-10.1	12.2
+near/37_09.wav	near	She's a hippie.	en_US-libritts_r-medium#411	1.25	-15.0	
+near/37_10.wav	near	That was snappy.	en_US-libritts_r-medium#411	1.25	-21.5	
+near/37_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#411	0.8	-11.5	
+near/37_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#411	0.8	-6.0	15.8
+near/37_13.wav	near	Is it zippable?	en_US-libritts_r-medium#411	1.1	-18.6	24.1
+near/37_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#411	1.25	-6.9	16.4
+neg/37_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#411	1.25	-17.1	12.9
+neg/37_01.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#411	1.1	-6.4	13.3
+neg/37_02.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#411	0.8	-15.1	
+neg/37_03.wav	neg	Hey, what's up?	en_US-libritts_r-medium#411	1.0	-20.6	
+neg/37_04.wav	neg	I'm listening.	en_US-libritts_r-medium#411	1.1	-23.1	15.6
+neg/37_05.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#411	1.0	-15.7	18.4
+neg/37_06.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#411	0.8	-24.6	15.9
+neg/37_07.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#411	1.0	-23.0	
+pos/38_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#140	1.0	-23.7	24.9
+pos/38_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#140	1.25	-5.3	
+pos/38_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#140	1.25	-22.0	
+pos/38_03.wav	pos	hey zippy	en_US-libritts_r-medium#140	0.9	-14.3	18.9
+pos/38_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#140	0.8	-23.9	
+pos/38_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#140	1.25	-2.8	13.8
+pos/38_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#140	0.9	-15.8	18.0
+pos/38_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#140	0.9	-1.7	20.8
+mis/38_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#140	0.8	-18.4	10.8
+mis/38_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#140	1.0	-6.3	
+mis/38_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#140	0.9	-21.0	13.7
+mis/38_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#140	1.0	-1.2	18.9
+mis/38_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#140	0.8	-21.2	
+mis/38_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#140	1.0	-15.8	
+near/38_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#140	1.0	-1.7	
+near/38_01.wav	near	Happy birthday!	en_US-libritts_r-medium#140	0.8	-19.8	24.8
+near/38_02.wav	near	Hey Siri.	en_US-libritts_r-medium#140	1.1	-12.3	24.9
+near/38_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#140	1.0	-22.4	20.6
+near/38_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#140	0.9	-16.6	21.3
+near/38_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#140	0.9	-23.4	17.1
+near/38_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#140	0.9	-8.2	10.9
+near/38_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#140	1.25	-13.3	23.3
+near/38_08.wav	near	Hey Zack.	en_US-libritts_r-medium#140	0.8	-2.1	15.9
+near/38_09.wav	near	She's a hippie.	en_US-libritts_r-medium#140	1.0	-9.0	13.3
+near/38_10.wav	near	That was snappy.	en_US-libritts_r-medium#140	0.9	-1.8	
+near/38_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#140	0.9	-25.5	
+near/38_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#140	1.25	-4.9	21.0
+near/38_13.wav	near	Is it zippable?	en_US-libritts_r-medium#140	0.9	-21.1	
+near/38_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#140	1.0	-2.0	
+neg/38_00.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#140	1.0	-8.4	22.2
+neg/38_01.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#140	1.25	-9.8	24.1
+neg/38_02.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#140	0.8	-15.4	
+neg/38_03.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#140	0.8	-25.6	12.1
+neg/38_04.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#140	1.0	-9.6	16.4
+neg/38_05.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#140	1.0	-23.6	
+neg/38_06.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#140	0.9	-14.8	
+neg/38_07.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#140	0.9	-16.1	
+pos/39_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#564	0.9	-8.7	18.8
+pos/39_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#564	1.0	-23.3	11.0
+pos/39_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#564	1.25	-17.5	
+pos/39_03.wav	pos	hey zippy	en_US-libritts_r-medium#564	1.1	-17.9	
+pos/39_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#564	1.1	-21.9	21.0
+pos/39_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#564	0.8	-11.5	18.5
+pos/39_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#564	0.9	-10.8	
+pos/39_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#564	1.25	-8.3	13.8
+mis/39_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#564	1.1	-19.6	
+mis/39_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#564	1.25	-16.1	
+mis/39_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#564	1.0	-18.7	
+mis/39_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#564	1.1	-14.3	
+mis/39_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#564	0.8	-19.0	14.5
+mis/39_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#564	1.1	-24.0	13.4
+near/39_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#564	1.25	-14.9	16.4
+near/39_01.wav	near	Happy birthday!	en_US-libritts_r-medium#564	1.25	-24.3	13.5
+near/39_02.wav	near	Hey Siri.	en_US-libritts_r-medium#564	1.1	-23.7	
+near/39_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#564	1.1	-6.1	
+near/39_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#564	1.1	-5.2	12.3
+near/39_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#564	1.1	-25.5	
+near/39_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#564	1.25	-19.8	
+near/39_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#564	1.25	-19.6	
+near/39_08.wav	near	Hey Zack.	en_US-libritts_r-medium#564	0.9	-7.2	10.3
+near/39_09.wav	near	She's a hippie.	en_US-libritts_r-medium#564	1.0	-17.1	13.5
+near/39_10.wav	near	That was snappy.	en_US-libritts_r-medium#564	1.1	-7.0	
+near/39_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#564	1.1	-12.1	
+near/39_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#564	0.8	-18.8	
+near/39_13.wav	near	Is it zippable?	en_US-libritts_r-medium#564	0.8	-8.3	15.0
+near/39_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#564	1.25	-19.7	15.1
+neg/39_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#564	0.9	-7.0	18.8
+neg/39_01.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#564	0.8	-13.7	16.0
+neg/39_02.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#564	0.9	-12.2	14.2
+neg/39_03.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#564	1.25	-10.5	
+neg/39_04.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#564	0.8	-2.1	
+neg/39_05.wav	neg	What do you need?	en_US-libritts_r-medium#564	0.8	-4.9	
+neg/39_06.wav	neg	Let me know when you're done.	en_US-libritts_r-medium#564	0.9	-6.1	
+neg/39_07.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#564	0.8	-21.3	19.2
+pos/40_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#63	1.0	-14.4	
+pos/40_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#63	0.9	-9.6	
+pos/40_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#63	1.25	-21.0	10.5
+pos/40_03.wav	pos	hey zippy	en_US-libritts_r-medium#63	1.0	-3.4	13.1
+pos/40_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#63	1.1	-6.6	15.4
+pos/40_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#63	1.25	-17.2	21.7
+pos/40_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#63	0.9	-19.2	23.2
+pos/40_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#63	0.8	-24.6	16.8
+mis/40_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#63	0.8	-15.6	
+mis/40_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#63	1.0	-9.9	
+mis/40_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#63	1.25	-15.4	20.3
+mis/40_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#63	0.8	-11.3	
+mis/40_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#63	1.25	-4.5	23.1
+mis/40_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#63	1.0	-22.6	10.8
+near/40_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#63	0.8	-3.9	24.9
+near/40_01.wav	near	Happy birthday!	en_US-libritts_r-medium#63	0.9	-7.5	20.6
+near/40_02.wav	near	Hey Siri.	en_US-libritts_r-medium#63	1.0	-17.8	23.8
+near/40_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#63	0.9	-25.0	24.0
+near/40_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#63	1.0	-5.4	24.6
+near/40_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#63	1.1	-6.1	
+near/40_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#63	0.9	-10.0	13.7
+near/40_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#63	0.8	-10.6	
+near/40_08.wav	near	Hey Zack.	en_US-libritts_r-medium#63	0.9	-19.1	
+near/40_09.wav	near	She's a hippie.	en_US-libritts_r-medium#63	1.25	-16.6	10.8
+near/40_10.wav	near	That was snappy.	en_US-libritts_r-medium#63	1.25	-13.0	17.8
+near/40_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#63	1.1	-2.3	
+near/40_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#63	0.8	-7.5	20.5
+near/40_13.wav	near	Is it zippable?	en_US-libritts_r-medium#63	0.8	-10.7	
+near/40_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#63	1.25	-7.9	
+neg/40_00.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#63	0.9	-13.0	
+neg/40_01.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#63	0.9	-11.3	11.7
+neg/40_02.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#63	1.0	-16.5	
+neg/40_03.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#63	1.25	-2.9	
+neg/40_04.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#63	1.25	-19.6	
+neg/40_05.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#63	1.25	-2.8	
+neg/40_06.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#63	1.1	-2.8	23.4
+neg/40_07.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#63	0.9	-10.2	
+pos/41_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#143	0.9	-19.7	
+pos/41_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#143	1.1	-9.2	
+pos/41_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#143	1.25	-20.4	21.3
+pos/41_03.wav	pos	hey zippy	en_US-libritts_r-medium#143	0.8	-7.6	10.3
+pos/41_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#143	0.9	-7.1	
+pos/41_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#143	1.25	-23.8	
+pos/41_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#143	1.1	-7.3	
+pos/41_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#143	1.1	-17.1	
+mis/41_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#143	1.25	-14.3	12.4
+mis/41_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#143	0.9	-21.2	22.7
+mis/41_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#143	1.1	-21.5	
+mis/41_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#143	1.1	-15.6	
+mis/41_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#143	1.0	-23.0	
+mis/41_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#143	0.9	-18.5	12.5
+near/41_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#143	0.8	-15.3	
+near/41_01.wav	near	Happy birthday!	en_US-libritts_r-medium#143	1.1	-8.9	17.4
+near/41_02.wav	near	Hey Siri.	en_US-libritts_r-medium#143	1.0	-25.0	
+near/41_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#143	1.1	-21.0	21.4
+near/41_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#143	0.9	-10.1	10.2
+near/41_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#143	0.9	-12.3	20.5
+near/41_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#143	1.25	-12.3	15.1
+near/41_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#143	1.25	-24.3	12.3
+near/41_08.wav	near	Hey Zack.	en_US-libritts_r-medium#143	1.25	-19.7	
+near/41_09.wav	near	She's a hippie.	en_US-libritts_r-medium#143	0.8	-22.8	
+near/41_10.wav	near	That was snappy.	en_US-libritts_r-medium#143	1.1	-19.8	22.9
+near/41_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#143	1.1	-11.1	
+near/41_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#143	1.25	-20.6	12.3
+near/41_13.wav	near	Is it zippable?	en_US-libritts_r-medium#143	1.1	-11.2	14.3
+near/41_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#143	1.25	-23.0	
+neg/41_00.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#143	0.9	-12.6	
+neg/41_01.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#143	1.1	-2.7	
+neg/41_02.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#143	1.0	-3.4	15.4
+neg/41_03.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#143	1.25	-25.4	
+neg/41_04.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#143	1.0	-11.7	10.5
+neg/41_05.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#143	1.1	-4.3	
+neg/41_06.wav	neg	What do you need?	en_US-libritts_r-medium#143	1.0	-23.2	
+neg/41_07.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#143	0.9	-18.8	
+pos/42_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#832	1.25	-2.6	
+pos/42_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#832	1.0	-14.2	
+pos/42_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#832	0.9	-5.8	
+pos/42_03.wav	pos	hey zippy	en_US-libritts_r-medium#832	1.0	-3.1	
+pos/42_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#832	1.25	-18.7	
+pos/42_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#832	1.0	-20.6	15.2
+pos/42_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#832	0.9	-14.3	
+pos/42_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#832	0.8	-25.5	18.6
+mis/42_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#832	1.0	-25.6	
+mis/42_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#832	0.9	-22.0	
+mis/42_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#832	1.0	-9.9	20.2
+mis/42_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#832	1.0	-7.1	15.9
+mis/42_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#832	0.8	-3.9	
+mis/42_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#832	1.0	-21.5	13.3
+near/42_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#832	0.8	-12.9	17.9
+near/42_01.wav	near	Happy birthday!	en_US-libritts_r-medium#832	0.8	-1.9	16.4
+near/42_02.wav	near	Hey Siri.	en_US-libritts_r-medium#832	0.8	-17.1	23.2
+near/42_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#832	0.9	-15.7	
+near/42_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#832	1.25	-16.1	
+near/42_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#832	1.25	-5.9	13.1
+near/42_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#832	0.9	-17.0	
+near/42_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#832	0.8	-1.2	10.4
+near/42_08.wav	near	Hey Zack.	en_US-libritts_r-medium#832	0.8	-15.7	17.0
+near/42_09.wav	near	She's a hippie.	en_US-libritts_r-medium#832	1.0	-7.0	
+near/42_10.wav	near	That was snappy.	en_US-libritts_r-medium#832	0.9	-18.2	
+near/42_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#832	1.25	-23.2	20.4
+near/42_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#832	0.8	-14.4	
+near/42_13.wav	near	Is it zippable?	en_US-libritts_r-medium#832	0.9	-10.9	
+near/42_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#832	0.9	-21.4	
+neg/42_00.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#832	1.25	-6.8	19.8
+neg/42_01.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#832	0.8	-13.4	18.0
+neg/42_02.wav	neg	What do you need?	en_US-libritts_r-medium#832	0.9	-10.7	
+neg/42_03.wav	neg	That's pretty easy.	en_US-libritts_r-medium#832	1.1	-1.6	19.1
+neg/42_04.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#832	0.8	-1.0	
+neg/42_05.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#832	0.9	-23.7	20.3
+neg/42_06.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#832	0.8	-6.1	11.7
+neg/42_07.wav	neg	I'm listening.	en_US-libritts_r-medium#832	1.25	-2.1	
+pos/43_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#810	1.0	-16.4	
+pos/43_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#810	0.9	-21.1	22.4
+pos/43_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#810	0.9	-9.4	24.0
+pos/43_03.wav	pos	hey zippy	en_US-libritts_r-medium#810	1.0	-25.6	12.1
+pos/43_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#810	1.25	-22.8	
+pos/43_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#810	0.8	-17.5	
+pos/43_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#810	1.1	-17.5	17.8
+pos/43_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#810	1.1	-15.3	
+mis/43_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#810	1.25	-13.8	
+mis/43_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#810	1.1	-22.3	12.0
+mis/43_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#810	0.8	-15.2	24.2
+mis/43_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#810	1.0	-24.1	
+mis/43_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#810	0.9	-5.0	15.0
+mis/43_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#810	1.25	-22.4	
+near/43_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#810	0.9	-3.7	22.6
+near/43_01.wav	near	Happy birthday!	en_US-libritts_r-medium#810	0.9	-19.0	
+near/43_02.wav	near	Hey Siri.	en_US-libritts_r-medium#810	0.8	-21.3	
+near/43_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#810	1.25	-13.1	15.9
+near/43_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#810	0.9	-16.8	15.7
+near/43_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#810	1.1	-11.7	12.8
+near/43_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#810	0.9	-2.6	
+near/43_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#810	0.8	-1.4	18.2
+near/43_08.wav	near	Hey Zack.	en_US-libritts_r-medium#810	1.0	-18.4	20.7
+near/43_09.wav	near	She's a hippie.	en_US-libritts_r-medium#810	1.25	-18.3	
+near/43_10.wav	near	That was snappy.	en_US-libritts_r-medium#810	0.9	-18.4	
+near/43_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#810	1.1	-9.4	18.6
+near/43_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#810	0.8	-8.9	24.0
+near/43_13.wav	near	Is it zippable?	en_US-libritts_r-medium#810	0.8	-7.7	16.2
+near/43_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#810	0.9	-19.8	23.4
+neg/43_00.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#810	1.0	-20.8	11.2
+neg/43_01.wav	neg	That's pretty easy.	en_US-libritts_r-medium#810	1.25	-1.9	11.3
+neg/43_02.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#810	1.25	-16.2	
+neg/43_03.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#810	1.0	-6.9	10.8
+neg/43_04.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#810	0.8	-3.1	19.0
+neg/43_05.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#810	1.0	-24.8	
+neg/43_06.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#810	0.9	-1.7	
+neg/43_07.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#810	0.9	-16.0	
+pos/44_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#896	1.0	-6.1	15.3
+pos/44_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#896	1.0	-23.0	
+pos/44_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#896	0.9	-16.7	
+pos/44_03.wav	pos	hey zippy	en_US-libritts_r-medium#896	0.8	-10.0	24.8
+pos/44_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#896	1.25	-19.8	18.2
+pos/44_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#896	1.25	-22.0	
+pos/44_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#896	1.1	-9.4	
+pos/44_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#896	1.0	-10.7	22.6
+mis/44_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#896	1.0	-9.6	11.8
+mis/44_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#896	1.1	-4.4	
+mis/44_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#896	0.9	-2.9	24.3
+mis/44_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#896	1.0	-4.8	23.8
+mis/44_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#896	1.25	-4.6	24.9
+mis/44_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#896	0.9	-12.2	
+near/44_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#896	1.1	-24.4	
+near/44_01.wav	near	Happy birthday!	en_US-libritts_r-medium#896	1.0	-12.5	
+near/44_02.wav	near	Hey Siri.	en_US-libritts_r-medium#896	0.9	-16.3	24.4
+near/44_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#896	1.0	-24.9	
+near/44_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#896	1.25	-11.8	
+near/44_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#896	1.1	-7.5	24.9
+near/44_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#896	1.25	-25.4	18.5
+near/44_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#896	0.9	-18.7	17.3
+near/44_08.wav	near	Hey Zack.	en_US-libritts_r-medium#896	1.1	-15.4	
+near/44_09.wav	near	She's a hippie.	en_US-libritts_r-medium#896	0.9	-14.2	
+near/44_10.wav	near	That was snappy.	en_US-libritts_r-medium#896	1.0	-25.9	11.7
+near/44_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#896	1.1	-16.7	
+near/44_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#896	1.25	-11.6	
+near/44_13.wav	near	Is it zippable?	en_US-libritts_r-medium#896	1.0	-1.6	16.2
+near/44_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#896	1.25	-21.9	
+neg/44_00.wav	neg	Okay, that sounds good to me.	en_US-libritts_r-medium#896	0.9	-19.5	
+neg/44_01.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#896	1.1	-21.3	22.7
+neg/44_02.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#896	0.9	-16.8	
+neg/44_03.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#896	0.8	-20.0	12.3
+neg/44_04.wav	neg	The meeting got moved to Thursday afternoon.	en_US-libritts_r-medium#896	1.0	-19.1	
+neg/44_05.wav	neg	I'm listening.	en_US-libritts_r-medium#896	1.25	-22.6	10.6
+neg/44_06.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#896	1.25	-21.0	11.1
+neg/44_07.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#896	0.8	-15.1	
+pos/45_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#201	1.0	-18.9	
+pos/45_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#201	0.8	-20.4	
+pos/45_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#201	0.8	-24.9	10.7
+pos/45_03.wav	pos	hey zippy	en_US-libritts_r-medium#201	1.1	-12.2	24.6
+pos/45_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#201	0.9	-13.6	11.4
+pos/45_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#201	1.1	-17.3	
+pos/45_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#201	0.8	-18.4	
+pos/45_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#201	0.9	-3.9	13.8
+mis/45_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#201	1.25	-7.9	
+mis/45_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#201	1.1	-15.8	
+mis/45_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#201	0.9	-11.5	14.3
+mis/45_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#201	0.8	-21.9	20.9
+mis/45_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#201	0.8	-12.6	15.5
+mis/45_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#201	0.8	-25.8	
+near/45_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#201	1.25	-21.2	
+near/45_01.wav	near	Happy birthday!	en_US-libritts_r-medium#201	1.0	-17.1	12.9
+near/45_02.wav	near	Hey Siri.	en_US-libritts_r-medium#201	1.1	-14.2	13.8
+near/45_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#201	1.0	-9.8	
+near/45_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#201	1.0	-15.7	
+near/45_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#201	1.25	-13.2	14.9
+near/45_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#201	1.1	-2.5	10.7
+near/45_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#201	0.8	-11.0	
+near/45_08.wav	near	Hey Zack.	en_US-libritts_r-medium#201	1.25	-12.5	24.1
+near/45_09.wav	near	She's a hippie.	en_US-libritts_r-medium#201	1.0	-21.3	19.1
+near/45_10.wav	near	That was snappy.	en_US-libritts_r-medium#201	1.25	-2.9	
+near/45_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#201	1.0	-8.0	
+near/45_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#201	1.1	-14.6	23.2
+near/45_13.wav	near	Is it zippable?	en_US-libritts_r-medium#201	1.0	-12.7	
+near/45_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#201	1.0	-24.0	
+neg/45_00.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#201	0.8	-5.2	14.1
+neg/45_01.wav	neg	That's pretty easy.	en_US-libritts_r-medium#201	0.8	-19.6	
+neg/45_02.wav	neg	Hey, what's up?	en_US-libritts_r-medium#201	1.1	-22.8	15.9
+neg/45_03.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#201	1.25	-14.9	
+neg/45_04.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#201	1.25	-19.0	11.7
+neg/45_05.wav	neg	What do you need?	en_US-libritts_r-medium#201	0.8	-1.7	11.0
+neg/45_06.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#201	0.8	-18.6	16.2
+neg/45_07.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#201	1.25	-2.9	22.1
+pos/46_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#154	0.9	-22.9	
+pos/46_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#154	1.1	-10.1	
+pos/46_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#154	1.25	-9.7	
+pos/46_03.wav	pos	hey zippy	en_US-libritts_r-medium#154	1.1	-6.2	19.3
+pos/46_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#154	0.8	-9.7	
+pos/46_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#154	1.25	-12.1	22.2
+pos/46_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#154	0.8	-10.6	20.3
+pos/46_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#154	1.25	-5.2	
+mis/46_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#154	0.8	-6.2	14.1
+mis/46_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#154	0.9	-23.9	18.3
+mis/46_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#154	0.8	-22.5	
+mis/46_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#154	0.8	-16.2	
+mis/46_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#154	1.1	-24.6	
+mis/46_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#154	0.9	-25.0	17.3
+near/46_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#154	1.1	-4.9	
+near/46_01.wav	near	Happy birthday!	en_US-libritts_r-medium#154	1.1	-7.1	11.1
+near/46_02.wav	near	Hey Siri.	en_US-libritts_r-medium#154	1.1	-11.3	
+near/46_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#154	0.9	-12.6	
+near/46_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#154	1.0	-13.5	
+near/46_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#154	0.8	-5.8	14.9
+near/46_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#154	0.9	-3.1	
+near/46_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#154	1.25	-17.7	21.4
+near/46_08.wav	near	Hey Zack.	en_US-libritts_r-medium#154	1.1	-2.8	10.6
+near/46_09.wav	near	She's a hippie.	en_US-libritts_r-medium#154	1.1	-19.2	24.0
+near/46_10.wav	near	That was snappy.	en_US-libritts_r-medium#154	0.8	-18.1	18.7
+near/46_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#154	0.9	-1.4	16.1
+near/46_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#154	1.1	-20.9	11.2
+near/46_13.wav	near	Is it zippable?	en_US-libritts_r-medium#154	0.8	-11.1	18.7
+near/46_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#154	1.1	-20.6	15.3
+neg/46_00.wav	neg	Hey guys, dinner is ready.	en_US-libritts_r-medium#154	0.8	-1.6	
+neg/46_01.wav	neg	Play some music in the living room.	en_US-libritts_r-medium#154	1.25	-8.1	
+neg/46_02.wav	neg	Can you turn the lights off in the kitchen?	en_US-libritts_r-medium#154	0.9	-24.6	10.1
+neg/46_03.wav	neg	We should leave in about ten minutes.	en_US-libritts_r-medium#154	1.1	-3.9	13.7
+neg/46_04.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#154	0.8	-9.1	19.6
+neg/46_05.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#154	0.8	-17.5	11.6
+neg/46_06.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#154	0.8	-25.5	17.5
+neg/46_07.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#154	1.25	-24.0	
+pos/47_00.wav	pos	Hey Zippy.	en_US-libritts_r-medium#903	0.8	-14.9	15.0
+pos/47_01.wav	pos	Hey, Zippy!	en_US-libritts_r-medium#903	1.25	-1.3	22.5
+pos/47_02.wav	pos	Hey Zippy?	en_US-libritts_r-medium#903	0.8	-15.0	15.5
+pos/47_03.wav	pos	hey zippy	en_US-libritts_r-medium#903	1.25	-24.4	21.0
+pos/47_04.wav	pos	Hey Zippy, what time is it?	en_US-libritts_r-medium#903	1.1	-9.3	10.6
+pos/47_05.wav	pos	Hey Zippy, add milk to the shopping list.	en_US-libritts_r-medium#903	1.25	-6.0	
+pos/47_06.wav	pos	Okay. Hey Zippy.	en_US-libritts_r-medium#903	0.9	-8.3	
+pos/47_07.wav	pos	Hey Zippy... remind me to call mom.	en_US-libritts_r-medium#903	1.25	-22.0	17.8
+mis/47_00.wav	mis	Hey Zippie.	en_US-libritts_r-medium#903	1.0	-17.5	
+mis/47_01.wav	mis	Hay Zippy.	en_US-libritts_r-medium#903	1.1	-4.2	20.7
+mis/47_02.wav	mis	Hey Zeppy.	en_US-libritts_r-medium#903	1.25	-5.3	
+mis/47_03.wav	mis	Hey Zippee!	en_US-libritts_r-medium#903	0.8	-16.3	
+mis/47_04.wav	mis	Hey Sippy.	en_US-libritts_r-medium#903	0.8	-18.3	
+mis/47_05.wav	mis	Hey, Sippy?	en_US-libritts_r-medium#903	1.0	-21.0	13.1
+near/47_00.wav	near	Hey Skippy.	en_US-libritts_r-medium#903	1.0	-18.4	18.6
+near/47_01.wav	near	Happy birthday!	en_US-libritts_r-medium#903	0.9	-18.0	13.8
+near/47_02.wav	near	Hey Siri.	en_US-libritts_r-medium#903	0.9	-19.2	
+near/47_03.wav	near	Pull up the zipper.	en_US-libritts_r-medium#903	1.25	-12.1	
+near/47_04.wav	near	Hey sweetie.	en_US-libritts_r-medium#903	0.9	-17.6	
+near/47_05.wav	near	Hey Jimmy.	en_US-libritts_r-medium#903	1.1	-6.6	
+near/47_06.wav	near	Hey, did you zip it?	en_US-libritts_r-medium#903	0.9	-2.8	19.2
+near/47_07.wav	near	Mississippi is big.	en_US-libritts_r-medium#903	1.1	-9.8	14.7
+near/47_08.wav	near	Hey Zack.	en_US-libritts_r-medium#903	0.9	-16.0	
+near/47_09.wav	near	She's a hippie.	en_US-libritts_r-medium#903	1.0	-8.5	
+near/47_10.wav	near	That was snappy.	en_US-libritts_r-medium#903	1.1	-13.8	22.2
+near/47_11.wav	near	Hey Pippa.	en_US-libritts_r-medium#903	0.8	-16.8	21.7
+near/47_12.wav	near	Hey there, sleepy.	en_US-libritts_r-medium#903	1.1	-1.5	
+near/47_13.wav	near	Is it zippable?	en_US-libritts_r-medium#903	1.1	-17.8	
+near/47_14.wav	near	Hey, Lizzie!	en_US-libritts_r-medium#903	1.25	-16.6	
+neg/47_00.wav	neg	What's the weather like tomorrow?	en_US-libritts_r-medium#903	1.0	-25.5	
+neg/47_01.wav	neg	The quick brown fox jumps over the lazy dog.	en_US-libritts_r-medium#903	1.25	-25.1	
+neg/47_02.wav	neg	Add milk to the shopping list.	en_US-libritts_r-medium#903	1.1	-9.8	13.6
+neg/47_03.wav	neg	Where did I put my keys?	en_US-libritts_r-medium#903	0.9	-6.2	
+neg/47_04.wav	neg	Remind me to call mom at six.	en_US-libritts_r-medium#903	0.9	-4.8	23.4
+neg/47_05.wav	neg	Hey, how are you doing today?	en_US-libritts_r-medium#903	0.9	-16.8	
+neg/47_06.wav	neg	Did anyone feed the dog this morning?	en_US-libritts_r-medium#903	1.1	-12.9	19.4
+neg/47_07.wav	neg	I think the package arrived yesterday.	en_US-libritts_r-medium#903	1.0	-15.5	

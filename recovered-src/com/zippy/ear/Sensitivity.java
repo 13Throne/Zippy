@@ -5,11 +5,11 @@ import android.content.SharedPreferences;
 import java.util.Locale;
 
 /**
- * One meaning everywhere (1.4): Sensitivity 0-100, HIGHER = EASIER to trigger.
- * Both the wake-phrase matcher (WakePhrase) and the voice check (VoiceMatch) loosen as it rises.
+ * One meaning everywhere (1.4+): Sensitivity 0-100, HIGHER = EASIER to trigger.
+ * 1.7: the wake word is Sherpa-ONNX keyword spotting (KwsTuning: more pronunciations, higher boost,
+ * lower threshold as it rises) and the voice check (VoiceMatch) loosens with it; 100 = voice check off.
  *
- * 1.2/1.3 stored the opposite meaning (the slider read "Looser N Stricter", Phrase loosened as the
- * number FELL and the voice threshold was 0.5 + 0.35*N/100), so the saved value is flipped once.
+ * 1.2/1.3 stored the opposite meaning, so the saved value is flipped once (migrate).
  */
 public final class Sensitivity {
     public static final int DEFAULT = 55;
@@ -17,7 +17,6 @@ public final class Sensitivity {
 
     private Sensitivity() {}
 
-    /** Flip a 1.2/1.3 value to the 1.4 scale exactly once (0 "looser" -> 100 "easier"). */
     public static void migrate(Context ctx) {
         SharedPreferences p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         if (p.getInt(SCALE, 0) >= 2) return;
@@ -39,11 +38,11 @@ public final class Sensitivity {
     public static String label(int value) {
         int s = clamp(value);
         String what;
-        if (s >= 100) what = "Easiest: loosest wake phrase, voice check off";
-        else if (s >= 85) what = "Very easy: also wakes on just \"Zippy\"";
-        else if (s >= 60) what = "Easy: accepts close sound-alikes";
-        else if (s >= 30) what = "Balanced";
-        else what = "Strict: exact \"Hey Zippy\" and a close voice match";
+        if (s >= 100) what = "Easiest: every pronunciation, voice check off";
+        else if (s >= KwsTuning.BARE_FROM) what = "Very easy: also wakes on just \u201cZippy\u201d";
+        else if (s >= 50) what = "Easy: also hears a soft Z (\u201cHey Sippy\u201d)";
+        else if (s >= 30) what = "Balanced: common sound-alikes";
+        else what = "Strict: clear \u201cHey Zippy\u201d and a close voice match";
         return String.format(Locale.US, "%d  (%s). Higher = triggers more easily.", s, what);
     }
 }

@@ -18,3 +18,14 @@ The UI is built in code (`Ui.java`, `MainActivity.java`, `TrainActivity.java`); 
 ## Liora voice clips (1.6)
 
 Since 1.6 the APK also bundles `assets/voice/g1..g9.m4a` (greetings) and `assets/voice/c1..c10.m4a` (confirmations), about 172 KB in total, stored uncompressed. The source clips are committed in [`../v1.6/assets/voice/`](../v1.6/assets/voice/).
+
+## Sherpa-ONNX wake word (1.7)
+
+Since 1.7 the APK also bundles:
+- `lib/{arm64-v8a,armeabi-v7a}/libsherpa-onnx-jni.so` and `libonnxruntime.so` from the official `sherpa-onnx-2.0.3.aar`.
+- `assets/kws/`: the int8 `encoder`/`decoder`/`joiner` and `tokens.txt` of `sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01`.
+- `assets/kws/keywords.txt`: the sentinel line from [`../v1.7/assets/kws/keywords.txt`](../v1.7/assets/kws/keywords.txt).
+
+None of these binaries are committed. [`../v1.7/fetch_sherpa.sh`](../v1.7/fetch_sherpa.sh) downloads them with pinned SHA-256s.
+
+Note: Vosk's `libvosk.so` (from the original 1.2 APK) has 4 KB ELF alignment. It only serves offline commands in 1.7.

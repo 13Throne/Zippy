@@ -1,14 +1,14 @@
 # Zippy
 
-On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.6**, `versionCode` 7).
+On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.7**, `versionCode` 8).
 
-Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy**, hears the task that follows (Android's speech recognizer by default since 1.5, with on-device [Vosk](https://alphacephei.com/vosk/) as the fallback), and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
+Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy** (on-device [Sherpa-ONNX](https://github.com/k2-fsa/sherpa-onnx) keyword spotting since 1.7), hears the task that follows (Android's speech recognizer by default since 1.5, with on-device [Vosk](https://alphacephei.com/vosk/) as the fallback), and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
 
 ```json
 {"text":"…","source":"android"}
 ```
 
-The wake word and voice check always run on the phone with Vosk. With **Use Android speech recognition for commands** on (default), the task after a pause goes to Android's `SpeechRecognizer` (on most phones Google, which may use the network). Turn it off to keep everything on the phone. Only the finished task text is posted to the webhook you configure.
+The wake word (Sherpa-ONNX) and voice check always run on the phone; Vosk stays on the phone as the offline command recognizer. With **Use Android speech recognition for commands** on (default), the task after a pause goes to Android's `SpeechRecognizer` (on most phones Google, which may use the network). Turn it off to keep everything on the phone. Only the finished task text is posted to the webhook you configure.
 
 ## Install this APK
 
@@ -38,6 +38,15 @@ The POST body is JSON (`Content-Type: application/json`). Signing (v1.3):
 - Any other non-empty secret → Stripe-style `X-Zippy-Signature: t=<unix seconds>,v1=<lowercase hex HMAC-SHA256 of "<t>.<raw UTF-8 body>">`, keyed with the secret's UTF-8 bytes. No `Authorization` header is sent.
 
 Loopback, link-local, site-local, `.local`, and metadata hostnames are blocked.
+
+## What's new in 1.7
+
+- **New wake word engine: Sherpa-ONNX keyword spotting.** "Hey Zippy" is now spotted by the official [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) 2.0.3 Android libraries (`libsherpa-onnx-jni.so` + `libonnxruntime.so`, `arm64-v8a` and `armeabi-v7a`, 16 KB-aligned) with the `sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01` model (int8, 5.2 MB, in `assets/kws/`). Vosk read "Hey Zippy" as text and often missed the "z"; on the same 384 test clips Sherpa-ONNX wakes on **81%** versus Vosk's 30%, with **0 false alarms in 5.4 h of real speech** (see [`v1.7/kws-test/RESULTS.md`](v1.7/kws-test/RESULTS.md)).
+- **Keywords from the model's own tokenizer.** Every pronunciation is the exact BPE sequence from the model's `bpe.model` (checked against `sentencepiece` and `sherpa_onnx.text2token` by [`v1.7/make_keywords.py`](v1.7/make_keywords.py)): `HEY ZIPPY` (`▁HE Y ▁ Z I PP Y`), plus sound-alikes the model actually hears (`HEY ZIPPI`, `HAZIPPI`, …), a soft z (`HEY SIPPY`) from Sensitivity 50, and bare `ZIPPY` from 85.
+- **Sensitivity drives Sherpa-ONNX.** 0 → 100 adds pronunciations (4 → 13), raises the boosting score (1.0 → 2.0) and lowers the trigger threshold (0.45 → 0.05); the voice check (VoiceMatch) loosens with it and is off at 100, as before. Each step only makes waking easier (tested).
+- **No greeting bleed.** After Liora's greeting finishes, Zippy waits 180 ms of silence before Android's recognizer (or Vosk) listens, and drops a leading echo of the greeting from the task ("what do you what time is it" → "what time is it").
+- **Vosk is now only the offline command recognizer** (loaded in the background): a task said in one breath ("Hey Zippy, add milk"), or the task when Android speech is off, missing or fails. The APK stays under 70 MB (69.9 MB) with it.
+- **Safety net.** If the native Sherpa-ONNX libraries can't start on a phone (a crash while loading can't be caught in Java), Zippy notices on the next start and uses the 1.6 Vosk wake word for this version instead of crash-looping; Home says so.
 
 ## What's new in 1.6
 
@@ -94,8 +103,21 @@ Package layout:
 | `Updates.java` | 1.2 updater (integer tags only; no longer called) |
 | `Sig.java` | v1.3 Stripe-style `X-Zippy-Signature` HMAC |
 | `ResetConfirm.java` | v1.3 "Reset voice data?" confirmation dialog |
+| `Kws.java` / `KwsTuning.java` / `KwsGuard.java` | 1.7 Sherpa-ONNX wake word: spotter from `assets/kws/`, Sensitivity → BPE keyword lines, crash-safe fallback to the 1.6 Vosk wake word |
+| `EchoGuard.java` / `TaskText.java` | 1.7 greeting-echo stripping and one-breath task text |
 | `Liora.java` | 1.6 Liora clip list, Random/named/Custom picking, `MediaPlayer` playback from `assets/voice/` |
 | `Cues.java`, `Ui.java`, `Order.java`, `SendResult.java` | Feedback, layout helpers, recent-order log |
+
+## Building v1.7
+
+[`v1.7/build.sh`](v1.7/build.sh) runs the v1.3–v1.6 patches, downloads and checksum-verifies the official `sherpa-onnx-2.0.3.aar` and the KWS model ([`v1.7/fetch_sherpa.sh`](v1.7/fetch_sherpa.sh); neither is committed), and then runs [`v1.7/patch_v17.py`](v1.7/patch_v17.py). That adds the two native libraries per ABI and `assets/kws/` (int8 encoder/decoder/joiner, `tokens.txt`, the sentinel `keywords.txt`) and bumps the version to 1.7/8. The AAR's Kotlin API (`KeywordSpotter`, `OnlineStream`, configs) becomes `classes3.dex`; the Kotlin stdlib it needs is already in the APK. Sherpa-ONNX's `createStream(keywords)` *adds* to the file's keywords, so the shipped `keywords.txt` holds only a never-said sentinel and every real line comes from `KwsTuning.keywords(sensitivity)`.
+
+```sh
+ZIPPY_KS_PASS=… v1.7/build.sh Zippy-1.2.apk zippy-release.jks Zippy.apk
+PYTHON=/path/to/python-with-vosk-sherpa-onnx-sentencepiece v1.7/test/run_tests.sh Zippy.apk   # packaging, keywords, 1.7 logic, layout, whole 1.6 suite
+v1.7/kws-test/gen_testset.py <piper-voices> testset && v1.7/kws-test/kws_eval.py <model> testset 0,30,55,85,100 --real <librispeech-wavs>
+v1.7/test/device/run_device_test.sh 55 testset/pos/*.wav   # same KWS path on a device via app_process
+```
 
 ## Building v1.6
 
@@ -148,4 +170,4 @@ The keystore is kept outside git (`*.jks`, `*.keystore` are ignored) — keep it
 
 ## License / third-party
 
-Application code recovered here is Joshua Parten’s Zippy project. The bundled speech model and native libraries are from [Vosk](https://alphacephei.com/vosk/) (`vosk-model-small-en-us-0.15`, plus `libvosk.so` / JNA). AndroidX and Kotlin libraries are used under their upstream licenses (the APK also carries `META-INF/AL2.0` and `META-INF/LGPL2.1`).
+Application code recovered here is Joshua Parten’s Zippy project. The wake word uses [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) 2.0.3 (Apache-2.0; `libsherpa-onnx-jni.so`, ONNX Runtime `libonnxruntime.so` under MIT) and the `sherpa-onnx-kws-zipformer-gigaspeech-3.3M-2024-01-01` model (Apache-2.0). The bundled command model and native libraries are from [Vosk](https://alphacephei.com/vosk/) (`vosk-model-small-en-us-0.15`, plus `libvosk.so` / JNA). AndroidX and Kotlin libraries are used under their upstream licenses (the APK also carries `META-INF/AL2.0` and `META-INF/LGPL2.1`).

@@ -246,7 +246,7 @@ public class MainActivity extends Activity {
         sensitivity = new SeekBar(this);
         sensitivity.setMax(100);
         sensitivity.setOnSeekBarChangeListener(new Seek(p -> {
-            sensitivityLabel.setText(Sensitivity.label(p));
+            sensitivityLabel.setText(sensitivityText(p));
             persist();
         }));
         c.addView(sensitivity);
@@ -453,7 +453,7 @@ public class MainActivity extends Activity {
         c.addView(Look.heading(this, "Updates"));
         c.addView(Look.gap(this, 6));
         c.addView(Look.body(this, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one."));
-        updateStatus = Look.text(this, "Installed v1.6.", 14, Look.FG);
+        updateStatus = Look.text(this, "Installed v1.7.", 14, Look.FG);
         c.addView(Look.gap(this, 6));
         c.addView(updateStatus);
         updateButton = Look.button(this, "Check for updates", true);
@@ -629,10 +629,17 @@ public class MainActivity extends Activity {
         String conf = zp.confirmCue();
         String confText = (ZippyPrefs.CUE_VOICE.equals(conf) ? "Voice" : ZippyPrefs.cueLabel(conf))
                 + (ZippyPrefs.CUE_VOICE.equals(conf) ? " (" + voiceSummary(zp.confirmChoice(), zp.confirmText()) + ")" : "");
-        summary.setText(String.format(Locale.US, "Sensitivity %d of 100\nWake cue: %s\nConfirmation: %s\nCommands: %s\nOpen Grok Bot on wake: %s",
-                Sensitivity.clamp(s.getSensitivity()), cueText, confText,
-                zp.useAndroidStt() ? "Android speech, Zippy offline as backup" : "Zippy offline recognizer",
+        summary.setText(String.format(Locale.US, "Wake word: %s\nSensitivity %d of 100\nWake cue: %s\nConfirmation: %s\nCommands: %s\nOpen Grok Bot on wake: %s",
+                KwsGuard.engineLabel(this), Sensitivity.clamp(s.getSensitivity()), cueText, confText,
+                zp.useAndroidStt() ? "Android speech, offline (Vosk) as backup" : "Offline recognizer (Vosk)",
                 zp.openGrokBot() ? "On" : "Off"));
+    }
+
+    /** Slider label plus what it does to the Sherpa-ONNX wake word. */
+    static String sensitivityText(int sens) {
+        int s = Sensitivity.clamp(sens);
+        return Sensitivity.label(s) + "\nWake word (Sherpa-ONNX): " + KwsTuning.describe(s)
+                + (s >= 100 ? ". Voice check off." : ". Voice check on, looser as you raise it.");
     }
 
     static String voiceSummary(String choice, String custom) {
@@ -658,7 +665,7 @@ public class MainActivity extends Activity {
         voice.setText(v);
         int sens = Sensitivity.clamp(s.getSensitivity());
         sensitivity.setProgress(sens);
-        sensitivityLabel.setText(Sensitivity.label(sens));
+        sensitivityLabel.setText(sensitivityText(sens));
         int step = Math.max(0, Math.min(14, (s.getWaitMs() - 1000 + 250) / 500));
         waitBar.setProgress(step);
         waitLabel.setText(waitText(1000 + 500 * step));
@@ -690,10 +697,13 @@ public class MainActivity extends Activity {
         boolean avail = AndroidStt.available(this);
         sttInfo.setText((stt
                 ? "After \u201cHey Zippy\u201d and a pause, Zippy pauses its own mic and lets Android's speech recognizer (usually Google, online for best accuracy) hear the task, then goes back to listening. "
-                : "Zippy's offline recognizer hears the task. ")
+                : "Zippy's offline recognizer (Vosk) hears the task. ")
                 + "Saying it in one breath (\u201cHey Zippy, add milk\u201d) always sends what Zippy already heard. "
                 + (avail ? "Android speech recognizer: available."
-                         : "Android speech recognizer: not found on this phone, so Zippy's offline recognizer is used."));
+                         : "Android speech recognizer: not found on this phone, so Zippy's offline recognizer is used.")
+                + (KwsGuard.usingFallback(this)
+                        ? " The wake word is using Zippy's offline fallback because Sherpa-ONNX couldn't start on this phone."
+                        : " The wake word itself is always heard on this phone by Sherpa-ONNX keyword spotting."));
 
         grokSwitch.setChecked(zp.openGrokBot());
         String pkg = GrokBot.findPackage(this);

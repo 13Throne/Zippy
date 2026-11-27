@@ -27,6 +27,11 @@ import org.vosk.Model;
 import org.vosk.Recognizer;
 
 /**
+ * Zippy 1.7: the wake word is Sherpa-ONNX keyword spotting (Kws/KwsTuning) instead of Vosk
+ * transcripts. Vosk now only hears commands offline (a task said in the same breath, or when
+ * Android's recognizer is off/unavailable/fails) and loads in the background. After Liora's
+ * greeting there is a short silent gap and any greeting echo is stripped from the task (EchoGuard).
+ *
  * Zippy 1.6: wake greeting and sent confirmation can be Liora's recorded voice (MediaPlayer, mic
  * paused until OnCompletion or 4 s). Zippy 1.5 listener (replaces the 1.2/1.3 Kotlin ListenService).
  *
@@ -53,7 +58,8 @@ public final class ListenService extends Service {
     private static final int SAMPLE_RATE = 16000;
     private static final int RING = SAMPLE_RATE * 2;            // 2.0 s of audio
     private static final int VOICE_WINDOW = (int) (SAMPLE_RATE * 1.9);
-    private static final int VOICE_SETTLE = (int) (SAMPLE_RATE * 0.35); // wait for "...ppy" to land
+    private static final int VOICE_SETTLE = (int) (SAMPLE_RATE * 0.15); // KWS fires at "...ppy"; let it land
+    private static final int VOICE_SETTLE_VOSK = (int) (SAMPLE_RATE * 0.35); // fallback: Vosk partials lag
 
     /** Kept so MainActivity's existing ListenService.Companion.start(ctx) calls still work. */
     public static final Companion Companion = new Companion();
@@ -191,16 +197,41 @@ public final class ListenService extends Service {
 
     // ------------------------------------------------------------------ listening loop
 
+    /** Offline Vosk model: loaded in the background, only used for commands (never for the wake word). */
+    private final Object voskLock = new Object();
+    private Model vosk;
+    private int voskGen = -1;
+    private volatile String voskNote = "";
+    private Kws kws;
+    private String lastGreetingText = null;
+
     private void loop(int gen) {
-        System.setProperty("jna.nosys", "true");
-        Model model = null;
-        Recognizer rec = null;
+        Recognizer wakeRec = null;
         try {
             if (!live(gen)) return;
-            update(gen, "Loading speech on this phone.", "");
-            model = new Model(ModelInstaller.INSTANCE.ensure(this).getAbsolutePath());
+            int sens = Store.INSTANCE.read(this).getSensitivity();
+            if (KwsGuard.shouldTry(this)) {
+                update(gen, "Loading the wake word (Sherpa-ONNX).", "");
+                KwsGuard.begin(this);
+                try {
+                    kws = Kws.load(this, sens);
+                    KwsGuard.ok(this);
+                    android.util.Log.i("Zippy", "Sherpa-ONNX KWS ready: " + KwsTuning.describe(sens));
+                } catch (Throwable t) {
+                    kws = null;
+                    KwsGuard.failed(this, t);
+                    android.util.Log.i("Zippy", "Sherpa-ONNX KWS failed: " + t);
+                }
+            }
             if (!live(gen)) return;
-            rec = new Recognizer(model, (float) SAMPLE_RATE);
+            Model fallbackModel = null;
+            if (kws == null) { // 1.6 wake word: Vosk must be loaded before listening
+                update(gen, "Loading speech on this phone.", "");
+                System.setProperty("jna.nosys", "true");
+                fallbackModel = new Model(ModelInstaller.INSTANCE.ensure(this).getAbsolutePath());
+                synchronized (voskLock) { vosk = fallbackModel; voskGen = gen; }
+                wakeRec = new Recognizer(fallbackModel, (float) SAMPLE_RATE);
+            }
             if (checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
                 fail(gen, "Microphone permission is required.");
                 return;
@@ -214,15 +245,57 @@ public final class ListenService extends Service {
             if (!live(gen)) return;
             ar.startRecording();
             setEngine(ListenState.LISTENING);
-            update(gen, "Listening for Hey Zippy.", "");
-            run(gen, rec);
+            if (kws != null) {
+                loadVosk(gen);
+                update(gen, "Listening for Hey Zippy.", "");
+                run(gen);
+            } else {
+                update(gen, "Listening for Hey Zippy (offline fallback wake word).", "");
+                runVoskWake(gen, wakeRec);
+            }
         } catch (Throwable t) {
             if (live(gen)) fail(gen, t.getMessage() == null ? "Listening stopped." : t.getMessage());
         } finally {
             releaseMic();
-            if (rec != null) try { rec.close(); } catch (Throwable ignored) { }
-            if (model != null) try { model.close(); } catch (Throwable ignored) { }
+            Kws k = kws;
+            kws = null;
+            if (k != null) k.release();
+            if (wakeRec != null) try { wakeRec.close(); } catch (Throwable ignored) { }
+            closeVosk(gen);
             if (worker == Thread.currentThread()) setEngine(ListenState.OFF);
+        }
+    }
+
+    /** Loads the offline command recognizer off the worker thread so the wake word starts at once. */
+    private void loadVosk(int gen) {
+        Thread t = new Thread(() -> {
+            try {
+                System.setProperty("jna.nosys", "true");
+                Model m = new Model(ModelInstaller.INSTANCE.ensure(this).getAbsolutePath());
+                synchronized (voskLock) {
+                    if (live(gen)) { vosk = m; voskGen = gen; voskNote = ""; android.util.Log.i("Zippy", "Offline command recognizer ready"); return; }
+                }
+                m.close();
+            } catch (Throwable e) {
+                voskNote = "Offline command recognizer unavailable.";
+                android.util.Log.i("Zippy", voskNote);
+            }
+        }, "zippy-vosk");
+        t.setPriority(Thread.MIN_PRIORITY);
+        t.start();
+    }
+
+    private Model vosk(int gen) {
+        synchronized (voskLock) { return voskGen == gen ? vosk : null; }
+    }
+
+    private void closeVosk(int gen) {
+        synchronized (voskLock) {
+            if (vosk != null && (voskGen == gen || !live(voskGen))) {
+                try { vosk.close(); } catch (Throwable ignored) { }
+                vosk = null;
+                voskGen = -1;
+            }
         }
     }
 
@@ -267,22 +340,26 @@ public final class ListenService extends Service {
     }
 
     private static final int HANDOFF_DONE = 0, HANDOFF_VOSK = 1;
+    /** Silence after Liora's greeting before anything listens, so the speaker echo can't bleed in. */
+    static final int POST_GREETING_GAP_MS = 180;
 
     /**
      * "Hey Zippy" ... pause. Zippy's mic is stopped (released for Android STT) so neither the
      * greeting nor the other recognizer is fighting it, then reopened. Returns HANDOFF_VOSK when
-     * the task should still be heard by Vosk (STT off/unavailable/failed).
+     * the task should be heard by the offline recognizer (STT off/unavailable/failed).
      */
     private int handOff(int gen, CommandPlan.Next next, ZippyPrefs zp, Settings settings, String heard) {
         boolean stt = next == CommandPlan.Next.ANDROID_STT;
         if (stt) releaseMic();
         else { AudioRecord ar = record; if (ar != null) try { ar.stop(); } catch (Exception ignored) { } }
+        lastGreetingText = null;
         try {
             WakeCue.Action cue = WakeCue.beforeCommand(zp.wakeCue(), true);
             if (cue == WakeCue.Action.VOICE) {
                 boolean spoke = sayGreeting(zp);
                 android.util.Log.i("Zippy", "Greeting " + (spoke ? "spoken" : "failed, beeping"));
                 cue = WakeCue.afterSpeak(spoke);
+                if (spoke) sleepQuietly(POST_GREETING_GAP_MS);
             }
             if (cue != WakeCue.Action.NONE) Cues.INSTANCE.fire(this, WakeCue.cuesMode(cue), true);
             if (!live(gen)) return HANDOFF_DONE;
@@ -298,7 +375,7 @@ public final class ListenService extends Service {
             if (!live(gen)) return HANDOFF_DONE;
             switch (CommandPlan.onStt(r.text, r.error, r.timedOut)) {
                 case SEND: {
-                    String task = WakePhrase.stripLeadingWake(r.text.trim(), settings.getSensitivity());
+                    String task = cleanTask(r.text, settings.getSensitivity());
                     if (task.isEmpty()) { update(gen, "No task after Hey Zippy.", r.text); return HANDOFF_DONE; }
                     deliver(gen, task, settings);
                     return HANDOFF_DONE;
@@ -307,7 +384,7 @@ public final class ListenService extends Service {
                     update(gen, "No task after Hey Zippy.", "");
                     return HANDOFF_DONE;
                 default:
-                    update(gen, "Android speech " + r.describe() + ". Say the task again; Zippy is listening.", "");
+                    update(gen, "Android speech " + r.describe() + ". Say the task again; Zippy is listening offline.", "");
                     return HANDOFF_VOSK;
             }
         } finally {
@@ -315,11 +392,23 @@ public final class ListenService extends Service {
         }
     }
 
+    /** Wake words repeated in the command and any greeting echo are removed from what gets sent. */
+    private String cleanTask(String text, int sens) {
+        String t = text == null ? "" : text.trim();
+        if (lastGreetingText != null) t = EchoGuard.strip(t, lastGreetingText);
+        return WakePhrase.stripLeadingWake(t, sens).trim();
+    }
+
+    private static void sleepQuietly(long ms) {
+        try { Thread.sleep(ms); } catch (InterruptedException ignored) { Thread.currentThread().interrupt(); }
+    }
+
     /** Liora clip (or Custom text via TTS). Falls back to TTS of the clip's words, then false (= beep). */
     private boolean sayGreeting(ZippyPrefs zp) {
         String id = Liora.pickGreeting(zp.greetingChoice());
-        if (id != null && Liora.playAndWait(this, id, 4000)) return true;
         String text = id != null ? Liora.text(id) : zp.greeting();
+        lastGreetingText = text;
+        if (id != null && Liora.playAndWait(this, id, 4000)) return true;
         return greeter != null && greeter.ready() && greeter.speakAndWait(text, 4000);
     }
 
@@ -345,6 +434,7 @@ public final class ListenService extends Service {
             boolean ok = sayConfirmation(zp);
             android.util.Log.i("Zippy", "Confirmation " + (ok ? "spoken" : "failed, beeping"));
             if (!ok) Cues.INSTANCE.fire(this, 2, false);
+            else sleepQuietly(POST_GREETING_GAP_MS);
         } finally {
             selfTalk = false;
         }
@@ -358,7 +448,185 @@ public final class ListenService extends Service {
         });
     }
 
-    private void run(int gen, Recognizer rec) {
+    /** How long after the keyword Zippy listens for a task said in the same breath. */
+    static final int ONE_BREATH_PROBE_MS = 650;
+
+    private void run(int gen) {
+        float[] ring = new float[RING];
+        short[] buf = new short[2048];
+        int write = 0, filled = 0;
+        long total = 0;
+        int lastSens = -1;
+        long voiceDueAt = -1;           // sample count at which to run the voice check
+        String spotted = null;          // keyword Sherpa-ONNX just spotted
+        Recognizer cmd = null;          // offline recognizer while waiting for a task
+        long taskDeadline = 0;
+        try {
+            while (live(gen)) {
+                AudioRecord ar = record;
+                if (ar == null) throw new IllegalStateException("The microphone stopped.");
+                if (selfTalk) { // Liora is confirming: don't listen to ourselves
+                    try { ar.stop(); } catch (Exception ignored) { }
+                    micPaused = true;
+                    long until = System.currentTimeMillis() + 8000;
+                    while (selfTalk && live(gen) && System.currentTimeMillis() < until) {
+                        try { Thread.sleep(30); } catch (InterruptedException e) { micPaused = false; return; }
+                    }
+                    micPaused = false;
+                    if (!live(gen)) return;
+                    ar.startRecording();
+                    kws.reset();
+                    filled = 0; spotted = null;
+                    continue;
+                }
+                if (holdMic) {
+                    try { ar.stop(); } catch (Exception ignored) { }
+                    update(gen, "Paused while you train your voice.", "");
+                    while (holdMic && live(gen)) {
+                        try { Thread.sleep(200); } catch (InterruptedException e) { return; }
+                    }
+                    if (!live(gen)) return;
+                    ar.startRecording();
+                    kws.reset();
+                    if (cmd != null) { cmd.close(); cmd = null; }
+                    filled = 0; spotted = null;
+                    update(gen, "Listening for Hey Zippy.", "");
+                    continue;
+                }
+                int n = ar.read(buf, 0, buf.length);
+                if (n <= 0) {
+                    if (n < 0) throw new IllegalStateException("The microphone stopped (" + n + ").");
+                    continue;
+                }
+                for (int i = 0; i < n; i++) {
+                    ring[write] = buf[i] / 32768f;
+                    write = (write + 1) % RING;
+                    if (filled < RING) filled++;
+                }
+                total += n;
+                Settings settings = Store.INSTANCE.read(this);
+                int sens = settings.getSensitivity();
+                if (sens != lastSens) { kws.setSensitivity(sens); lastSens = sens; }
+
+                if (cmd != null) { // offline recognizer is taking the task
+                    if (System.currentTimeMillis() > taskDeadline) {
+                        cmd.close(); cmd = null;
+                        kws.reset();
+                        update(gen, "No task after Hey Zippy.", "");
+                        continue;
+                    }
+                    boolean fin = cmd.acceptWaveForm(buf, n);
+                    String text = speechText(fin ? cmd.getResult() : cmd.getPartialResult());
+                    if (!text.isEmpty()) update(gen, "Say the task.", text);
+                    if (fin && !text.isEmpty()) {
+                        String task = cleanTask(text, sens);
+                        if (!task.isEmpty()) {
+                            cmd.close(); cmd = null;
+                            kws.reset();
+                            deliver(gen, task, settings);
+                        }
+                    }
+                    continue;
+                }
+
+                String hit = kws.accept(buf, n);
+                if (hit != null && spotted == null) {
+                    spotted = hit;
+                    voiceDueAt = total + VOICE_SETTLE;
+                    android.util.Log.i("Zippy", "Sherpa-ONNX spotted " + hit);
+                }
+                if (spotted == null || total < voiceDueAt) continue;
+
+                String label = "ZIPPY".equals(spotted) ? "Zippy" : "Hey Zippy";
+                spotted = null;
+                VoiceMatch.Result r = checkVoice(ring, write, filled, sens);
+                if (!r.accepted) {
+                    update(gen, String.format(Locale.US,
+                            "Heard %s, but it didn't match your voice (score %.0f, needs %.0f). Raise Sensitivity or retrain.",
+                            label, r.score, r.needed), label);
+                    continue;
+                }
+                ZippyPrefs zp = ZippyPrefs.of(this);
+                WakeCue.Action cue = WakeCue.atAccept(zp.wakeCue());
+                if (cue != WakeCue.Action.NONE) Cues.INSTANCE.fire(this, WakeCue.cuesMode(cue), true);
+                if (zp.openGrokBot()) openGrokBot();
+                update(gen, "Heard " + label + ".", label);
+
+                // Said in one breath ("Hey Zippy, add milk")? The offline recognizer hears what follows.
+                lastGreetingText = null;
+                Model model = vosk(gen);
+                String rest = model == null ? "" : oneBreath(gen, model, ring, write, filled, buf, sens, settings.getWaitMs());
+                if (!live(gen)) return;
+                CommandPlan.Next next = CommandPlan.afterWake(rest,
+                        zp.useAndroidStt(), zp.useAndroidStt() && AndroidStt.available(this));
+                if (next == CommandPlan.Next.SEND_NOW) {
+                    deliver(gen, rest, settings);
+                } else {
+                    int h = handOff(gen, next, zp, settings, label);
+                    if (!live(gen)) return;
+                    if (h == HANDOFF_VOSK) {
+                        Model m = vosk(gen);
+                        if (m == null) {
+                            update(gen, voskNote.isEmpty() ? "Offline speech is still loading. Say Hey Zippy again in a moment." : voskNote, "");
+                        } else {
+                            cmd = new Recognizer(m, (float) SAMPLE_RATE);
+                            taskDeadline = System.currentTimeMillis() + settings.getWaitMs();
+                        }
+                    }
+                }
+                kws.reset();
+                filled = 0;
+            }
+        } finally {
+            if (cmd != null) try { cmd.close(); } catch (Throwable ignored) { }
+        }
+    }
+
+    /**
+     * Keeps listening for ONE_BREATH_PROBE_MS after the keyword. If words follow right away, waits
+     * for the end of the sentence and returns the task; returns "" when the user paused.
+     */
+    private String oneBreath(int gen, Model model, float[] ring, int write, int filled, short[] buf, int sens, int waitMs) {
+        Recognizer r = null;
+        try {
+            r = new Recognizer(model, (float) SAMPLE_RATE);
+            float[] tail = snapshot(ring, write, filled, VOICE_SETTLE);
+            short[] t = new short[tail.length];
+            for (int i = 0; i < t.length; i++) t[i] = (short) Math.max(-32768, Math.min(32767, tail[i] * 32768f));
+            r.acceptWaveForm(t, t.length);
+            long start = System.currentTimeMillis();
+            long cap = Math.max(4000, Math.min(15000, waitMs + 6000L));
+            String best = "";
+            while (live(gen)) {
+                AudioRecord ar = record;
+                if (ar == null) return "";
+                int n = ar.read(buf, 0, buf.length);
+                if (n <= 0) { if (n < 0) return ""; continue; }
+                boolean fin = r.acceptWaveForm(buf, n);
+                String heard = speechText(fin ? r.getResult() : r.getPartialResult());
+                String task = TaskText.afterWake(heard, sens);
+                if (!task.isEmpty()) { best = task; update(gen, "Say the task.", heard); }
+                long el = System.currentTimeMillis() - start;
+                if (fin && !best.isEmpty()) return best;
+                if (best.isEmpty() && el > ONE_BREATH_PROBE_MS) return "";
+                if (el > cap) {
+                    String f = TaskText.afterWake(speechText(r.getFinalResult()), sens);
+                    return f.isEmpty() ? best : f;
+                }
+            }
+            return "";
+        } catch (Throwable e) {
+            return "";
+        } finally {
+            if (r != null) try { r.close(); } catch (Throwable ignored) { }
+        }
+    }
+
+    /**
+     * Fallback wake word (the 1.6 loop, unchanged): Vosk transcripts + WakePhrase. Only used when
+     * Sherpa-ONNX can't start on this phone (KwsGuard).
+     */
+    private void runVoskWake(int gen, Recognizer rec) {
         float[] ring = new float[RING];
         short[] buf = new short[2048];
         int write = 0, filled = 0;
@@ -434,7 +702,7 @@ public final class ListenService extends Service {
                 String rest = WakePhrase.parse(text, sens);
                 if (rest != null) {
                     wakeSeen = true;
-                    voiceDueAt = total + VOICE_SETTLE;
+                    voiceDueAt = total + VOICE_SETTLE_VOSK;
                 } else {
                     update(gen, "Listening for Hey Zippy.", text);
                 }
