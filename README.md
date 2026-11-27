@@ -1,14 +1,14 @@
 # Zippy
 
-On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.4**, `versionCode` 5).
+On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.5**, `versionCode` 6).
 
-Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy**, transcribes the task that follows with [Vosk](https://alphacephei.com/vosk/) speech recognition entirely on the phone, and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
+Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy**, hears the task that follows (Android's speech recognizer by default since 1.5, with on-device [Vosk](https://alphacephei.com/vosk/) as the fallback), and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
 
 ```json
 {"text":"…","source":"android"}
 ```
 
-No speech is sent to a cloud recognizer. Only the finished task text is posted to the webhook you configure.
+The wake word and voice check always run on the phone with Vosk. With **Use Android speech recognition for commands** on (default), the task after a pause goes to Android's `SpeechRecognizer` (on most phones Google, which may use the network). Turn it off to keep everything on the phone. Only the finished task text is posted to the webhook you configure.
 
 ## Install this APK
 
@@ -23,8 +23,8 @@ Download `Zippy.apk` from the latest [GitHub Release](https://github.com/13Thron
 3. Set battery use to **Unrestricted** so Android does not kill the listener after the screen sleeps:
    - In Zippy, tap **Allow background listening** (this requests an ignore-battery-optimizations exemption), or
    - Settings → Apps → Zippy → Battery → **Unrestricted**.
-4. In Zippy, paste the Grok Bot webhook address (must start with `https://`) and the secret, then optionally tap **Send test**.
-5. Train your voice (recommended) and turn **Listening** on.
+4. In Zippy's **Settings** tab, paste the Grok Bot webhook address (must start with `https://`) and the secret, then optionally tap **Send test**.
+5. Train your voice on the **Voice** tab (recommended), then turn **Listening** on from **Home**.
 
 Zippy (1.2 and 1.3) does **not** register a `VoiceInteractionService` or `ASSIST` intent, so it cannot be set as Android’s default digital assistant. It listens on its own through the foreground `ListenService`.
 
@@ -38,6 +38,13 @@ The POST body is JSON (`Content-Type: application/json`). Signing (v1.3):
 - Any other non-empty secret → Stripe-style `X-Zippy-Signature: t=<unix seconds>,v1=<lowercase hex HMAC-SHA256 of "<t>.<raw UTF-8 body>">`, keyed with the secret's UTF-8 bytes. No `Authorization` header is sent.
 
 Loopback, link-local, site-local, `.local`, and metadata hostnames are blocked.
+
+## What's new in 1.5
+
+- **Tabs.** **Home**: the Listening switch, live status, last heard, an at-a-glance summary (sensitivity, wake cue, command recognizer, Grok Bot), and recent orders. **Voice**: Train / Reset voice (with confirmation), Sensitivity, Wake cue + greeting, Wait for the task, and the order-accepted cue. **Settings**: webhook address, secret and Send test; the Android speech toggle; the Grok Bot toggle; background listening; Updates. Edge-to-edge status/navigation bar insets are handled.
+- **Android speech for commands** (toggle, default on). After "Hey Zippy" and a pause, Zippy releases its own `AudioRecord`, runs `SpeechRecognizer` on the main thread (`ACTION_RECOGNIZE_SPEECH`, `LANGUAGE_MODEL_FREE_FORM`, `EXTRA_PREFER_OFFLINE=false`), sends the result (the wake words are stripped if repeated), and reopens its mic for Vosk. Said in one breath ("Hey Zippy, add milk"), the task is sent straight from what Vosk already heard. If no recognizer is installed, or it errors or doesn't answer (watchdog 6–20 s), Zippy falls back to Vosk for that task. "No match" or silence ends with "No task after Hey Zippy." Listening always resumes.
+- **Wake cue: Voice greeting / Beep / Vibrate / Silent.** The voice greeting (default "Yeah?", editable, with **Preview**) is spoken with Android TextToSpeech (`USAGE_ASSISTANT`) while Zippy's mic is paused, and listening starts only after `onDone`. If TTS isn't ready, fails or takes more than 4 s, Zippy beeps instead. Beep and Vibrate play the moment your voice is accepted. Upgrades keep their 1.4 cue: Off→Silent, Vibrate→Vibrate, Sound/Both→Beep. New installs get Voice greeting.
+- **Open Grok Bot on wake** (toggle, default off). Zippy looks for `ai.x.grok.bot`, falling back to an app labelled "Grok Bot"; it is visible on Android 11+ through `<queries>`. On wake it launches Grok Bot with `FLAG_ACTIVITY_NEW_TASK`. Android 10+ blocks activity starts from the background, so this works directly only while Zippy is on screen or when **Display over other apps** is allowed (there's a button for it in Settings). Otherwise Zippy posts a "Tap to open Grok Bot" notification and shows why in Settings.
 
 ## What the app does
 
@@ -81,6 +88,15 @@ Package layout:
 | `Sig.java` | v1.3 Stripe-style `X-Zippy-Signature` HMAC |
 | `ResetConfirm.java` | v1.3 "Reset voice data?" confirmation dialog |
 | `Cues.java`, `Ui.java`, `Order.java`, `SendResult.java` | Feedback, layout helpers, recent-order log |
+
+## Building v1.5
+
+[`v1.5/build.sh`](v1.5/build.sh) applies the v1.3 and v1.4 patches, then [`v1.5/patch_smali_v15.py`](v1.5/patch_smali_v15.py). That script removes the Kotlin `MainActivity` (replaced by the tabbed Java screen), adds `SYSTEM_ALERT_WINDOW` and `<queries>` (`ai.x.grok.bot`, launcher apps, `RecognitionService`, `TTS_SERVICE`), adds TrainActivity insets and bumps the version to 1.5/6. The build then compiles `v1.3/java`, the 1.4 voice classes and `v1.5/java` into `classes2.dex` and signs with the release key:
+
+```sh
+ZIPPY_KS_PASS=… v1.5/build.sh Zippy-1.2.apk zippy-release.jks Zippy.apk
+v1.5/test/run_tests.sh   # 1.5 settings/cue/STT-fallback/Grok/tab tests + layout check + all 1.4 and 1.3 tests
+```
 
 ## Building v1.4
 

@@ -1,789 +1,639 @@
 package com.zippy.ear;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PowerManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import androidx.activity.ComponentActivity;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import kotlin.Metadata;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.ranges.RangesKt;
-import kotlin.text.StringsKt;
+import java.util.Locale;
 
-/* JADX INFO: compiled from: MainActivity.kt */
-/* JADX INFO: loaded from: classes.dex */
-@Metadata(d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0002\u0010\u0003J\u0012\u0010#\u001a\u00020$2\b\u0010%\u001a\u0004\u0018\u00010&H\u0014J\b\u0010'\u001a\u00020$H\u0014J\u0018\u0010(\u001a\u00020$2\u0006\u0010)\u001a\u00020*2\u0006\u0010+\u001a\u00020\u001eH\u0002J\b\u0010,\u001a\u00020$H\u0002J\b\u0010-\u001a\u00020$H\u0002J\b\u0010.\u001a\u00020$H\u0002J\b\u0010/\u001a\u00020$H\u0002J\b\u00100\u001a\u00020$H\u0002J\b\u00101\u001a\u00020$H\u0002J2\u00102\u001a\b\u0012\u0004\u0012\u00020\u00050\u001b2\u0006\u00103\u001a\u0002042\u0006\u00105\u001a\u00020\u00182\u0012\u00106\u001a\u000e\u0012\u0004\u0012\u00020\u0018\u0012\u0004\u0012\u00020$07H\u0002J\u001e\u00108\u001a\u00020$2\f\u00109\u001a\b\u0012\u0004\u0012\u00020\u00050\u001b2\u0006\u00105\u001a\u00020\u0018H\u0002J\b\u0010:\u001a\u00020$H\u0002J\b\u0010;\u001a\u00020\u001eH\u0002J\b\u0010<\u001a\u00020\u001eH\u0002J\u0013\u0010=\u001a\b\u0012\u0004\u0012\u00020\"0!H\u0002¢\u0006\u0002\u0010>R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0013X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00050\u001bX\u0082.¢\u0006\u0002\n\u0000R\u0014\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u00050\u001bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u001f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\"0!0 X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006?"}, d2 = {"Lcom/zippy/ear/MainActivity;", "Landroidx/activity/ComponentActivity;", "<init>", "()V", NotificationCompat.CATEGORY_STATUS, "Landroid/widget/TextView;", "heard", "voice", "orders", "battery", "updateStatus", "updateButton", "Landroid/widget/Button;", "listenSwitch", "Landroid/widget/Switch;", "urlField", "Landroid/widget/EditText;", "keyField", "sensitivity", "Landroid/widget/SeekBar;", "sensitivityLabel", "wait", "waitLabel", "readyCue", "", "sentCue", "readyButtons", "", "sentButtons", "rendering", "", "permissions", "Landroidx/activity/result/ActivityResultLauncher;", "", "", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "onResume", "onSwitch", "button", "Landroid/widget/CompoundButton;", "checked", "turnOn", "stopListening", "checkUpdate", "testWebhook", "persist", "render", "cueRow", "parent", "Landroid/widget/LinearLayout;", "selected", "onPick", "Lkotlin/Function1;", "paintCues", "views", "askBattery", "hasMic", "hasNotifications", "neededPermissions", "()[Ljava/lang/String;", "app_release"}, k = 1, mv = {2, 0, 0}, xi = 48)
-public final class MainActivity extends ComponentActivity {
-    private TextView battery;
-    private TextView heard;
-    private EditText keyField;
+/**
+ * Zippy 1.5 main screen (Java rewrite of the Kotlin screen) with three tabs:
+ *  Home     - Listening switch, live status, last heard, a short summary, recent orders.
+ *  Voice    - Train / Reset voice, Sensitivity, wake cue + greeting, task wait, sent cue.
+ *  Settings - Webhook + secret + test, Android speech toggle, Grok Bot toggle, background, updates.
+ * Live state sync from 1.4 (prefs listener + the service's real engine state) is built in.
+ */
+public class MainActivity extends Activity {
+    private static final int REQ_PERMS = 7;
+    private static final String[] CUE_KEYS = {ZippyPrefs.CUE_VOICE, ZippyPrefs.CUE_BEEP, ZippyPrefs.CUE_VIBRATE, ZippyPrefs.CUE_SILENT};
+    private static final String[] SENT_LABELS = {"Off", "Vibrate", "Sound", "Both"};
+
+    private final Handler main = new Handler(Looper.getMainLooper());
+    private ZippyPrefs zp;
+    private Tabs.Tab tab = Tabs.Tab.HOME;
+    private final Button[] tabButtons = new Button[3];
+    private final LinearLayout[] pages = new LinearLayout[3];
+    private ScrollView scroll;
+    private boolean rendering, startAfterPermission, renderQueued, resumed;
+    private long lastKick;
+    private Greeter previewer;
+
+    // Home
     private Switch listenSwitch;
-    private TextView orders;
-    private List<? extends TextView> readyButtons;
-    private boolean rendering;
-    private SeekBar sensitivity;
-    private TextView sensitivityLabel;
-    private List<? extends TextView> sentButtons;
-    private TextView status;
-    private Button updateButton;
-    private TextView updateStatus;
-    private EditText urlField;
-    private TextView voice;
-    private SeekBar wait;
-    private TextView waitLabel;
-    private int readyCue = 1;
-    private int sentCue = 1;
-    private final ActivityResultLauncher<String[]> permissions = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), new ActivityResultCallback() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda4
-        @Override // androidx.activity.result.ActivityResultCallback
-        public final void onActivityResult(Object obj) {
-            MainActivity.permissions$lambda$0(this.f$0, (Map) obj);
-        }
-    });
+    private TextView status, heard, summary, orders;
+    // Voice
+    private TextView voice, sensitivityLabel, waitLabel, cueInfo;
+    private SeekBar sensitivity, waitBar;
+    private final Button[] cueButtons = new Button[4];
+    private final Button[] sentButtons = new Button[4];
+    private LinearLayout greetingBox;
+    private EditText greetingField;
+    // Settings
+    private EditText urlField, keyField;
+    private TextView testStatus, sttInfo, grokInfo, battery, updateStatus;
+    private Switch sttSwitch, grokSwitch;
+    private Button overlayButton, batteryButton, updateButton;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void permissions$lambda$0(MainActivity mainActivity, Map granted) {
-        Intrinsics.checkNotNullParameter(granted, "granted");
-        if (Intrinsics.areEqual(granted.get("android.permission.RECORD_AUDIO"), (Object) true)) {
-            mainActivity.turnOn();
-            return;
-        }
-        MainActivity mainActivity2 = mainActivity;
-        Store.INSTANCE.setListening(mainActivity2, false);
-        Store.INSTANCE.setStatus(mainActivity2, "Microphone permission is required.", "");
-        mainActivity.render();
-    }
+    private final Runnable renderNow = () -> { renderQueued = false; if (!isFinishing()) render(); };
+    private final Runnable engineChanged = this::requestRender;
+    // strong reference: SharedPreferences keeps listeners weakly
+    private final SharedPreferences.OnSharedPreferenceChangeListener prefsListener = (p, key) -> {
+        if (key == null || key.equals("listening") || key.equals("note") || key.equals("heard")
+                || key.equals("prints") || key.equals("orders") || key.equals("grokNote")) requestRender();
+    };
 
-    @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        MainActivity mainActivity = this;
-        Settings settings = Store.INSTANCE.read(mainActivity);
-        this.readyCue = settings.getReadyCue();
-        this.sentCue = settings.getSentCue();
-        LinearLayout linearLayoutPage = Ui.INSTANCE.page(mainActivity);
-        linearLayoutPage.addView(Ui.INSTANCE.title(mainActivity, "Zippy"));
-        linearLayoutPage.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Installed listener for this phone.", 0, 4, null));
-        LinearLayout linearLayoutCard = Ui.INSTANCE.card(mainActivity);
-        LinearLayout linearLayout = new LinearLayout(mainActivity);
-        linearLayout.setOrientation(0);
-        LinearLayout linearLayout2 = new LinearLayout(mainActivity);
-        linearLayout2.setOrientation(1);
-        linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
-        linearLayout2.addView(Ui.INSTANCE.heading(mainActivity, "Listening"));
-        TextView textViewBody$default = Ui.body$default(Ui.INSTANCE, mainActivity, "Off.", 0, 4, null);
-        this.status = textViewBody$default;
-        TextView textView = null;
-        if (textViewBody$default == null) {
-            Intrinsics.throwUninitializedPropertyAccessException(NotificationCompat.CATEGORY_STATUS);
-            textViewBody$default = null;
-        }
-        linearLayout2.addView(textViewBody$default);
-        Switch r2 = new Switch(mainActivity);
-        r2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda11
-            @Override // android.widget.CompoundButton.OnCheckedChangeListener
-            public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                this.f$0.onSwitch(compoundButton, z);
-            }
-        });
-        this.listenSwitch = r2;
-        linearLayout.addView(linearLayout2);
-        Switch r3 = this.listenSwitch;
-        if (r3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("listenSwitch");
-            r3 = null;
-        }
-        linearLayout.addView(r3);
-        linearLayoutCard.addView(linearLayout);
-        TextView textViewBody = Ui.INSTANCE.body(mainActivity, "Nothing heard yet.", Ui.FG);
-        this.heard = textViewBody;
-        if (textViewBody == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("heard");
-            textViewBody = null;
-        }
-        linearLayoutCard.addView(textViewBody);
-        linearLayoutPage.addView(linearLayoutCard);
-        LinearLayout linearLayoutCard2 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard2.addView(Ui.INSTANCE.heading(mainActivity, "Voice"));
-        TextView textViewBody$default2 = Ui.body$default(Ui.INSTANCE, mainActivity, "Not trained.", 0, 4, null);
-        this.voice = textViewBody$default2;
-        if (textViewBody$default2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("voice");
-            textViewBody$default2 = null;
-        }
-        linearLayoutCard2.addView(textViewBody$default2);
-        Button button = Ui.INSTANCE.button(mainActivity, "Train Hey Zippy", true);
-        button.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda12
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                MainActivity.onCreate$lambda$5$lambda$4(this.f$0, view);
-            }
-        });
-        linearLayoutCard2.addView(button);
-        Button button2 = Ui.INSTANCE.button(mainActivity, "Reset voice", false);
-        button2.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda13
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                MainActivity.onCreate$lambda$7$lambda$6(this.f$0, view);
-            }
-        });
-        linearLayoutCard2.addView(button2);
-        linearLayoutPage.addView(linearLayoutCard2);
-        LinearLayout linearLayoutCard3 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard3.addView(Ui.INSTANCE.heading(mainActivity, "Zippy"));
-        linearLayoutCard3.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Grok Bot routine: Hey Zippy voice tasks. Keep the address below and type the secret you gave Grok Bot. Each task is signed with X-Zippy-Signature.", 0, 4, null));
-        EditText editTextField$default = Ui.field$default(Ui.INSTANCE, mainActivity, "https://api2.cursor.sh/automations/webhook/eedaf91e-bf38-5ed3-a66f-a949716538a6", false, 4, null);
-        this.urlField = editTextField$default;
-        if (editTextField$default == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("urlField");
-            editTextField$default = null;
-        }
-        editTextField$default.setText(settings.getWebhookUrl());
-        EditText editTextField = Ui.INSTANCE.field(mainActivity, "Secret", true);
-        this.keyField = editTextField;
-        if (editTextField == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("keyField");
-            editTextField = null;
-        }
-        editTextField.setText(settings.getWebhookKey());
-        EditText editText = this.urlField;
-        if (editText == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("urlField");
-            editText = null;
-        }
-        linearLayoutCard3.addView(editText);
-        EditText editText2 = this.keyField;
-        if (editText2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("keyField");
-            editText2 = null;
-        }
-        linearLayoutCard3.addView(editText2);
-        Button button3 = Ui.INSTANCE.button(mainActivity, "Send test", false);
-        button3.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda14
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                this.f$0.testWebhook();
-            }
-        });
-        linearLayoutCard3.addView(button3);
-        linearLayoutPage.addView(linearLayoutCard3);
-        LinearLayout linearLayoutCard4 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard4.addView(Ui.INSTANCE.heading(mainActivity, "Sensitivity"));
-        TextView textViewBody$default3 = Ui.body$default(Ui.INSTANCE, mainActivity, "55", 0, 4, null);
-        this.sensitivityLabel = textViewBody$default3;
-        if (textViewBody$default3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("sensitivityLabel");
-            textViewBody$default3 = null;
-        }
-        linearLayoutCard4.addView(textViewBody$default3);
-        SeekBar seekBar = new SeekBar(mainActivity);
-        seekBar.setMax(100);
-        seekBar.setProgress(settings.getSensitivity());
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.zippy.ear.MainActivity$onCreate$5$1
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStartTrackingTouch(SeekBar bar) {
-            }
+    // ------------------------------------------------------------------ lifecycle
 
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStopTrackingTouch(SeekBar bar) {
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onProgressChanged(SeekBar bar, int value, boolean fromUser) {
-                TextView textView2 = this.this$0.sensitivityLabel;
-                if (textView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("sensitivityLabel");
-                    textView2 = null;
-                }
-                textView2.setText("Looser  " + value + "  Stricter");
-                if (fromUser) {
-                    this.this$0.persist();
-                }
-            }
-        });
-        this.sensitivity = seekBar;
-        linearLayoutCard4.addView(seekBar);
-        linearLayoutCard4.addView(Ui.INSTANCE.heading(mainActivity, "Wait for the task"));
-        TextView textViewBody$default4 = Ui.body$default(Ui.INSTANCE, mainActivity, "4.0s", 0, 4, null);
-        this.waitLabel = textViewBody$default4;
-        if (textViewBody$default4 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("waitLabel");
-            textViewBody$default4 = null;
+    @Override
+    protected void onCreate(Bundle saved) {
+        super.onCreate(saved);
+        Sensitivity.migrate(this);
+        zp = ZippyPrefs.of(this);
+        zp.migrate();
+        tab = zp.tab();
+        getWindow().getDecorView().setBackgroundColor(Look.BG);
+        if (Build.VERSION.SDK_INT < 35) {
+            getWindow().setStatusBarColor(Look.BG);
+            getWindow().setNavigationBarColor(Look.BG);
         }
-        linearLayoutCard4.addView(textViewBody$default4);
-        SeekBar seekBar2 = new SeekBar(mainActivity);
-        seekBar2.setMax(14);
-        seekBar2.setProgress(RangesKt.coerceIn((settings.getWaitMs() + NotificationManagerCompat.IMPORTANCE_UNSPECIFIED) / 500, 0, 14));
-        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.zippy.ear.MainActivity$onCreate$6$1
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStartTrackingTouch(SeekBar bar) {
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStopTrackingTouch(SeekBar bar) {
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onProgressChanged(SeekBar bar, int value, boolean fromUser) {
-                TextView textView2 = this.this$0.waitLabel;
-                if (textView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("waitLabel");
-                    textView2 = null;
-                }
-                textView2.setText((((double) ((value * 500) + 1000)) / 1000.0d) + "s after Hey Zippy");
-                if (fromUser) {
-                    this.this$0.persist();
-                }
-            }
-        });
-        this.wait = seekBar2;
-        linearLayoutCard4.addView(seekBar2);
-        linearLayoutPage.addView(linearLayoutCard4);
-        LinearLayout linearLayoutCard5 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard5.addView(Ui.INSTANCE.heading(mainActivity, "Cues"));
-        linearLayoutCard5.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "When Hey Zippy hits", 0, 4, null));
-        this.readyButtons = cueRow(linearLayoutCard5, settings.getReadyCue(), new Function1() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda15
-            @Override // kotlin.jvm.functions.Function1
-            public final Object invoke(Object obj) {
-                return MainActivity.onCreate$lambda$12(this.f$0, ((Integer) obj).intValue());
-            }
-        });
-        linearLayoutCard5.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "When the order is accepted", 0, 4, null));
-        this.sentButtons = cueRow(linearLayoutCard5, settings.getSentCue(), new Function1() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda16
-            @Override // kotlin.jvm.functions.Function1
-            public final Object invoke(Object obj) {
-                return MainActivity.onCreate$lambda$13(this.f$0, ((Integer) obj).intValue());
-            }
-        });
-        linearLayoutPage.addView(linearLayoutCard5);
-        LinearLayout linearLayoutCard6 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard6.addView(Ui.INSTANCE.heading(mainActivity, "Background"));
-        TextView textViewBody$default5 = Ui.body$default(Ui.INSTANCE, mainActivity, "", 0, 4, null);
-        this.battery = textViewBody$default5;
-        if (textViewBody$default5 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("battery");
-            textViewBody$default5 = null;
-        }
-        linearLayoutCard6.addView(textViewBody$default5);
-        Button button4 = Ui.INSTANCE.button(mainActivity, "Allow background listening", false);
-        button4.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda17
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                this.f$0.askBattery();
-            }
-        });
-        linearLayoutCard6.addView(button4);
-        linearLayoutPage.addView(linearLayoutCard6);
-        LinearLayout linearLayoutCard7 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard7.addView(Ui.INSTANCE.heading(mainActivity, "Updates"));
-        linearLayoutCard7.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one.", 0, 4, null));
-        TextView textViewBody$default6 = Ui.body$default(Ui.INSTANCE, mainActivity, "Installed v1.4.", 0, 4, null);
-        this.updateStatus = textViewBody$default6;
-        if (textViewBody$default6 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-            textViewBody$default6 = null;
-        }
-        linearLayoutCard7.addView(textViewBody$default6);
-        Button button5 = Ui.INSTANCE.button(mainActivity, "Check for updates", false);
-        button5.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda18
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                this.f$0.checkUpdate();
-            }
-        });
-        this.updateButton = button5;
-        if (button5 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateButton");
-            button5 = null;
-        }
-        linearLayoutCard7.addView(button5);
-        linearLayoutPage.addView(linearLayoutCard7);
-        LinearLayout linearLayoutCard8 = Ui.INSTANCE.card(mainActivity);
-        linearLayoutCard8.addView(Ui.INSTANCE.heading(mainActivity, "Recent orders"));
-        TextView textViewBody$default7 = Ui.body$default(Ui.INSTANCE, mainActivity, "Nothing sent from this phone yet.", 0, 4, null);
-        this.orders = textViewBody$default7;
-        if (textViewBody$default7 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("orders");
-        } else {
-            textView = textViewBody$default7;
-        }
-        linearLayoutCard8.addView(textView);
-        linearLayoutPage.addView(linearLayoutCard8);
-        ScrollView scrollView = new ScrollView(mainActivity);
-        scrollView.setBackgroundColor(Ui.BG);
-        scrollView.addView(linearLayoutPage);
-        setContentView(scrollView);
-        persist();
+        setContentView(build());
+        Settings s = Store.INSTANCE.read(this);
+        urlField.setText(s.getWebhookUrl());
+        keyField.setText(s.getWebhookKey());
+        greetingField.setText(zp.greeting());
+        hookFieldSaves();
+        askPermissions(false);
         render();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void onCreate$lambda$5$lambda$4(MainActivity mainActivity, View view) {
-        mainActivity.stopListening();
-        mainActivity.startActivity(new Intent(mainActivity, (Class<?>) TrainActivity.class));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void onCreate$lambda$7$lambda$6(MainActivity mainActivity, View view) {
-        // v1.3: ask before deleting the saved voice takes (see ResetConfirm)
-        ResetConfirm.show(mainActivity);
-    }
-
-    /* v1.3: called from ResetConfirm's "Delete" button */
-    public static void resetVoiceConfirmed(MainActivity mainActivity) {
-        Store.INSTANCE.clearPrints(mainActivity);
-        mainActivity.render();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final Unit onCreate$lambda$12(MainActivity mainActivity, int i) {
-        mainActivity.readyCue = i;
-        mainActivity.persist();
-        Cues.INSTANCE.fire(mainActivity, i, true);
-        return Unit.INSTANCE;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final Unit onCreate$lambda$13(MainActivity mainActivity, int i) {
-        mainActivity.sentCue = i;
-        mainActivity.persist();
-        Cues.INSTANCE.fire(mainActivity, i, false);
-        return Unit.INSTANCE;
-    }
-
-    @Override // android.app.Activity
+    @Override
     protected void onResume() {
         super.onResume();
-        Updater.onResume(this, this.updateButton, this.updateStatus); // v1.3: finish a pending update install
-        MainActivity mainActivity = this;
-        if (Store.INSTANCE.read(mainActivity).getListening() && hasMic()) {
-            ListenService.INSTANCE.start(mainActivity);
-        }
+        resumed = true;
+        ListenService.appVisible = true;
+        getSharedPreferences("zippy", Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(prefsListener);
+        ListenService.watch(engineChanged);
         render();
+        try { Updater.onResume(this, updateButton, updateStatus); } catch (Throwable ignored) { }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void onSwitch(CompoundButton button, boolean checked) {
-        if (this.rendering) {
-            return;
-        }
-        if (checked) {
-            if (hasMic() && hasNotifications()) {
-                turnOn();
-                return;
-            } else {
-                this.permissions.launch(neededPermissions());
-                return;
-            }
-        }
-        stopListening();
-    }
-
-    private final void turnOn() {
-        MainActivity mainActivity = this;
-        Store.INSTANCE.setListening(mainActivity, true);
-        ListenService.INSTANCE.start(mainActivity);
-        render();
-    }
-
-    private final void stopListening() {
-        MainActivity mainActivity = this;
-        Store.INSTANCE.setListening(mainActivity, false);
-        startService(new Intent(mainActivity, (Class<?>) ListenService.class).setAction(ListenService.ACTION_STOP));
-        render();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void checkUpdate() {
-        // v1.3: semver-aware GitHub updater with download progress, APK verification,
-        // "Install unknown apps" prompt, and FileProvider install (see Updater.java).
-        // The old checkUpdate$lambda$* helpers below are no longer called.
-        Updater.check(this, this.updateButton, this.updateStatus);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void checkUpdate$lambda$24(final MainActivity mainActivity) {
-        try {
-            final Updates.Offer offerLatest = Updates.INSTANCE.latest();
-            if (offerLatest.getVersionCode() <= 3) {
-                mainActivity.runOnUiThread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda5
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        MainActivity.checkUpdate$lambda$24$lambda$19(this.f$0);
-                    }
-                });
-            } else {
-                if (!mainActivity.getPackageManager().canRequestPackageInstalls()) {
-                    mainActivity.runOnUiThread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda6
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            MainActivity.checkUpdate$lambda$24$lambda$20(this.f$0);
-                        }
-                    });
-                    return;
-                }
-                mainActivity.runOnUiThread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda7
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        MainActivity.checkUpdate$lambda$24$lambda$21(this.f$0, offerLatest);
-                    }
-                });
-                final File fileDownload = Updates.INSTANCE.download(mainActivity, offerLatest.getApkUrl());
-                mainActivity.runOnUiThread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda8
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        MainActivity.checkUpdate$lambda$24$lambda$22(this.f$0, fileDownload);
-                    }
-                });
-            }
-        } catch (Exception e) {
-            mainActivity.runOnUiThread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda9
-                @Override // java.lang.Runnable
-                public final void run() {
-                    MainActivity.checkUpdate$lambda$24$lambda$23(this.f$0, e);
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void checkUpdate$lambda$24$lambda$19(MainActivity mainActivity) {
-        TextView textView = mainActivity.updateStatus;
-        Button button = null;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-            textView = null;
-        }
-        textView.setText("You're on the latest (1.2).");
-        Button button2 = mainActivity.updateButton;
-        if (button2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateButton");
-        } else {
-            button = button2;
-        }
-        button.setEnabled(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void checkUpdate$lambda$24$lambda$20(MainActivity mainActivity) {
-        TextView textView = mainActivity.updateStatus;
-        Button button = null;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-            textView = null;
-        }
-        textView.setText("Allow Zippy to install updates, then tap the button again.");
-        Button button2 = mainActivity.updateButton;
-        if (button2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateButton");
-        } else {
-            button = button2;
-        }
-        button.setEnabled(true);
-        mainActivity.startActivity(new Intent("android.settings.MANAGE_UNKNOWN_APP_SOURCES", Uri.parse("package:" + mainActivity.getPackageName())));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void checkUpdate$lambda$24$lambda$21(MainActivity mainActivity, Updates.Offer offer) {
-        TextView textView = mainActivity.updateStatus;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-            textView = null;
-        }
-        textView.setText("Downloading " + offer.getTitle() + ".");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void checkUpdate$lambda$24$lambda$22(MainActivity mainActivity, File file) {
-        TextView textView = mainActivity.updateStatus;
-        Button button = null;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-            textView = null;
-        }
-        textView.setText("Ready to install.");
-        Button button2 = mainActivity.updateButton;
-        if (button2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateButton");
-        } else {
-            button = button2;
-        }
-        button.setEnabled(true);
-        Updates.INSTANCE.install(mainActivity, file);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void checkUpdate$lambda$24$lambda$23(MainActivity mainActivity, Exception exc) {
-        TextView textView = mainActivity.updateStatus;
-        Button button = null;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateStatus");
-            textView = null;
-        }
-        String message = exc.getMessage();
-        if (message == null) {
-            message = "Couldn't check for an update.";
-        }
-        textView.setText(message);
-        Button button2 = mainActivity.updateButton;
-        if (button2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("updateButton");
-        } else {
-            button = button2;
-        }
-        button.setEnabled(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void testWebhook() {
+    @Override
+    protected void onPause() {
+        resumed = false;
+        ListenService.appVisible = false;
+        getSharedPreferences("zippy", Context.MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(prefsListener);
+        ListenService.unwatch(engineChanged);
         persist();
-        new Thread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda0
-            @Override // java.lang.Runnable
-            public final void run() {
-                MainActivity.testWebhook$lambda$26(this.f$0);
-            }
-        }).start();
+        super.onPause();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void testWebhook$lambda$26(final MainActivity mainActivity) {
-        MainActivity mainActivity2 = mainActivity;
-        SendResult sendResultPost = Webhook.INSTANCE.post(Store.INSTANCE.read(mainActivity2), "test order");
-        Store.INSTANCE.addOrder(mainActivity2, "test order", sendResultPost.getOk(), sendResultPost.getDetail());
-        Store.INSTANCE.setStatus(mainActivity2, sendResultPost.getOk() ? "Zippy accepted the test." : sendResultPost.getDetail(), "test order");
-        mainActivity.runOnUiThread(new Runnable() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda1
-            @Override // java.lang.Runnable
-            public final void run() {
-                this.f$0.render();
-            }
+    @Override
+    protected void onDestroy() {
+        if (previewer != null) previewer.shutdown();
+        super.onDestroy();
+    }
+
+    /** Kept for ResetConfirm and older hooks. */
+    public static void rerender(MainActivity a) { if (a != null && !a.isFinishing()) a.render(); }
+
+    /** Called by ResetConfirm after the user confirms "Delete". */
+    public static void resetVoiceConfirmed(MainActivity a) {
+        Store.INSTANCE.clearPrints(a);
+        a.render();
+    }
+
+    private void requestRender() {
+        if (renderQueued) return;
+        renderQueued = true;
+        main.postDelayed(renderNow, 120);
+    }
+
+    // ------------------------------------------------------------------ layout
+
+    private View build() {
+        LinearLayout root = Look.column(this);
+        root.setBackgroundColor(Look.BG);
+        root.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+        LinearLayout header = Look.column(this);
+        header.setPadding(dp(20), dp(20), dp(20), dp(4));
+        header.addView(Look.title(this, "Zippy"));
+        LinearLayout bar = Look.row(this);
+        bar.setBackground(Look.rounded(this, Look.SURFACE, 14));
+        bar.setPadding(dp(4), 0, dp(4), dp(8));
+        LinearLayout.LayoutParams barLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        barLp.topMargin = dp(12);
+        bar.setLayoutParams(barLp);
+        for (Tabs.Tab t : Tabs.Tab.values()) {
+            Button b = Look.segment(this, t.title);
+            b.setTextSize(15);
+            b.setOnClickListener(v -> selectTab(t));
+            tabButtons[t.ordinal()] = b;
+            bar.addView(b);
+        }
+        header.addView(bar);
+        root.addView(header);
+
+        scroll = new ScrollView(this);
+        scroll.setFillViewport(true);
+        scroll.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+        LinearLayout holder = Look.column(this);
+        holder.setPadding(dp(20), 0, dp(20), dp(32));
+        for (Tabs.Tab t : Tabs.Tab.values()) {
+            pages[t.ordinal()] = Look.column(this);
+            holder.addView(pages[t.ordinal()]);
+        }
+        scroll.addView(holder);
+        root.addView(scroll);
+
+        buildHome(pages[0]);
+        buildVoice(pages[1]);
+        buildSettings(pages[2]);
+        Look.edgeToEdge(root);
+        return root;
+    }
+
+    private void buildHome(LinearLayout page) {
+        LinearLayout c = Look.card(this);
+        LinearLayout r = Look.row(this);
+        TextView h = Look.heading(this, "Listening");
+        h.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+        r.addView(h);
+        listenSwitch = new Switch(this);
+        listenSwitch.setOnCheckedChangeListener((v, on) -> { if (!rendering) setListening(on); });
+        r.addView(listenSwitch);
+        c.addView(r);
+        status = Look.text(this, "", 15, Look.FG);
+        c.addView(Look.gap(this, 6));
+        c.addView(status);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Last heard"));
+        heard = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(heard);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "At a glance"));
+        summary = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(summary);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Recent orders"));
+        orders = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(orders);
+        page.addView(c);
+    }
+
+    private void buildVoice(LinearLayout page) {
+        LinearLayout c = Look.card(this);
+        c.addView(Look.heading(this, "Your voice"));
+        voice = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(voice);
+        Button train = Look.button(this, "Train Hey Zippy", true);
+        train.setOnClickListener(v -> startActivity(new Intent(this, TrainActivity.class)));
+        c.addView(train);
+        Button reset = Look.button(this, "Reset voice", false);
+        reset.setOnClickListener(v -> ResetConfirm.show(this));
+        c.addView(reset);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Sensitivity"));
+        sensitivityLabel = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(sensitivityLabel);
+        sensitivity = new SeekBar(this);
+        sensitivity.setMax(100);
+        sensitivity.setOnSeekBarChangeListener(new Seek(p -> {
+            sensitivityLabel.setText(Sensitivity.label(p));
+            persist();
+        }));
+        c.addView(sensitivity);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Wake cue"));
+        cueInfo = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(cueInfo);
+        LinearLayout r1 = Look.row(this), r2 = Look.row(this);
+        for (int i = 0; i < 4; i++) {
+            final String key = CUE_KEYS[i];
+            Button b = Look.segment(this, ZippyPrefs.cueLabel(key));
+            b.setOnClickListener(v -> { zp.setWakeCue(key); persist(); render(); });
+            cueButtons[i] = b;
+            (i < 2 ? r1 : r2).addView(b);
+        }
+        c.addView(r1);
+        c.addView(r2);
+        greetingBox = Look.column(this);
+        greetingBox.addView(Look.gap(this, 8));
+        greetingBox.addView(Look.body(this, "Greeting Zippy says"));
+        greetingField = Look.field(this, ZippyPrefs.DEFAULT_GREETING, false);
+        greetingField.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        greetingBox.addView(greetingField);
+        Button preview = Look.button(this, "Preview greeting", false);
+        preview.setOnClickListener(v -> previewGreeting());
+        greetingBox.addView(preview);
+        c.addView(greetingBox);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Wait for the task"));
+        waitLabel = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(waitLabel);
+        waitBar = new SeekBar(this);
+        waitBar.setMax(14);
+        waitBar.setOnSeekBarChangeListener(new Seek(p -> { waitLabel.setText(waitText(1000 + 500 * p)); persist(); }));
+        c.addView(waitBar);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "When the order is accepted"));
+        LinearLayout r = Look.row(this);
+        for (int i = 0; i < 4; i++) {
+            final int mode = i;
+            Button b = Look.segment(this, SENT_LABELS[i]);
+            b.setOnClickListener(v -> { sentCue = mode; persist(); render(); });
+            sentButtons[i] = b;
+            r.addView(b);
+        }
+        c.addView(r);
+        page.addView(c);
+    }
+
+    private int sentCue = -1;
+
+    private void buildSettings(LinearLayout page) {
+        LinearLayout c = Look.card(this);
+        c.addView(Look.heading(this, "Webhook"));
+        c.addView(Look.gap(this, 6));
+        c.addView(Look.body(this, "Grok Bot routine: Hey Zippy voice tasks. Keep the address below and type the secret you gave Grok Bot. Each task is signed with X-Zippy-Signature."));
+        urlField = Look.field(this, "https://", false);
+        c.addView(urlField);
+        keyField = Look.field(this, "Secret", true);
+        c.addView(keyField);
+        Button test = Look.button(this, "Send test", true);
+        test.setOnClickListener(v -> sendTest());
+        c.addView(test);
+        testStatus = Look.body(this, "");
+        c.addView(testStatus);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Commands"));
+        sttSwitch = new Switch(this);
+        sttSwitch.setText("Use Android speech recognition for commands");
+        sttSwitch.setTextColor(Look.FG);
+        sttSwitch.setTextSize(15);
+        sttSwitch.setOnCheckedChangeListener((v, on) -> { if (!rendering) { zp.setUseAndroidStt(on); render(); } });
+        c.addView(Look.gap(this, 8));
+        c.addView(sttSwitch);
+        sttInfo = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(sttInfo);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Grok Bot"));
+        grokSwitch = new Switch(this);
+        grokSwitch.setText("Open Grok Bot on wake");
+        grokSwitch.setTextColor(Look.FG);
+        grokSwitch.setTextSize(15);
+        grokSwitch.setOnCheckedChangeListener((v, on) -> {
+            if (rendering) return;
+            zp.setOpenGrokBot(on);
+            zp.setGrokNote("");
+            render();
         });
+        c.addView(Look.gap(this, 8));
+        c.addView(grokSwitch);
+        grokInfo = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(grokInfo);
+        overlayButton = Look.button(this, "Allow display over other apps", false);
+        overlayButton.setOnClickListener(v -> {
+            try { startActivity(GrokBot.overlaySettings(this)); } catch (Exception e) { grokInfo.setText("Open Android Settings > Apps > Zippy > Display over other apps."); }
+        });
+        c.addView(overlayButton);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Background"));
+        battery = Look.body(this, "");
+        c.addView(Look.gap(this, 6));
+        c.addView(battery);
+        batteryButton = Look.button(this, "Allow background listening", false);
+        batteryButton.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent("android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS", Uri.parse("package:" + getPackageName())));
+            } catch (Exception ignored) { }
+        });
+        c.addView(batteryButton);
+        page.addView(c);
+
+        c = Look.card(this);
+        c.addView(Look.heading(this, "Updates"));
+        c.addView(Look.gap(this, 6));
+        c.addView(Look.body(this, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one."));
+        updateStatus = Look.text(this, "Installed v1.5.", 14, Look.FG);
+        c.addView(Look.gap(this, 6));
+        c.addView(updateStatus);
+        updateButton = Look.button(this, "Check for updates", true);
+        updateButton.setOnClickListener(v -> Updater.check(this, updateButton, updateStatus));
+        c.addView(updateButton);
+        page.addView(c);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void persist() {
-        Store store = Store.INSTANCE;
-        MainActivity mainActivity = this;
-        EditText editText = this.urlField;
-        SeekBar seekBar = null;
-        if (editText == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("urlField");
-            editText = null;
-        }
-        String string = editText.getText().toString();
-        EditText editText2 = this.keyField;
-        if (editText2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("keyField");
-            editText2 = null;
-        }
-        String string2 = editText2.getText().toString();
-        SeekBar seekBar2 = this.sensitivity;
-        if (seekBar2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("sensitivity");
-            seekBar2 = null;
-        }
-        int progress = seekBar2.getProgress();
-        SeekBar seekBar3 = this.wait;
-        if (seekBar3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("wait");
-        } else {
-            seekBar = seekBar3;
-        }
-        store.saveSettings(mainActivity, string, string2, progress, 1000 + (seekBar.getProgress() * 500), this.readyCue, this.sentCue);
+    private void hookFieldSaves() {
+        TextWatcher save = new After(this::persist);
+        urlField.addTextChangedListener(save);
+        keyField.addTextChangedListener(save);
+        greetingField.addTextChangedListener(new After(() -> { zp.setGreeting(greetingField.getText().toString()); renderSummary(); }));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void render() {
-        String str;
-        String str2;
-        String strJoinToString$default;
-        this.rendering = true;
-        MainActivity mainActivity = this;
-        Settings settings = Store.INSTANCE.read(mainActivity);
-        Switch r2 = this.listenSwitch;
-        List<? extends TextView> list = null;
-        if (r2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("listenSwitch");
-            r2 = null;
-        }
-        r2.setChecked(settings.getListening());
-        TextView textView = this.status;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException(NotificationCompat.CATEGORY_STATUS);
-            textView = null;
-        }
-        textView.setText(settings.getNote());
-        TextView textView2 = this.heard;
-        if (textView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("heard");
-            textView2 = null;
-        }
-        String heard = settings.getHeard();
-        if (StringsKt.isBlank(heard)) {
-            heard = "Nothing heard yet.";
-        }
-        textView2.setText(heard);
-        Prints prints = Store.INSTANCE.prints(mainActivity);
-        TextView textView3 = this.voice;
-        if (textView3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("voice");
-            textView3 = null;
-        }
-        if (prints.getWakes().size() >= 3) {
-            str = prints.getWakes().size() + " wake takes, " + prints.getRejects().size() + " others.";
-        }
-        textView3.setText(str);
-        boolean zIsIgnoringBatteryOptimizations = ((PowerManager) getSystemService(PowerManager.class)).isIgnoringBatteryOptimizations(getPackageName());
-        TextView textView4 = this.battery;
-        if (textView4 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("battery");
-            textView4 = null;
-        }
-        if (zIsIgnoringBatteryOptimizations) {
-        }
-        textView4.setText(str2);
-        List<Order> listOrders = Store.INSTANCE.orders(mainActivity);
-        TextView textView5 = this.orders;
-        if (textView5 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("orders");
-            textView5 = null;
-        }
-        if (!listOrders.isEmpty()) {
-            strJoinToString$default = CollectionsKt.joinToString$default(listOrders, "\n\n", null, null, 0, null, new Function1() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda3
-                @Override // kotlin.jvm.functions.Function1
-                public final Object invoke(Object obj) {
-                    return MainActivity.render$lambda$28((Order) obj);
-                }
-            }, 30, null);
-        }
-        textView5.setText(strJoinToString$default);
-        List<? extends TextView> list2 = this.readyButtons;
-        if (list2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("readyButtons");
-            list2 = null;
-        }
-        paintCues(list2, this.readyCue);
-        List<? extends TextView> list3 = this.sentButtons;
-        if (list3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("sentButtons");
-        } else {
-            list = list3;
-        }
-        paintCues(list, this.sentCue);
-        this.rendering = false;
+    // ------------------------------------------------------------------ actions
+
+    private void selectTab(Tabs.Tab t) {
+        tab = t;
+        zp.setTab(t);
+        if (getCurrentFocus() != null) getCurrentFocus().clearFocus();
+        render();
+        scroll.scrollTo(0, 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final CharSequence render$lambda$28(Order order) {
-        String str;
-        Intrinsics.checkNotNullParameter(order, "order");
-        String str2 = order.getOk() ? "Sent" : "Not sent";
-        if (order.getOk()) {
-            str = "";
-        } else {
-            str = " · " + order.getDetail();
-        }
-        return order.getText() + "\n" + str2 + " · " + Store.INSTANCE.whenLabel(order.getAt()) + str;
+    private boolean hasMic() {
+        return checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED;
     }
 
-    private final List<TextView> cueRow(LinearLayout parent, int selected, final Function1<? super Integer, Unit> onPick) {
-        MainActivity mainActivity = this;
-        LinearLayout linearLayout = new LinearLayout(mainActivity);
-        linearLayout.setOrientation(0);
-        List listListOf = CollectionsKt.listOf((Object[]) new String[]{"Off", "Vibrate", "Sound", "Both"});
-        ArrayList arrayList = new ArrayList(CollectionsKt.collectionSizeOrDefault(listListOf, 10));
-        final int i = 0;
-        for (Object obj : listListOf) {
-            int i2 = i + 1;
-            if (i < 0) {
-                CollectionsKt.throwIndexOverflow();
+    private void askPermissions(boolean forStart) {
+        List<String> need = new ArrayList<>();
+        if (!hasMic()) need.add(android.Manifest.permission.RECORD_AUDIO);
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) {
+            need.add("android.permission.POST_NOTIFICATIONS");
+        }
+        if (!need.isEmpty()) {
+            startAfterPermission = forStart;
+            requestPermissions(need.toArray(new String[0]), REQ_PERMS);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int code, String[] perms, int[] results) {
+        super.onRequestPermissionsResult(code, perms, results);
+        if (code != REQ_PERMS) return;
+        if (startAfterPermission) {
+            startAfterPermission = false;
+            if (hasMic()) setListening(true);
+            else Store.INSTANCE.setStatus(this, "Microphone permission is required.", "");
+        }
+        render();
+    }
+
+    private void setListening(boolean on) {
+        if (on) {
+            if (!hasMic()) {
+                askPermissions(true);
+                render();
+                return;
             }
-            TextView textView = new TextView(mainActivity);
-            textView.setText((String) obj);
-            textView.setGravity(17);
-            textView.setTextColor(i == selected ? Ui.ACCENT_FG : Ui.MUTED);
-            textView.setPadding(0, Ui.INSTANCE.dp(mainActivity, 12), 0, Ui.INSTANCE.dp(mainActivity, 12));
-            textView.setBackground(Ui.INSTANCE.rounded(i == selected ? Ui.ACCENT : Ui.BG, Ui.INSTANCE.dp(mainActivity, 8)));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2, 1.0f);
-            layoutParams.setMarginEnd(Ui.INSTANCE.dp(mainActivity, 4));
-            textView.setLayoutParams(layoutParams);
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.zippy.ear.MainActivity$$ExternalSyntheticLambda10
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
-                    MainActivity.cueRow$lambda$33$lambda$32$lambda$31(onPick, i, view);
-                }
-            });
-            arrayList.add(textView);
-            i = i2;
-        }
-        ArrayList arrayList2 = arrayList;
-        Iterator it = arrayList2.iterator();
-        while (it.hasNext()) {
-            linearLayout.addView((TextView) it.next());
-        }
-        parent.addView(linearLayout);
-        return arrayList2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void cueRow$lambda$33$lambda$32$lambda$31(Function1 function1, int i, View view) {
-        function1.invoke(Integer.valueOf(i));
-    }
-
-    private final void paintCues(List<? extends TextView> views, int selected) {
-        int i = 0;
-        for (Object obj : views) {
-            int i2 = i + 1;
-            if (i < 0) {
-                CollectionsKt.throwIndexOverflow();
+            Store.INSTANCE.setListening(this, true);
+            try { ListenService.Companion.start(this); } catch (Exception e) {
+                Store.INSTANCE.setListening(this, false);
+                Store.INSTANCE.setStatus(this, "Android refused to start listening. Try again with Zippy open.", "");
             }
-            TextView textView = (TextView) obj;
-            textView.setTextColor(i == selected ? Ui.ACCENT_FG : Ui.MUTED);
-            textView.setBackground(Ui.INSTANCE.rounded(i == selected ? Ui.ACCENT : Ui.BG, Ui.INSTANCE.dp(this, 8)));
-            i = i2;
+        } else {
+            Store.INSTANCE.setListening(this, false);
+            try { startService(new Intent(this, ListenService.class).setAction(ListenService.ACTION_STOP)); } catch (Exception ignored) { }
+        }
+        render();
+    }
+
+    private void persist() {
+        if (rendering || urlField == null || sensitivity == null) return;
+        Settings s = Store.INSTANCE.read(this);
+        int sent = sentCue >= 0 ? sentCue : s.getSentCue();
+        Store.INSTANCE.saveSettings(this,
+                urlField.getText().toString().trim(),
+                keyField.getText().toString().trim(),
+                sensitivity.getProgress(),
+                1000 + 500 * waitBar.getProgress(),
+                ZippyPrefs.legacyReadyCue(zp.wakeCue()),
+                sent);
+    }
+
+    private void sendTest() {
+        persist();
+        testStatus.setText("Sending a test order…");
+        final Settings s = Store.INSTANCE.read(this);
+        new Thread(() -> {
+            String msg;
+            try {
+                SendResult r = Webhook.INSTANCE.post(s, "test order");
+                msg = r.getOk() ? "Zippy accepted the test." : r.getDetail();
+            } catch (Throwable t) {
+                msg = "Test failed: " + t.getMessage();
+            }
+            final String m = msg;
+            runOnUiThread(() -> testStatus.setText(m));
+        }, "zippy-test").start();
+    }
+
+    private void previewGreeting() {
+        if (previewer == null) previewer = new Greeter(this);
+        final String g = zp.greeting();
+        main.postDelayed(() -> {
+            if (!previewer.speak(g)) cueInfo.setText("Text-to-speech isn't ready on this phone. Zippy will beep instead of speaking until it is.");
+        }, previewer.ready() ? 0 : 900);
+    }
+
+    // ------------------------------------------------------------------ render
+
+    private void render() {
+        if (zp == null || status == null) return;
+        rendering = true;
+        try {
+            for (Tabs.Tab t : Tabs.Tab.values()) {
+                pages[t.ordinal()].setVisibility(t == tab ? View.VISIBLE : View.GONE);
+                Look.style(this, tabButtons[t.ordinal()], t == tab);
+            }
+            Settings s = Store.INSTANCE.read(this);
+            renderHome(s);
+            renderVoice(s);
+            if (tab == Tabs.Tab.SETTINGS) renderSettings(s); // package lookups only when visible
+        } finally {
+            rendering = false;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void askBattery() {
-        startActivity(new Intent("android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS", Uri.parse("package:" + getPackageName())));
-    }
-
-    private final boolean hasMic() {
-        return ContextCompat.checkSelfPermission(this, "android.permission.RECORD_AUDIO") == 0;
-    }
-
-    private final boolean hasNotifications() {
-        return Build.VERSION.SDK_INT < 33 || ContextCompat.checkSelfPermission(this, "android.permission.POST_NOTIFICATIONS") == 0;
-    }
-
-    private final String[] neededPermissions() {
-        List listMutableListOf = CollectionsKt.mutableListOf("android.permission.RECORD_AUDIO");
-        if (Build.VERSION.SDK_INT >= 33) {
-            listMutableListOf.add("android.permission.POST_NOTIFICATIONS");
+    private void renderHome(Settings s) {
+        boolean wanted = s.getListening();
+        int engine = ListenService.engineState();
+        listenSwitch.setChecked(wanted);
+        status.setText(ListenState.statusText(wanted, engine, s.getNote()));
+        long now = System.currentTimeMillis();
+        if (resumed && ListenState.screenShouldStart(wanted, engine, hasMic()) && now - lastKick > 3000) {
+            lastKick = now; // switch says on but nothing runs (e.g. killed): bring it back
+            try { ListenService.Companion.start(this); } catch (Exception ignored) { }
         }
-        return (String[]) listMutableListOf.toArray(new String[0]);
+        String h = s.getHeard();
+        heard.setText(h == null || h.trim().isEmpty() ? "Nothing heard yet." : h);
+        renderSummary();
+        StringBuilder b = new StringBuilder();
+        try {
+            List<Order> list = Store.INSTANCE.orders(this);
+            int n = 0;
+            for (Order o : list) {
+                if (n++ >= 8) break;
+                if (b.length() > 0) b.append("\n\n");
+                b.append(o.getText()).append('\n');
+                if (o.getOk()) b.append("Sent · ").append(Store.INSTANCE.whenLabel(o.getAt()));
+                else {
+                    b.append("Not sent · ").append(Store.INSTANCE.whenLabel(o.getAt()));
+                    String d = o.getDetail();
+                    if (d != null && !d.isEmpty()) b.append(" · ").append(d);
+                }
+            }
+        } catch (Exception ignored) { }
+        orders.setText(b.length() == 0 ? "Nothing sent from this phone yet." : b.toString());
+    }
+
+    private void renderSummary() {
+        if (summary == null) return;
+        Settings s = Store.INSTANCE.read(this);
+        String cue = zp.wakeCue();
+        String cueText = ZippyPrefs.cueLabel(cue) + (ZippyPrefs.CUE_VOICE.equals(cue) ? " (\u201c" + zp.greeting() + "\u201d)" : "");
+        summary.setText(String.format(Locale.US, "Sensitivity %d of 100\nWake cue: %s\nCommands: %s\nOpen Grok Bot on wake: %s",
+                Sensitivity.clamp(s.getSensitivity()), cueText,
+                zp.useAndroidStt() ? "Android speech, Zippy offline as backup" : "Zippy offline recognizer",
+                zp.openGrokBot() ? "On" : "Off"));
+    }
+
+    private void renderVoice(Settings s) {
+        String v;
+        try {
+            Prints p = Store.INSTANCE.prints(this);
+            List<float[]> wakes = p.getWakes();
+            List<float[]> rejects = p.getRejects();
+            int w = wakes == null ? 0 : wakes.size(), o = rejects == null ? 0 : rejects.size();
+            if (w == 0) v = "Not trained. Any speaker saying Hey Zippy will be accepted.";
+            else if (w >= 3 && !VoiceMatch.allCurrent(wakes)) v = "Retrain needed: Zippy 1.4 has a new, more reliable voice check. Until you retrain, any voice can wake Zippy.";
+            else if (Sensitivity.clamp(s.getSensitivity()) >= 100) v = w + " wake takes saved. Voice check is off at Sensitivity 100.";
+            else v = w + " wake takes, " + o + " others.";
+        } catch (Exception e) {
+            v = "Not trained.";
+        }
+        voice.setText(v);
+        int sens = Sensitivity.clamp(s.getSensitivity());
+        sensitivity.setProgress(sens);
+        sensitivityLabel.setText(Sensitivity.label(sens));
+        int step = Math.max(0, Math.min(14, (s.getWaitMs() - 1000 + 250) / 500));
+        waitBar.setProgress(step);
+        waitLabel.setText(waitText(1000 + 500 * step));
+        String cue = zp.wakeCue();
+        for (int i = 0; i < 4; i++) Look.style(this, cueButtons[i], CUE_KEYS[i].equals(cue));
+        greetingBox.setVisibility(ZippyPrefs.CUE_VOICE.equals(cue) ? View.VISIBLE : View.GONE);
+        cueInfo.setText(ZippyPrefs.CUE_VOICE.equals(cue)
+                ? "After you say \u201cHey Zippy\u201d and pause, Zippy speaks this greeting, then listens for the task. Said in one breath, the task is sent right away with no greeting."
+                : ZippyPrefs.CUE_SILENT.equals(cue) ? "No cue. Zippy just listens for the task."
+                : "Plays the moment your voice is accepted.");
+        int sent = sentCue >= 0 ? sentCue : s.getSentCue();
+        for (int i = 0; i < 4; i++) Look.style(this, sentButtons[i], i == sent);
+    }
+
+    private void renderSettings(Settings s) {
+        boolean stt = zp.useAndroidStt();
+        sttSwitch.setChecked(stt);
+        boolean avail = AndroidStt.available(this);
+        sttInfo.setText((stt
+                ? "After \u201cHey Zippy\u201d and a pause, Zippy pauses its own mic and lets Android's speech recognizer (usually Google, online for best accuracy) hear the task, then goes back to listening. "
+                : "Zippy's offline recognizer hears the task. ")
+                + "Saying it in one breath (\u201cHey Zippy, add milk\u201d) always sends what Zippy already heard. "
+                + (avail ? "Android speech recognizer: available."
+                         : "Android speech recognizer: not found on this phone, so Zippy's offline recognizer is used."));
+
+        grokSwitch.setChecked(zp.openGrokBot());
+        String pkg = GrokBot.findPackage(this);
+        boolean overlay = GrokBot.canLaunchFromBackground(this);
+        StringBuilder g = new StringBuilder();
+        g.append(pkg == null ? "Grok Bot isn't installed (looked for " + GrokBot.PLAY_PACKAGE + ")."
+                : "Found: " + GrokBot.label(this, pkg) + " (" + pkg + ").");
+        g.append(overlay
+                ? "\nDisplay over other apps: allowed, so Grok Bot can open while you're in another app."
+                : "\nAndroid blocks opening apps from the background. Without \u201cDisplay over other apps\u201d, Zippy shows a tap-to-open notification instead.");
+        String note = zp.grokNote();
+        if (zp.openGrokBot() && note != null && !note.isEmpty()) g.append("\nLast try: ").append(note);
+        grokInfo.setText(g.toString());
+        overlayButton.setVisibility(overlay ? View.GONE : View.VISIBLE);
+
+        boolean free = false;
+        try { free = getSystemService(PowerManager.class).isIgnoringBatteryOptimizations(getPackageName()); } catch (Exception ignored) { }
+        battery.setText(free ? "Battery limits are off for Zippy. It can keep listening with the screen off."
+                : "Android may stop listening after the screen sleeps. Allow background once.");
+        batteryButton.setVisibility(free ? View.GONE : View.VISIBLE);
+    }
+
+    static String waitText(int ms) {
+        return String.format(Locale.US, "%.1fs after Hey Zippy", ms / 1000f);
+    }
+
+    private int dp(float v) { return Look.dp(this, v); }
+
+    // ------------------------------------------------------------------ small listeners
+
+    private interface IntCb { void on(int v); }
+
+    private final class Seek implements SeekBar.OnSeekBarChangeListener {
+        private final IntCb cb;
+        Seek(IntCb cb) { this.cb = cb; }
+        public void onProgressChanged(SeekBar b, int p, boolean user) { if (user && !rendering) cb.on(p); }
+        public void onStartTrackingTouch(SeekBar b) {}
+        public void onStopTrackingTouch(SeekBar b) { if (!rendering) { persist(); renderSummary(); } }
+    }
+
+    private final class After implements TextWatcher {
+        private final Runnable r;
+        After(Runnable r) { this.r = r; }
+        public void beforeTextChanged(CharSequence s, int a, int b, int c) {}
+        public void onTextChanged(CharSequence s, int a, int b, int c) {}
+        public void afterTextChanged(Editable e) { if (!rendering) r.run(); }
     }
 }

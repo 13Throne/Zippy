@@ -27,7 +27,12 @@ import org.vosk.Model;
 import org.vosk.Recognizer;
 
 /**
- * Zippy 1.4 listener (replaces the 1.2/1.3 Kotlin ListenService).
+ * Zippy 1.5 listener (replaces the 1.2/1.3 Kotlin ListenService).
+ *
+ * 1.5: after an accepted "Hey Zippy" with a pause, the mic is released and Android's
+ * SpeechRecognizer takes the command (toggle, default on); Vosk keeps the wake word and voice
+ * check and is the fallback. Wake cue can be a spoken greeting (TTS, mic paused until onDone),
+ * beep, vibrate or silent. Optional "Open Grok Bot on wake".
  *
  * State fixes:
  *  - The service obeys the switch: a sticky restart, or any start while prefs say "off", stops
@@ -58,6 +63,9 @@ public final class ListenService extends Service {
     private static volatile Thread worker;
     /** Set while TrainActivity is open, so training and listening never share the mic. */
     private static volatile boolean holdMic;
+    /** MainActivity is on screen (background-launch rules don't apply then). */
+    public static volatile boolean appVisible;
+    private Greeter greeter;
 
     private final Handler main = new Handler(Looper.getMainLooper());
     private final ExecutorService sends = Executors.newSingleThreadExecutor();
@@ -102,6 +110,8 @@ public final class ListenService extends Service {
     public void onCreate() {
         super.onCreate();
         Sensitivity.migrate(this);
+        try { ZippyPrefs.of(this).migrate(); } catch (Throwable ignored) { }
+        try { greeter = new Greeter(this); } catch (Throwable ignored) { }
     }
 
     @Override
@@ -152,6 +162,7 @@ public final class ListenService extends Service {
     public void onDestroy() {
         shutdown();
         sends.shutdown();
+        if (greeter != null) greeter.shutdown();
         super.onDestroy();
     }
 
@@ -181,7 +192,6 @@ public final class ListenService extends Service {
         System.setProperty("jna.nosys", "true");
         Model model = null;
         Recognizer rec = null;
-        AudioRecord ar = null;
         try {
             if (!live(gen)) return;
             update(gen, "Loading speech on this phone.", "");
@@ -192,34 +202,125 @@ public final class ListenService extends Service {
                 fail(gen, "Microphone permission is required.");
                 return;
             }
-            int min = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
-            ar = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
-                    AudioFormat.ENCODING_PCM_16BIT, Math.max(min, SAMPLE_RATE));
-            if (ar.getState() != AudioRecord.STATE_INITIALIZED) {
+            AudioRecord ar = openMic();
+            if (ar == null) {
                 fail(gen, "The microphone did not start.");
                 return;
             }
-            if (!live(gen)) return;
             record = ar;
+            if (!live(gen)) return;
             ar.startRecording();
             setEngine(ListenState.LISTENING);
             update(gen, "Listening for Hey Zippy.", "");
-            run(gen, ar, rec);
+            run(gen, rec);
         } catch (Throwable t) {
             if (live(gen)) fail(gen, t.getMessage() == null ? "Listening stopped." : t.getMessage());
         } finally {
-            if (ar != null) {
-                try { ar.stop(); } catch (Exception ignored) { }
-                ar.release();
-            }
-            if (record == ar) record = null;
+            releaseMic();
             if (rec != null) try { rec.close(); } catch (Throwable ignored) { }
             if (model != null) try { model.close(); } catch (Throwable ignored) { }
             if (worker == Thread.currentThread()) setEngine(ListenState.OFF);
         }
     }
 
-    private void run(int gen, AudioRecord ar, Recognizer rec) {
+    private static AudioRecord openMic() {
+        int min = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
+        AudioRecord ar = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
+                AudioFormat.ENCODING_PCM_16BIT, Math.max(min, SAMPLE_RATE));
+        if (ar.getState() != AudioRecord.STATE_INITIALIZED) {
+            ar.release();
+            return null;
+        }
+        return ar;
+    }
+
+    private void releaseMic() {
+        AudioRecord ar = record;
+        record = null;
+        if (ar != null) {
+            try { ar.stop(); } catch (Exception ignored) { }
+            try { ar.release(); } catch (Exception ignored) { }
+        }
+    }
+
+    /** Re-open Zippy's mic after a hand-off; retries while Android's recognizer lets go of it. */
+    private void reopenMic(int gen) {
+        for (int attempt = 0; attempt < 8 && live(gen); attempt++) {
+            try {
+                AudioRecord ar = record;
+                if (ar == null) {
+                    ar = openMic();
+                    if (ar == null) throw new IllegalStateException("mic busy");
+                    record = ar;
+                }
+                ar.startRecording();
+                if (ar.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) return;
+            } catch (Exception e) {
+                releaseMic();
+            }
+            try { Thread.sleep(250); } catch (InterruptedException e) { return; }
+        }
+        if (live(gen)) throw new IllegalStateException("The microphone did not restart after the command.");
+    }
+
+    private static final int HANDOFF_DONE = 0, HANDOFF_VOSK = 1;
+
+    /**
+     * "Hey Zippy" ... pause. Zippy's mic is stopped (released for Android STT) so neither the
+     * greeting nor the other recognizer is fighting it, then reopened. Returns HANDOFF_VOSK when
+     * the task should still be heard by Vosk (STT off/unavailable/failed).
+     */
+    private int handOff(int gen, CommandPlan.Next next, ZippyPrefs zp, Settings settings, String heard) {
+        boolean stt = next == CommandPlan.Next.ANDROID_STT;
+        if (stt) releaseMic();
+        else { AudioRecord ar = record; if (ar != null) try { ar.stop(); } catch (Exception ignored) { } }
+        try {
+            WakeCue.Action cue = WakeCue.beforeCommand(zp.wakeCue(), greeter != null && greeter.ready());
+            if (cue == WakeCue.Action.VOICE) {
+                boolean spoke = greeter.speakAndWait(zp.greeting(), 4000);
+                android.util.Log.i("Zippy", "Greeting " + (spoke ? "spoken" : "failed, beeping"));
+                cue = WakeCue.afterSpeak(spoke);
+            }
+            if (cue != WakeCue.Action.NONE) Cues.INSTANCE.fire(this, WakeCue.cuesMode(cue), true);
+            if (!live(gen)) return HANDOFF_DONE;
+            if (!stt) {
+                update(gen, "Say the task.", heard);
+                return HANDOFF_VOSK;
+            }
+            update(gen, "Say the task (Android speech is listening).", heard);
+            int silence = Math.max(1000, Math.min(4000, settings.getWaitMs() / 2));
+            android.util.Log.i("Zippy", "Android speech: start");
+            AndroidStt.Result r = AndroidStt.listen(this, main, CommandPlan.sttTimeoutMs(settings.getWaitMs()), silence, () -> live(gen));
+            android.util.Log.i("Zippy", "Android speech: " + (r.text != null && !r.text.isEmpty() ? "result" : r.describe()));
+            if (!live(gen)) return HANDOFF_DONE;
+            switch (CommandPlan.onStt(r.text, r.error, r.timedOut)) {
+                case SEND: {
+                    String task = WakePhrase.stripLeadingWake(r.text.trim(), settings.getSensitivity());
+                    if (task.isEmpty()) { update(gen, "No task after Hey Zippy.", r.text); return HANDOFF_DONE; }
+                    deliver(gen, task, settings);
+                    return HANDOFF_DONE;
+                }
+                case NO_TASK:
+                    update(gen, "No task after Hey Zippy.", "");
+                    return HANDOFF_DONE;
+                default:
+                    update(gen, "Android speech " + r.describe() + ". Say the task again; Zippy is listening.", "");
+                    return HANDOFF_VOSK;
+            }
+        } finally {
+            if (live(gen)) reopenMic(gen);
+        }
+    }
+
+    private void openGrokBot() {
+        main.post(() -> {
+            String note;
+            try { note = GrokBot.open(this, appVisible); } catch (Throwable t) { note = "Grok Bot couldn't be opened."; }
+            try { ZippyPrefs.of(this).setGrokNote(note); } catch (Throwable ignored) { }
+        });
+    }
+
+    private void run(int gen, Recognizer rec) {
         float[] ring = new float[RING];
         short[] buf = new short[2048];
         int write = 0, filled = 0;
@@ -231,6 +332,8 @@ public final class ListenService extends Service {
         Boolean voiceOk = null;         // decision for this utterance
         String pendingRemainder = null; // task words heard in the same breath as the wake
         while (live(gen)) {
+            AudioRecord ar = record;
+            if (ar == null) throw new IllegalStateException("The microphone stopped.");
             if (holdMic) {
                 try { ar.stop(); } catch (Exception ignored) { }
                 update(gen, "Paused while you train your voice.", "");
@@ -288,7 +391,10 @@ public final class ListenService extends Service {
                 VoiceMatch.Result r = checkVoice(ring, write, filled, sens);
                 voiceOk = r.accepted;
                 if (r.accepted) {
-                    Cues.INSTANCE.fire(this, settings.getReadyCue(), true);
+                    ZippyPrefs zp = ZippyPrefs.of(this);
+                    WakeCue.Action cue = WakeCue.atAccept(zp.wakeCue());
+                    if (cue != WakeCue.Action.NONE) Cues.INSTANCE.fire(this, WakeCue.cuesMode(cue), true);
+                    if (zp.openGrokBot()) openGrokBot();
                     update(gen, "Say the task.", text);
                 } else {
                     update(gen, String.format(Locale.US,
@@ -299,12 +405,22 @@ public final class ListenService extends Service {
             if (isFinal) {
                 if (wakeSeen && Boolean.TRUE.equals(voiceOk)) {
                     String rest = WakePhrase.parse(text, sens);
-                    if (rest != null && !rest.isEmpty()) {
-                        deliver(gen, rest, settings);
+                    ZippyPrefs zp = ZippyPrefs.of(this);
+                    CommandPlan.Next next = CommandPlan.afterWake(rest,
+                            zp.useAndroidStt(), zp.useAndroidStt() && AndroidStt.available(this));
+                    if (next == CommandPlan.Next.SEND_NOW) {
+                        deliver(gen, rest, settings); // said in one breath: Vosk already has it
                     } else {
-                        awaitingTask = true;
-                        taskDeadline = System.currentTimeMillis() + settings.getWaitMs();
-                        update(gen, "Say the task.", text);
+                        int h = handOff(gen, next, zp, settings, text);
+                        if (!live(gen)) return;
+                        try { rec.reset(); } catch (Throwable ignored) { }
+                        filled = 0;
+                        if (h == HANDOFF_VOSK) {
+                            awaitingTask = true;
+                            taskDeadline = System.currentTimeMillis() + settings.getWaitMs();
+                        } else {
+                            awaitingTask = false;
+                        }
                     }
                 }
                 wakeSeen = false;
@@ -382,6 +498,7 @@ public final class ListenService extends Service {
 
     private synchronized void setStatus(String note, String heard) {
         if (note.equals(lastNoteWritten) && heard.equals(lastHeard)) return;
+        if (!note.equals(lastNoteWritten)) android.util.Log.i("Zippy", note); // status only, never the secret
         lastNoteWritten = note;
         lastHeard = heard;
         Store.INSTANCE.setStatus(this, note, heard);
