@@ -300,7 +300,7 @@ public final class MainActivity extends ComponentActivity {
         LinearLayout linearLayoutCard7 = Ui.INSTANCE.card(mainActivity);
         linearLayoutCard7.addView(Ui.INSTANCE.heading(mainActivity, "Updates"));
         linearLayoutCard7.addView(Ui.body$default(Ui.INSTANCE, mainActivity, "Checks GitHub (13Throne/Zippy) for a newer release and installs it right over this one.", 0, 4, null));
-        TextView textViewBody$default6 = Ui.body$default(Ui.INSTANCE, mainActivity, "Installed v1.3.", 0, 4, null);
+        TextView textViewBody$default6 = Ui.body$default(Ui.INSTANCE, mainActivity, "Installed v1.4.", 0, 4, null);
         this.updateStatus = textViewBody$default6;
         if (textViewBody$default6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("updateStatus");

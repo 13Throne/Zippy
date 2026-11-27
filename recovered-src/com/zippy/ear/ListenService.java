@@ -7,444 +7,425 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.media.AudioFormat;
 import android.media.AudioRecord;
+import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
-import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
-import kotlin.Metadata;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.ranges.RangesKt;
-import kotlin.text.StringsKt;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 import org.vosk.Model;
 import org.vosk.Recognizer;
 
-/* JADX INFO: compiled from: ListenService.kt */
-/* JADX INFO: loaded from: classes.dex */
-@Metadata(d1 = {"\u0000|\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0014\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 92\u00020\u0001:\u00019B\u0007¢\u0006\u0004\b\u0002\u0010\u0003J\u0014\u0010\u0017\u001a\u0004\u0018\u00010\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aH\u0016J\"\u0010\u001b\u001a\u00020\u001c2\b\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\u0006\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\u001e\u001a\u00020\u001cH\u0016J\b\u0010\u001f\u001a\u00020 H\u0016J\b\u0010!\u001a\u00020 H\u0002J(\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\u001c2\u0006\u0010'\u001a\u00020\u001c2\u0006\u0010(\u001a\u00020)H\u0002J(\u0010*\u001a\u00020%2\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\u001c2\u0006\u0010'\u001a\u00020\u001c2\u0006\u0010+\u001a\u00020\u001cH\u0002J\u0018\u0010,\u001a\u00020 2\u0006\u0010-\u001a\u00020\u00142\u0006\u0010(\u001a\u00020)H\u0002J\u0010\u0010.\u001a\u00020 2\u0006\u0010/\u001a\u00020\u0014H\u0002J\u0018\u00100\u001a\u00020 2\u0006\u00101\u001a\u00020\u00142\u0006\u00102\u001a\u00020\u0014H\u0002J\b\u00103\u001a\u00020 H\u0002J\u0010\u00104\u001a\u0002052\u0006\u0010-\u001a\u00020\u0014H\u0002J\b\u00106\u001a\u00020 H\u0002J\u0010\u00107\u001a\u00020\u00142\u0006\u00108\u001a\u00020\u0014H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u0018\u0010\b\u001a\n \n*\u0004\u0018\u00010\t0\tX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000bR\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0010\u001a\b\u0018\u00010\u0011R\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006:"}, d2 = {"Lcom/zippy/ear/ListenService;", "Landroid/app/Service;", "<init>", "()V", "running", "Ljava/util/concurrent/atomic/AtomicBoolean;", "main", "Landroid/os/Handler;", "sends", "Ljava/util/concurrent/ExecutorService;", "kotlin.jvm.PlatformType", "Ljava/util/concurrent/ExecutorService;", "thread", "Ljava/lang/Thread;", "record", "Landroid/media/AudioRecord;", "wakeLock", "Landroid/os/PowerManager$WakeLock;", "Landroid/os/PowerManager;", "lastSent", "", "lastSentAt", "", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onStartCommand", "", "flags", "startId", "onDestroy", "", "loop", "matchesVoice", "", "ring", "", "write", "filled", "settings", "Lcom/zippy/ear/Settings;", "snapshot", "samples", "deliver", "text", "fail", "message", "update", "note", "heard", "holdCpu", "notification", "Landroid/app/Notification;", "ensureChannel", "speechText", "json", "Companion", "app_release"}, k = 1, mv = {2, 0, 0}, xi = 48)
+/**
+ * Zippy 1.4 listener (replaces the 1.2/1.3 Kotlin ListenService).
+ *
+ * State fixes:
+ *  - The service obeys the switch: a sticky restart, or any start while prefs say "off", stops
+ *    immediately instead of opening the mic behind an "Off." screen.
+ *  - Its real state (OFF / STARTING / LISTENING) is published; the screen listens for changes and
+ *    re-renders live, so the switch, the status line and the mic indicator can't drift apart.
+ *  - A stopped worker can't write "Listening…" or re-post the notification after it was stopped
+ *    (generation check), and a new start waits for the old worker to release the mic.
+ *
+ * Voice fixes: the voice check runs once the whole wake phrase is in the buffer (not on the first
+ * partial), uses VoiceMatch (calibrated, sensitivity-aware) and reports score/needed on a reject.
+ */
 public final class ListenService extends Service {
     public static final String ACTION_STOP = "com.zippy.ear.STOP";
     private static final String CHANNEL = "zippy-listen";
-
-    /* JADX INFO: renamed from: Companion, reason: from kotlin metadata */
-    public static final Companion INSTANCE = new Companion(null);
     private static final int NOTIF_ID = 41;
     private static final int SAMPLE_RATE = 16000;
-    private long lastSentAt;
-    private AudioRecord record;
-    private Thread thread;
-    private PowerManager.WakeLock wakeLock;
-    private final AtomicBoolean running = new AtomicBoolean(false);
+    private static final int RING = SAMPLE_RATE * 2;            // 2.0 s of audio
+    private static final int VOICE_WINDOW = (int) (SAMPLE_RATE * 1.9);
+    private static final int VOICE_SETTLE = (int) (SAMPLE_RATE * 0.35); // wait for "...ppy" to land
+
+    /** Kept so MainActivity's existing ListenService.Companion.start(ctx) calls still work. */
+    public static final Companion Companion = new Companion();
+
+    private static volatile int engine = ListenState.OFF;
+    private static final AtomicInteger GEN = new AtomicInteger();
+    private static final List<Runnable> WATCHERS = new CopyOnWriteArrayList<>();
+    private static volatile Thread worker;
+    /** Set while TrainActivity is open, so training and listening never share the mic. */
+    private static volatile boolean holdMic;
+
     private final Handler main = new Handler(Looper.getMainLooper());
     private final ExecutorService sends = Executors.newSingleThreadExecutor();
-    private String lastSent = "";
+    private volatile AudioRecord record;
+    private PowerManager.WakeLock wakeLock;
+    private int myGen = -1;
+    private String lastNote = null, lastHeard = null, lastSent = "";
+    private long lastSentAt;
 
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
+    public static final class Companion {
+        private Companion() {}
+        public final void start(Context context) {
+            Intent i = new Intent(context, ListenService.class);
+            if (Build.VERSION.SDK_INT >= 26) context.startForegroundService(i); else context.startService(i);
+        }
     }
 
-    @Override // android.app.Service
+    // ------------------------------------------------------------------ published state
+
+    public static int engineState() { return engine; }
+
+    /** TrainActivity onResume/onPause: pause the listener's mic so voice takes record cleanly. */
+    public static void holdMic(boolean hold) { holdMic = hold; }
+
+    public static void watch(Runnable r) { if (!WATCHERS.contains(r)) WATCHERS.add(r); }
+
+    public static void unwatch(Runnable r) { WATCHERS.remove(r); }
+
+    private static void setEngine(int s) {
+        if (engine == s) return;
+        engine = s;
+        Handler h = new Handler(Looper.getMainLooper());
+        for (Runnable r : WATCHERS) h.post(r);
+    }
+
+    // ------------------------------------------------------------------ lifecycle
+
+    @Override
+    public IBinder onBind(Intent intent) { return null; }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Sensitivity.migrate(this);
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Intrinsics.areEqual(intent != null ? intent.getAction() : null, ACTION_STOP)) {
-            ListenService listenService = this;
-            Store.INSTANCE.setListening(listenService, false);
-            Store.INSTANCE.setStatus(listenService, "Off.", Store.INSTANCE.read(listenService).getHeard());
+        boolean stop = intent != null && ACTION_STOP.equals(intent.getAction());
+        if (stop) { // notification "Stop" or the switch: plain startService, no foreground needed
+            Store.INSTANCE.setListening(this, false);
+            shutdown();
             stopSelf();
-            return 2;
+            return START_NOT_STICKY;
         }
-        Notification notification = notification("Starting the microphone.");
-        if (Build.VERSION.SDK_INT >= 30) {
-            startForeground(41, notification, 128);
-        } else {
-            startForeground(41, notification);
+        boolean wanted = Store.INSTANCE.read(this).getListening();
+        // startForegroundService() must be answered with startForeground() even if we stop right away
+        boolean foreground = goForeground("Starting the microphone.");
+        if (!ListenState.shouldRun(wanted, false)) { // e.g. sticky restart after the user turned it off
+            shutdown();
+            stopSelf();
+            return START_NOT_STICKY;
+        }
+        if (!foreground) { // Android refuses a background mic start (e.g. restart after the app was killed)
+            Store.INSTANCE.setListening(this, false);
+            setStatus("Listening stopped in the background. Turn it on again here.", "");
+            shutdown();
+            stopSelf();
+            return START_NOT_STICKY;
+        }
+        if (myGen == GEN.get() && worker != null && worker.isAlive()) {
+            return START_STICKY; // already listening
         }
         holdCpu();
-        if (this.thread == null) {
-            this.running.set(true);
-            Thread thread = new Thread(new Runnable() { // from class: com.zippy.ear.ListenService$$ExternalSyntheticLambda1
-                @Override // java.lang.Runnable
-                public final void run() throws Throwable {
-                    this.f$0.loop();
-                }
-            }, CHANNEL);
-            thread.start();
-            this.thread = thread;
-        }
-        return 1;
+        myGen = GEN.incrementAndGet();
+        setEngine(ListenState.STARTING);
+        setStatus("Starting the microphone.", "");
+        final Thread previous = worker;
+        final int gen = myGen;
+        Thread t = new Thread(() -> {
+            if (previous != null && previous.isAlive()) {
+                try { previous.join(8000); } catch (InterruptedException ignored) { return; }
+            }
+            loop(gen);
+        }, CHANNEL);
+        worker = t;
+        t.start();
+        return START_STICKY;
     }
 
-    @Override // android.app.Service
-    public void onDestroy() throws InterruptedException {
-        this.running.set(false);
-        try {
-            AudioRecord audioRecord = this.record;
-            if (audioRecord != null) {
-                audioRecord.stop();
-            }
-        } catch (Exception unused) {
-        }
-        Thread thread = this.thread;
-        if (thread != null) {
-            thread.join(2000L);
-        }
-        this.thread = null;
-        PowerManager.WakeLock wakeLock = this.wakeLock;
-        if (wakeLock != null && wakeLock.isHeld()) {
-            wakeLock.release();
-        }
-        this.sends.shutdownNow();
+    @Override
+    public void onDestroy() {
+        shutdown();
+        sends.shutdown();
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code duplicated, block: B:101:0x0209  */
-    /* JADX WARN: Code duplicated, block: B:103:0x020e  */
-    public final void loop() throws Throwable {
-        Recognizer recognizer;
-        Model model;
-        String str;
-        boolean z;
-        String str2 = "Listening for Hey Zippy.";
-        String str3 = "";
+    private void shutdown() {
+        if (myGen == GEN.get()) GEN.incrementAndGet(); // invalidate our worker
+        myGen = -1;
+        AudioRecord r = record;
+        if (r != null) {
+            try { r.stop(); } catch (Exception ignored) { }
+        }
+        if (wakeLock != null && wakeLock.isHeld()) {
+            try { wakeLock.release(); } catch (Exception ignored) { }
+        }
+        if (Build.VERSION.SDK_INT >= 24) stopForeground(STOP_FOREGROUND_REMOVE); else stopForeground(true);
+        boolean wanted = Store.INSTANCE.read(this).getListening();
+        if (!wanted) setStatus("Off.", Store.INSTANCE.read(this).getHeard());
+        Thread w = worker;
+        if (w == null || !w.isAlive()) setEngine(ListenState.OFF);
+        // else the worker sets OFF itself once it has released the mic
+    }
+
+    private boolean live(int gen) { return GEN.get() == gen; }
+
+    // ------------------------------------------------------------------ listening loop
+
+    private void loop(int gen) {
         System.setProperty("jna.nosys", "true");
+        Model model = null;
+        Recognizer rec = null;
+        AudioRecord ar = null;
         try {
-            update("Loading speech on this phone.", "");
+            if (!live(gen)) return;
+            update(gen, "Loading speech on this phone.", "");
             model = new Model(ModelInstaller.INSTANCE.ensure(this).getAbsolutePath());
-            try {
-                Recognizer recognizer2 = new Recognizer(model, 16000.0f);
-                try {
-                    AudioRecord audioRecord = new AudioRecord(1, SAMPLE_RATE, 16, 2, Math.max(AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2), SAMPLE_RATE));
-                    if (audioRecord.getState() != 1) {
-                        audioRecord.release();
-                        fail("The microphone did not start.");
-                        recognizer2.close();
-                        model.close();
-                        return;
-                    }
-                    this.record = audioRecord;
-                    audioRecord.startRecording();
-                    update("Listening for Hey Zippy.", "");
-                    int i = 48000;
-                    float[] fArr = new float[48000];
-                    int i2 = 2048;
-                    short[] sArr = new short[2048];
-                    int i3 = 0;
-                    long jCurrentTimeMillis = 0;
-                    boolean zMatchesVoice = true;
-                    int i4 = 0;
-                    int i5 = 0;
-                    boolean z2 = false;
-                    boolean z3 = false;
-                    while (this.running.get()) {
-                        int i6 = audioRecord.read(sArr, i3, i2);
-                        if (i6 > 0) {
-                            i5 = i5;
-                            while (i3 < i6) {
-                                fArr[i4] = sArr[i3] / 32768.0f;
-                                i4 = (i4 + 1) % i;
-                                if (i5 < i) {
-                                    i5++;
-                                }
-                                i3++;
-                            }
-                            Settings settings = Store.INSTANCE.read(this);
-                            if (z2) {
-                                audioRecord = audioRecord;
-                                if (System.currentTimeMillis() - jCurrentTimeMillis > settings.getWaitMs()) {
-                                    update("No task after Hey Zippy.", str3);
-                                    z2 = false;
-                                    z3 = false;
-                                }
-                            } else {
-                                audioRecord = audioRecord;
-                            }
-                            boolean zAcceptWaveForm = recognizer2.acceptWaveForm(sArr, i6);
-                            String result = zAcceptWaveForm ? recognizer2.getResult() : recognizer2.getPartialResult();
-                            Intrinsics.checkNotNull(result);
-                            String strSpeechText = speechText(result);
-                            if (!StringsKt.isBlank(strSpeechText)) {
-                                int sensitivity = settings.getSensitivity();
-                                if (!z2) {
-                                    str = str3;
-                                    String wake = Phrase.INSTANCE.parseWake(strSpeechText, sensitivity);
-                                    if (wake == null) {
-                                        update(str2, strSpeechText);
-                                        if (zAcceptWaveForm) {
-                                            z3 = false;
-                                        }
-                                        str3 = str;
-                                    } else {
-                                        if (z3) {
-                                            str2 = str2;
-                                            fArr = fArr;
-                                            i5 = i5;
-                                            z = true;
-                                        } else {
-                                            zMatchesVoice = matchesVoice(fArr, i4, i5, settings);
-                                            if (zMatchesVoice) {
-                                                z = true;
-                                                Cues.INSTANCE.fire(this, settings.getReadyCue(), true);
-                                            } else {
-                                                z = true;
-                                            }
-                                            z3 = z;
-                                        }
-                                        if (zMatchesVoice) {
-                                            update(StringsKt.isBlank(wake) ? "Say the task." : str2, strSpeechText);
-                                            if (zAcceptWaveForm) {
-                                                if (StringsKt.isBlank(wake)) {
-                                                    jCurrentTimeMillis = System.currentTimeMillis();
-                                                    update("Say the task.", strSpeechText);
-                                                    z2 = z;
-                                                } else {
-                                                    deliver(wake, settings);
-                                                }
-                                                str3 = str;
-                                                str2 = str2;
-                                                fArr = fArr;
-                                                i = 48000;
-                                                i2 = 2048;
-                                                i3 = 0;
-                                                z3 = false;
-                                            }
-                                        } else if (zAcceptWaveForm) {
-                                            update("Heard Hey Zippy, but it didn't match your voice.", strSpeechText);
-                                            z3 = false;
-                                        }
-                                        str3 = str;
-                                        str2 = str2;
-                                        fArr = fArr;
-                                        i = 48000;
-                                        i2 = 2048;
-                                        i3 = 0;
-                                    }
-                                } else {
-                                    str2 = str2;
-                                    str = str3;
-                                    fArr = fArr;
-                                    i5 = i5;
-                                    z = true;
-                                    jCurrentTimeMillis = System.currentTimeMillis();
-                                    update("Say the task.", strSpeechText);
-                                    if (zAcceptWaveForm) {
-                                        String strStripLeadingWake = Phrase.INSTANCE.stripLeadingWake(strSpeechText, sensitivity);
-                                        if (!StringsKt.isBlank(strStripLeadingWake)) {
-                                            deliver(strStripLeadingWake, settings);
-                                            str3 = str;
-                                            str2 = str2;
-                                            fArr = fArr;
-                                            i = 48000;
-                                            i2 = 2048;
-                                            i3 = 0;
-                                            z2 = false;
-                                            z3 = false;
-                                        }
-                                    }
-                                    str3 = str;
-                                    str2 = str2;
-                                    fArr = fArr;
-                                    i = 48000;
-                                    i2 = 2048;
-                                    i3 = 0;
-                                }
-                            }
-                            i = 48000;
-                            i2 = 2048;
-                            i3 = 0;
-                        }
-                    }
-                    AudioRecord audioRecord2 = audioRecord;
-                    audioRecord2.stop();
-                    audioRecord2.release();
-                    this.record = null;
-                    recognizer2.close();
-                    model.close();
-                } catch (Exception e) {
-                    e = e;
-                    recognizer = recognizer2;
-                    try {
-                        String message = e.getMessage();
-                        if (message == null) {
-                            message = "Listening stopped.";
-                        }
-                        fail(message);
-                        if (recognizer != null) {
-                            recognizer.close();
-                        }
-                        if (model == null) {
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (recognizer != null) {
-                            recognizer.close();
-                        }
-                        if (model != null) {
-                            model.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    recognizer = recognizer2;
-                    if (recognizer != null) {
-                        recognizer.close();
-                    }
-                    if (model != null) {
-                        model.close();
-                    }
-                    throw th;
+            if (!live(gen)) return;
+            rec = new Recognizer(model, (float) SAMPLE_RATE);
+            if (checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                fail(gen, "Microphone permission is required.");
+                return;
+            }
+            int min = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
+            ar = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
+                    AudioFormat.ENCODING_PCM_16BIT, Math.max(min, SAMPLE_RATE));
+            if (ar.getState() != AudioRecord.STATE_INITIALIZED) {
+                fail(gen, "The microphone did not start.");
+                return;
+            }
+            if (!live(gen)) return;
+            record = ar;
+            ar.startRecording();
+            setEngine(ListenState.LISTENING);
+            update(gen, "Listening for Hey Zippy.", "");
+            run(gen, ar, rec);
+        } catch (Throwable t) {
+            if (live(gen)) fail(gen, t.getMessage() == null ? "Listening stopped." : t.getMessage());
+        } finally {
+            if (ar != null) {
+                try { ar.stop(); } catch (Exception ignored) { }
+                ar.release();
+            }
+            if (record == ar) record = null;
+            if (rec != null) try { rec.close(); } catch (Throwable ignored) { }
+            if (model != null) try { model.close(); } catch (Throwable ignored) { }
+            if (worker == Thread.currentThread()) setEngine(ListenState.OFF);
+        }
+    }
+
+    private void run(int gen, AudioRecord ar, Recognizer rec) {
+        float[] ring = new float[RING];
+        short[] buf = new short[2048];
+        int write = 0, filled = 0;
+        long total = 0;
+        boolean awaitingTask = false;   // wake accepted, waiting for the task utterance
+        long taskDeadline = 0;
+        boolean wakeSeen = false;       // wake phrase seen in this utterance
+        long voiceDueAt = -1;           // sample count at which to run the voice check
+        Boolean voiceOk = null;         // decision for this utterance
+        String pendingRemainder = null; // task words heard in the same breath as the wake
+        while (live(gen)) {
+            if (holdMic) {
+                try { ar.stop(); } catch (Exception ignored) { }
+                update(gen, "Paused while you train your voice.", "");
+                while (holdMic && live(gen)) {
+                    try { Thread.sleep(200); } catch (InterruptedException e) { return; }
                 }
-            } catch (Exception e2) {
-                e = e2;
-                recognizer = null;
-            } catch (Throwable th3) {
-                th = th3;
-                recognizer = null;
+                if (!live(gen)) return;
+                ar.startRecording();
+                filled = 0; awaitingTask = false; wakeSeen = false; voiceOk = null;
+                update(gen, "Listening for Hey Zippy.", "");
+                continue;
             }
-        } catch (Exception e3) {
-            e = e3;
-            recognizer = null;
-            model = null;
-        } catch (Throwable th4) {
-            th = th4;
-            recognizer = null;
-            model = null;
-        }
-    }
+            int n = ar.read(buf, 0, buf.length);
+            if (n <= 0) {
+                if (n < 0) throw new IllegalStateException("The microphone stopped (" + n + ").");
+                continue;
+            }
+            for (int i = 0; i < n; i++) {
+                ring[write] = buf[i] / 32768f;
+                write = (write + 1) % RING;
+                if (filled < RING) filled++;
+            }
+            total += n;
+            Settings settings = Store.INSTANCE.read(this);
+            int sens = settings.getSensitivity();
+            if (awaitingTask && System.currentTimeMillis() > taskDeadline) {
+                awaitingTask = false;
+                update(gen, "No task after Hey Zippy.", "");
+            }
+            boolean isFinal = rec.acceptWaveForm(buf, n);
+            String text = speechText(isFinal ? rec.getResult() : rec.getPartialResult());
 
-    private final boolean matchesVoice(float[] ring, int write, int filled, Settings settings) {
-        Prints prints = Store.INSTANCE.prints(this);
-        if (prints.getWakes().size() < 3) {
-            return true;
-        }
-        try {
-            return Voice.INSTANCE.matches(Voice.INSTANCE.fingerprint(snapshot(ring, write, filled, 25600), SAMPLE_RATE), prints.getWakes(), prints.getRejects(), settings.getSensitivity());
-        } catch (Exception unused) {
-            return false;
-        }
-    }
-
-    private final float[] snapshot(float[] ring, int write, int filled, int samples) {
-        int iCoerceAtLeast = RangesKt.coerceAtLeast(Math.min(filled, samples), 1);
-        float[] fArr = new float[iCoerceAtLeast];
-        int length = write - iCoerceAtLeast;
-        if (length < 0) {
-            length += ring.length;
-        }
-        for (int i = 0; i < iCoerceAtLeast; i++) {
-            fArr[i] = ring[(length + i) % ring.length];
-        }
-        return fArr;
-    }
-
-    private final void deliver(String text, final Settings settings) {
-        final String string = StringsKt.trim((CharSequence) text).toString();
-        long jCurrentTimeMillis = System.currentTimeMillis();
-        if (!Intrinsics.areEqual(string, this.lastSent) || jCurrentTimeMillis - this.lastSentAt >= 8000) {
-            this.lastSent = string;
-            this.lastSentAt = jCurrentTimeMillis;
-            update("Sending to Zippy.", string);
-            this.sends.execute(new Runnable() { // from class: com.zippy.ear.ListenService$$ExternalSyntheticLambda2
-                @Override // java.lang.Runnable
-                public final void run() {
-                    ListenService.deliver$lambda$2(settings, string, this);
+            if (awaitingTask) {
+                if (!text.isEmpty()) update(gen, "Say the task.", text);
+                if (isFinal && !text.isEmpty()) {
+                    String task = WakePhrase.stripLeadingWake(text, sens);
+                    if (!task.isEmpty()) {
+                        awaitingTask = false;
+                        deliver(gen, task, settings);
+                    }
                 }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void deliver$lambda$2(Settings settings, String str, ListenService listenService) {
-        SendResult sendResultPost = Webhook.INSTANCE.post(settings, str);
-        ListenService listenService2 = listenService;
-        Store.INSTANCE.addOrder(listenService2, str, sendResultPost.getOk(), sendResultPost.getDetail());
-        if (sendResultPost.getOk()) {
-            Cues.INSTANCE.fire(listenService2, Store.INSTANCE.read(listenService2).getSentCue(), false);
-        }
-        listenService.update(sendResultPost.getOk() ? "Sent to Zippy." : sendResultPost.getDetail(), str);
-    }
-
-    private final void fail(String message) {
-        Store.INSTANCE.setListening(this, false);
-        update(message, "");
-        this.main.post(new Runnable() { // from class: com.zippy.ear.ListenService$$ExternalSyntheticLambda0
-            @Override // java.lang.Runnable
-            public final void run() {
-                this.f$0.stopSelf();
+                continue;
             }
-        });
-    }
 
-    private final void update(String note, String heard) {
-        Store.INSTANCE.setStatus(this, note, heard);
-        ((NotificationManager) getSystemService(NotificationManager.class)).notify(41, notification(note));
-    }
-
-    private final void holdCpu() {
-        PowerManager.WakeLock wakeLock = this.wakeLock;
-        if (wakeLock == null || !wakeLock.isHeld()) {
-            PowerManager.WakeLock wakeLockNewWakeLock = ((PowerManager) getSystemService(PowerManager.class)).newWakeLock(1, "zippy:listen");
-            wakeLockNewWakeLock.setReferenceCounted(false);
-            wakeLockNewWakeLock.acquire(28800000L);
-            this.wakeLock = wakeLockNewWakeLock;
+            if (!text.isEmpty() && !wakeSeen) {
+                String rest = WakePhrase.parse(text, sens);
+                if (rest != null) {
+                    wakeSeen = true;
+                    voiceDueAt = total + VOICE_SETTLE;
+                } else {
+                    update(gen, "Listening for Hey Zippy.", text);
+                }
+            }
+            if (wakeSeen && voiceOk == null && (total >= voiceDueAt || isFinal)) {
+                VoiceMatch.Result r = checkVoice(ring, write, filled, sens);
+                voiceOk = r.accepted;
+                if (r.accepted) {
+                    Cues.INSTANCE.fire(this, settings.getReadyCue(), true);
+                    update(gen, "Say the task.", text);
+                } else {
+                    update(gen, String.format(Locale.US,
+                            "Heard Hey Zippy, but it didn't match your voice (score %.0f, needs %.0f). Raise Sensitivity or retrain.",
+                            r.score, r.needed), text);
+                }
+            }
+            if (isFinal) {
+                if (wakeSeen && Boolean.TRUE.equals(voiceOk)) {
+                    String rest = WakePhrase.parse(text, sens);
+                    if (rest != null && !rest.isEmpty()) {
+                        deliver(gen, rest, settings);
+                    } else {
+                        awaitingTask = true;
+                        taskDeadline = System.currentTimeMillis() + settings.getWaitMs();
+                        update(gen, "Say the task.", text);
+                    }
+                }
+                wakeSeen = false;
+                voiceOk = null;
+                voiceDueAt = -1;
+            }
         }
     }
 
-    private final Notification notification(String text) {
-        ensureChannel();
-        ListenService listenService = this;
-        PendingIntent activity = PendingIntent.getActivity(listenService, 0, new Intent(listenService, (Class<?>) MainActivity.class), 201326592);
-        Notification notificationBuild = new NotificationCompat.Builder(listenService, CHANNEL).setSmallIcon(android.R.drawable.ic_btn_speak_now).setContentTitle("Zippy").setContentText(text).setContentIntent(activity).setOngoing(true).setOnlyAlertOnce(true).addAction(android.R.drawable.ic_media_pause, "Stop", PendingIntent.getService(listenService, 1, new Intent(listenService, (Class<?>) ListenService.class).setAction(ACTION_STOP), 201326592)).build();
-        Intrinsics.checkNotNullExpressionValue(notificationBuild, "build(...)");
-        return notificationBuild;
-    }
-
-    private final void ensureChannel() {
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NotificationManager.class);
-        if (notificationManager.getNotificationChannel(CHANNEL) != null) {
-            return;
-        }
-        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL, "Listening", 2);
-        notificationChannel.setDescription("Shows while Zippy is listening");
-        notificationManager.createNotificationChannel(notificationChannel);
-    }
-
-    private final String speechText(String json) {
+    private VoiceMatch.Result checkVoice(float[] ring, int write, int filled, int sens) {
         try {
-            JSONObject jSONObject = new JSONObject(json);
-            String strOptString = jSONObject.optString("text");
-            if (StringsKt.isBlank(strOptString)) {
-                strOptString = jSONObject.optString("partial");
-            }
-            Intrinsics.checkNotNullExpressionValue(strOptString, "ifBlank(...)");
-            return StringsKt.trim((CharSequence) strOptString).toString();
-        } catch (Exception unused) {
+            Prints prints = Store.INSTANCE.prints(this);
+            float[] window = snapshot(ring, write, filled, VOICE_WINDOW);
+            return VoiceMatch.check(VoiceMatch.fingerprint(window, SAMPLE_RATE), prints.getWakes(), sens);
+        } catch (Exception e) {
+            return VoiceMatch.check(null, null, sens); // untrained -> accept rather than lock the user out
+        }
+    }
+
+    /** Last `samples` samples of the ring, oldest first. */
+    static float[] snapshot(float[] ring, int write, int filled, int samples) {
+        int n = Math.max(1, Math.min(filled, samples));
+        float[] out = new float[n];
+        int start = write - n;
+        if (start < 0) start += ring.length;
+        for (int i = 0; i < n; i++) out[i] = ring[(start + i) % ring.length];
+        return out;
+    }
+
+    private static String speechText(String json) {
+        try {
+            JSONObject o = new JSONObject(json == null ? "{}" : json);
+            String t = o.optString("text", "");
+            if (t.trim().isEmpty()) t = o.optString("partial", "");
+            return t.trim();
+        } catch (Exception e) {
             return "";
         }
     }
 
-    /* JADX INFO: compiled from: ListenService.kt */
-    @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003J\u000e\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rR\u000e\u0010\u0004\u001a\u00020\u0005X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/zippy/ear/ListenService$Companion;", "", "<init>", "()V", "ACTION_STOP", "", "CHANNEL", "NOTIF_ID", "", "SAMPLE_RATE", "start", "", "context", "Landroid/content/Context;", "app_release"}, k = 1, mv = {2, 0, 0}, xi = 48)
-    public static final class Companion {
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
+    // ------------------------------------------------------------------ delivery / status
 
-        private Companion() {
-        }
+    private void deliver(int gen, String text, Settings settings) {
+        final String task = text.trim();
+        long now = System.currentTimeMillis();
+        if (task.isEmpty() || (task.equals(lastSent) && now - lastSentAt < 8000)) return;
+        lastSent = task;
+        lastSentAt = now;
+        update(gen, "Sending to Zippy.", task);
+        sends.execute(() -> {
+            SendResult r = Webhook.INSTANCE.post(settings, task);
+            Store.INSTANCE.addOrder(this, task, r.getOk(), r.getDetail());
+            if (r.getOk()) Cues.INSTANCE.fire(this, Store.INSTANCE.read(this).getSentCue(), false);
+            update(gen, r.getOk() ? "Sent to Zippy." : r.getDetail(), task);
+        });
+    }
 
-        public final void start(Context context) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            ContextCompat.startForegroundService(context, new Intent(context, (Class<?>) ListenService.class));
+    private void fail(int gen, String message) {
+        if (!live(gen)) return;
+        Store.INSTANCE.setListening(this, false);
+        setStatus(message, "");
+        main.post(this::stopSelf);
+    }
+
+    /** Status + notification, only while this worker is the live one. */
+    private void update(int gen, String note, String heard) {
+        if (!live(gen)) return;
+        setStatus(note, heard);
+        if (!note.equals(lastNote)) {
+            lastNote = note;
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            if (nm != null && live(gen)) nm.notify(NOTIF_ID, notification(note));
         }
+    }
+
+    private synchronized void setStatus(String note, String heard) {
+        if (note.equals(lastNoteWritten) && heard.equals(lastHeard)) return;
+        lastNoteWritten = note;
+        lastHeard = heard;
+        Store.INSTANCE.setStatus(this, note, heard);
+    }
+    private String lastNoteWritten = null;
+
+    private boolean goForeground(String text) {
+        try {
+            Notification n = notification(text);
+            if (Build.VERSION.SDK_INT >= 30) startForeground(NOTIF_ID, n, 128 /* FOREGROUND_SERVICE_TYPE_MICROPHONE */);
+            else startForeground(NOTIF_ID, n);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private void holdCpu() {
+        if (wakeLock == null || !wakeLock.isHeld()) {
+            PowerManager pm = getSystemService(PowerManager.class);
+            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "zippy:listen");
+            wakeLock.setReferenceCounted(false);
+            wakeLock.acquire(8 * 60 * 60 * 1000L);
+        }
+    }
+
+    private Notification notification(String text) {
+        NotificationManager nm = getSystemService(NotificationManager.class);
+        if (nm.getNotificationChannel(CHANNEL) == null) {
+            NotificationChannel ch = new NotificationChannel(CHANNEL, "Listening", NotificationManager.IMPORTANCE_LOW);
+            ch.setDescription("Shows while Zippy is listening");
+            nm.createNotificationChannel(ch);
+        }
+        int flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT;
+        PendingIntent open = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), flags);
+        PendingIntent stop = PendingIntent.getService(this, 1, new Intent(this, ListenService.class).setAction(ACTION_STOP), flags);
+        return new Notification.Builder(this, CHANNEL)
+                .setSmallIcon(android.R.drawable.ic_btn_speak_now)
+                .setContentTitle("Zippy")
+                .setContentText(text)
+                .setContentIntent(open)
+                .setOngoing(true)
+                .setOnlyAlertOnce(true)
+                .addAction(new Notification.Action.Builder(null, "Stop", stop).build())
+                .build();
     }
 }
