@@ -1,6 +1,6 @@
 # Zippy
 
-On-device “Hey Zippy” listener for Android (`com.zippy.ear`, version **1.8**, `versionCode` 9).
+On-device wake-word listener for Android (`com.zippy.ear`, version **1.81**, `versionCode` 10). The default phrase is **Hey Zippy**; in 1.81 you can train a custom phrase.
 
 Zippy runs a foreground microphone service, waits for the wake phrase **Hey Zippy** (on-device [Sherpa-ONNX](https://github.com/k2-fsa/sherpa-onnx) keyword spotting since 1.7), hears the task that follows (Android's speech recognizer by default since 1.5, with on-device [Vosk](https://alphacephei.com/vosk/) as the fallback), and POSTs it to a [Grok Bot](https://grok.com) webhook routine:
 
@@ -38,6 +38,16 @@ The POST body is JSON (`Content-Type: application/json`). Signing (v1.3):
 - Any other non-empty secret → Stripe-style `X-Zippy-Signature: t=<unix seconds>,v1=<lowercase hex HMAC-SHA256 of "<t>.<raw UTF-8 body>">`, keyed with the secret's UTF-8 bytes. No `Authorization` header is sent.
 
 Loopback, link-local, site-local, `.local`, and metadata hostnames are blocked.
+
+## What's new in 1.81
+
+**Your own wake word or phrase, trained to your voice.** Settings → Wake word → Change wake word: type any phrase (1–5 words), record 5–8 takes and 3 ordinary sentences, then Tune. Zippy tokenizes the phrase for Sherpa-ONNX keyword spotting, learns pronunciations from how the model hears your takes, picks a threshold where your takes wake it and ordinary speech doesn't, and reuses v1.4 voice prints to lock it to you. "Test it" counts live wakes for 30 seconds. You can re-record, save, or switch back to Hey Zippy. One missed take can still be saved (it's flagged as an outlier); two or more need a re-record. A custom phrase is stripped from the start of the spoken task.
+
+**Sensitivity defaults are unchanged** (default 55). Settings warns above 80, where false wakes about triple on conversational audio. 50–60 is recommended. See [`v1.81/kws-test/RESULTS.md`](v1.81/kws-test/RESULTS.md).
+
+**Optional volume-down double-press** (off by default) pauses or resumes listening. A single press always changes the volume with no delay; a second press within 400 ms is the shortcut. Needs the Accessibility permission, explained in Settings, with a button that opens Accessibility settings. It does nothing during calls, may not work with the screen off on some phones, and on Android 14+ may post a "Tap to start listening" notification if the listener was fully stopped.
+
+Everything from 1.8 is kept. The APK is **69.3 MiB**, signed with the same key as 1.3–1.8.
 
 ## What's new in 1.8
 
@@ -129,6 +139,10 @@ Package layout:
 | `Timeline.java` | 1.8 "Last command" diagnostics |
 | `Liora.java` | 1.6 Liora clip list, Random/named/Custom picking, `MediaPlayer` playback from `assets/voice/` |
 | `Cues.java`, `Ui.java`, `Order.java`, `SendResult.java` | Feedback, layout helpers, recent-order log |
+
+## Building v1.81
+
+Same layering as 1.8: decode the v1.2 base APK, apply patches v1.3…v1.8, then `v1.81/patch_v181.py`. `v1.81/build.sh` compiles the newest Java (v1.81 first), merges dex, Zopfli-redeflates, zipaligns `-P 16`, and signs v2+v3. Output must be named `Zippy.apk`, `versionName` 1.81, `versionCode` 10. Tests: `PYTHON=… v1.81/test/run_tests.sh Zippy.apk`. Local builds only until a release is approved; do not git push, tag, or create a GitHub release from this tree without that approval. The next version after 1.81 must be **1.82 or higher** (a dotted `1.9` would sort below 1.81 in the in-app updater).
 
 ## Building v1.8
 
